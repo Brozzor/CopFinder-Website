@@ -1,1 +1,0 @@
-# CopBot-Website
