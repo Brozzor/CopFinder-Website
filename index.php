@@ -32,28 +32,28 @@
 
           <li class="nav-item">
             <a class="nav-link" href="https://midnightrp.fr/forum">
-              <i class="material-icons">forum</i> BLOG
+              BLOG
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="https://midnightrp.fr/boutique">
-              <i class="material-icons">shopping_cart</i> FAQ
+              FAQ
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="https://midnightrp.fr/staff">
-              <i class="fab fa-steam"></i> CONTACT
+              CONTACT
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="https://steamcommunity.com/sharedfiles/filedetails/?id=903680908">
-              <i class="material-icons">shopping_cart</i> VIDEOS
+             VIDEOS
             </a>
           </li>
           <hr class="vertical">
           <li class="nav-item">
             <a class="btn supreme-btn" href="https://steamcommunity.com/sharedfiles/filedetails/?id=903680908">
-              <i class="material-icons">shopping_cart</i> BUY NOW
+            <i class="fa fa-shopping-cart"></i> BUY NOW
             </a>
           </li>
         </ul>
@@ -68,14 +68,12 @@
           <h4>We have created software that will save you time by ordering all the Supreme® items you want, and doing it when you want, at lightning speed.</h4>
           <br>
           <a href="/shop" class="btn supreme-btn btn-block">
-            <i class="material-icons">shopping_cart</i> Acheter
+          <i class="fa fa-shopping-cart"></i> Acheter
             <div class="ripple-container"></div></a>
         </div>
         <div id="youtubePlay" class="col-md-6 hidden-xs">
           <a href="#" onclick="youtubePlay()" class="youtube-integration lightbox-link"><img src="/img/other/play.svg" width="50" alt="" class="youtube-play-icon">
-            <div class="text-block">Voir un Cop en temps réel
-              <!--Watch a Cop In Real Time.-->
-            </div>
+            <div class="text-block">Watch a Cop In Real Time.</div>
           </a>
         </div>
       </div>
@@ -156,8 +154,9 @@
           </div>
         </div>
       </section>
-      <section id="features">
-        <div class="features" style="background-image: url('/img/bg/features-bg.jpg');">
+    </div>
+    <section id="features">
+        <div class="features-5" style="background-image: url('/img/bg/features-bg.jpg');">
           <div class="col-md-8 ml-auto mr-auto text-center">
             <h2 class="title">Our main features</h2>
           </div>
@@ -211,7 +210,6 @@
           </div>
         </div>
       </section>
-    </div>
   </div>
   <footer class="footer" data-background-color="black">
     <div class="container">
