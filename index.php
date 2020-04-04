@@ -3,15 +3,16 @@
 
 <head>
   <meta charset="utf-8" />
-  <link rel="icon" type="image/png" href="/img/logo.png">
+  <link rel="icon" type="image/png" href="/img/logo/icon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    MidnightRP - Serveur Garry's mod DarkRP
+    CopFinder - the fatest world copbot supreme
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
   <link href="/css/copfinder.css" rel="stylesheet" />
+
 </head>
 
 <body class="index-page sidebar-collapse">
@@ -31,25 +32,30 @@
 
           <li class="nav-item">
             <a class="nav-link" href="https://midnightrp.fr/forum">
-              <i class="material-icons">forum</i> Forum
+              <i class="material-icons">forum</i> BLOG
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="https://midnightrp.fr/boutique">
-              <i class="material-icons">shopping_cart</i> Boutique
+              <i class="material-icons">shopping_cart</i> FAQ
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="https://midnightrp.fr/staff">
-              <i class="fab fa-steam"></i> Staff
+              <i class="fab fa-steam"></i> CONTACT
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="https://steamcommunity.com/sharedfiles/filedetails/?id=903680908">
-              <i class="fab fa-steam"></i> Addons
+              <i class="material-icons">shopping_cart</i> VIDEOS
             </a>
           </li>
-
+          <hr class="vertical">
+          <li class="nav-item">
+            <a class="btn supreme-btn" href="https://steamcommunity.com/sharedfiles/filedetails/?id=903680908">
+              <i class="material-icons">shopping_cart</i> BUY NOW
+            </a>
+          </li>
         </ul>
       </div>
     </div>
@@ -58,70 +64,153 @@
     <div class="container">
       <div class="row">
         <div class="col-md-6">
-          <h1 class="title">Une passion mise à disposition</h1>
-          <h4>Nous avons tous la même passion, c'est pour cela que l'équipe de Power-Host met à disposition tout son savoir-faire
-            pour vous fournir la meilleure expérience possible.</h4>
+          <h1 class="title">A passion made available</h1>
+          <h4>We have created software that will save you time by ordering all the Supreme® items you want, and doing it when you want, at lightning speed.</h4>
           <br>
           <a href="/shop" class="btn supreme-btn btn-block">
-						<i class="material-icons">shopping_cart</i> Acheter
-					<div class="ripple-container"></div></a>
+            <i class="material-icons">shopping_cart</i> Acheter
+            <div class="ripple-container"></div></a>
         </div>
-        <div class="col-md-6 hidden-xs">
-        <a href="#" class="youtube-integration lightbox-link"><img src="/img/other/play.svg" width="50" alt="" class="youtube-play-icon"><div class="text-block">Watch a Cop In Real Time.</div></a>
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/vIUPBYF8SpM" frameborder="0" allowfullscreen="" sandbox="allow-same-origin allow-scripts allow-forms"></iframe>
-          </div>
+        <div id="youtubePlay" class="col-md-6 hidden-xs">
+          <a href="#" onclick="youtubePlay()" class="youtube-integration lightbox-link"><img src="/img/other/play.svg" width="50" alt="" class="youtube-play-icon">
+            <div class="text-block">Voir un Cop en temps réel
+              <!--Watch a Cop In Real Time.-->
+            </div>
+          </a>
+        </div>
       </div>
     </div>
   </div>
   <div class="main main-raised">
-    <br>
-    <div class="row">
-      <div class="col-md-8 ml-auto mr-auto text-center">
-        <h2 class="title">La révolution du DarkRP</h2>
-        <h5 class="description">Nous avons pour objectif de vous apporter le meilleur roleplay possible tout en vous garantissant une fluidité, une sécurité de vos données ainsi qu'une impartialité du staff comme vous ne l'avez jamais vue auparavant</h5>
-      </div>
-    </div>
-    <br>
 
     <div class="container">
-      <div class="row">
-        <div class="card-deck">
-          <div class="card text-white bg-dark">
-            <img class="card-img-top" src="/img/bgrp.jpg" alt="Card image cap">
-            <div class="card-body">
-              <center>
-                <h3 class="card-title">Serveur DarkRP : MidnightRP</h3>
-              </center>
-              <h3>
-                <center>Joueurs actuel : <font color="green" id="slotsts">3/48</font>
-                </center>
-              </h3>
-              <h3>
-                <center>IP : 164.132.200.195:27017</center>
-              </h3>
-              <center><a href="steam://connect/164.132.200.195:27017/"><button class="btn btn-outline-white btn-lg btn-rose waves-effect waves-light">Rejoindre</button></a></center>
+      <section id="product">
+        <div class="features-4" id="products-mobile-app-section" style="position: relative; margin: auto; top: 0px; left: 0px; bottom: auto; right: auto; box-sizing: border-box; width: 100%;">
+          <div class="row">
+            <div class="col-md-8 ml-auto mr-auto text-center">
+              <h2 class="title mb-0">Chrome Extension</h2>
+              <h5 class="description">Any Chrome-based browser (Windows, Linux, Mac)</h5>
+              <div class="action-buttons"><a class="btn btn-primary" href="/buy?product_group=mobile"><i class="fa fa-shopping-cart"></i>Buy Now</a><a class="btn btn-primary" href="/demo"><i class="fa fa-play"></i>Get For Free</a></div>
             </div>
           </div>
-          <div class="card text-white bg-dark">
-            <img class="card-img-top" src="/img/bgts.jpg" alt="Card image cap">
-            <div class="card-body">
-              <center>
-                <h3 class="card-title">Serveur Teamspeak : MidnightRP</h3>
-              </center>
-              <h3>
-                <center>Joueurs actuel : <font color="green" id="slotsts">3/32</font>
-                </center>
-              </h3>
-              <h3>
-                <center>IP : ts.midnightrp.fr</center>
-              </h3>
-              <center><a href="teamspeak://ts.midnightrp.fr:9987/"><button class="btn btn-outline-white btn-lg btn-rose waves-effect waves-light">Rejoindre</button></a></center>
+          <div class="row">
+            <div class="col-lg-3 col-md-12 ml-auto mobile-column d-none d-lg-block">
+              <div class="info info-horizontal">
+                <div class="icon icon-firm"><i class="material-icons" style="opacity: 1;">phonelink_ring</i></div>
+                <div class="description">
+                  <h4 class="info-title">Unlimited portability</h4>
+                  <p>If you want to be able to cop Supreme even when you are out or away, then our mobile app is for you.</p>
+                </div>
+              </div>
+              <div class="info info-horizontal">
+                <div class="icon icon-firm"><i class="material-icons" style="opacity: 1;">phonelink_setup</i></div>
+                <div class="description">
+                  <h4 class="info-title">Supported by all devices</h4>
+                  <p>It doesn't matter what device you have. We support all of them. All you need is IOS 10/ Android 5 or later versions.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-12 text-center">
+              <div class="info info-horizontal d-none d-md-block">
+                <div class="mobile-main-features">
+                  <div class="my-icon"><i class="material-icons" style="opacity: 1;">star</i></div>Includes all the main features
+                </div>
+                <div class="clearfix"></div>
+              </div>
+              <div class="banner__carousel">
+
+                <img class="macbook-img" src="/img/other/macbook.png" alt="Cadre">
+              </div>
+              <div class="product-video-link phone-video-link"><a class="btn btn-primary btn-sm video-modal-toggle" data-scroll-ignore="" data-video-url="https://www.youtube.com/embed/_fu7W29ZV_4?rel=0&amp;amp;controls=0&amp;amp;showinfo=0;" href="javascript://"><i class="fa fa-youtube-play"></i>Cop demonstration</a></div>
+            </div>
+            <div class="col-lg-3 col-md-12 mr-auto mobile-column mobile-info-column">
+              <div class="info info-horizontal d-lg-none">
+                <div class="icon icon-firm"><i class="material-icons" style="opacity: 1;">phonelink_ring</i></div>
+                <div class="description">
+                  <h4 class="info-title">Unlimited portability</h4>
+                  <p>If you want to be able to cop Supreme even when you are out or away, then our mobile app is for you.</p>
+                </div>
+              </div>
+              <div class="info info-horizontal d-lg-none app-sequence-info">
+                <div class="icon icon-firm"><i class="material-icons" style="opacity: 1;">phonelink_setup</i></div>
+                <div class="description">
+                  <h4 class="info-title">Supported by all devices</h4>
+                  <p>It doesn't matter what device you have. We support all of them. All you need is IOS 10/ Android 5 or later versions.</p>
+                </div>
+              </div>
+              <div class="info info-horizontal app-sequence-info">
+                <div class="icon icon-firm"><i class="material-icons" style="opacity: 1;">filter_5</i></div>
+                <div class="description">
+                  <h4 class="info-title">Buy without limits</h4>
+                  <p>Most bots have mobile apps that allow you to cop only 2-3 items. Hot Bot has no limits for the number of items you need.</p>
+                </div>
+              </div>
+              <div class="info info-horizontal app-sequence-info">
+                <div class="icon icon-firm"><i class="material-icons" style="opacity: 1;">notifications_active</i></div>
+                <div class="description">
+                  <h4 class="info-title">All restocks on your phone</h4>
+                  <p>Our mobile app gives you a chance to track and cop items with our auto-restock feature.. Once the item is restocked you will get a notification and the purchase will start.</p>
+                </div>
+              </div>
             </div>
           </div>
-        </div><br><br><br>
-
-
-      </div>
+        </div>
+      </section>
+      <section id="features">
+        <div class="features" style="background-image: url('/img/bg/features-bg.jpg');">
+          <div class="col-md-8 ml-auto mr-auto text-center">
+            <h2 class="title">Our main features</h2>
+          </div>
+          <div class="container">
+            <div class="row top-row">
+              <div class="col-sm-4">
+                <div class="info">
+                  <div class="icon"><i class="material-icons" style="opacity: 1;">verified_user</i></div>
+                  <h4 class="info-title">Smart Cop</h4>
+                  <p>No categories problems. No color problems. No size problems. No keywords problems. Our algorithm beats all this errors. </p>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="info">
+                  <div class="icon"><i class="material-icons" style="opacity: 1;">refresh</i></div>
+                  <h4 class="info-title">Auto-restock feature</h4>
+                  <p>This powerful option completely changes your idea of convenient restocks. Now you don't have to sit in front of your monitor and wait for the item to be restocked. As soon as it is available Hot Bot will cop it automatically.</p>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="info">
+                  <div class="icon"><i class="material-icons" style="opacity: 1;">settings</i></div>
+                  <h4 class="info-title">Lots of useful settings</h4>
+                  <p>You can set our bot as you like. A timer feature and an autofill that allows you to completely skip typing process. Hot Bot also has lots of delay (intended lag) and very important tools which will help you to cop any item.</p>
+                </div>
+              </div>
+            </div>
+            <div class="row second-row">
+              <div class="col-sm-4">
+                <div class="info">
+                  <div class="icon"><i class="material-icons" style="opacity: 1;">store</i></div>
+                  <h4 class="info-title">Store and Restocks</h4>
+                  <p>These are very helpful because they give you an opportunity to track items that are available or have been restocked as well as to buy them instantly.</p>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="info">
+                  <div class="icon"><i class="material-icons" style="opacity: 1;">format_list_numbered</i></div>
+                  <h4 class="info-title">Priority size/color</h4>
+                  <p>You can enter as many sizes and colors as you like. Hot Bot will cop them in the order of priority.</p>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="info">
+                  <div class="icon"><i class="material-icons" style="opacity: 1;">face</i></div>
+                  <h4 class="info-title">Human imitation</h4>
+                  <p>Hot Bot uses algorithms that fully imitate the human manner of entering data.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   </div>
   <footer class="footer" data-background-color="black">
@@ -131,10 +220,11 @@
         <script>
           document.write(new Date().getFullYear())
         </script> Développer par
-        <a href="https://steamcommunity.com/id/Brozzor_" target="_blank">Brozzor</a>.
+        <a href="https://cop-finder.com" target="_blank">Cop-Finder</a>.
       </div>
     </div>
   </footer>
+  <script src="/js/main.js"></script>
   <script src="/js/jquery.min.js" type="text/javascript"></script>
   <script src="/js/popper.min.js" type="text/javascript"></script>
   <script src="/js/bootstrap-material-design.min.js" type="text/javascript"></script>
