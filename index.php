@@ -10,9 +10,8 @@
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
   <link href="/css/copfinder.css" rel="stylesheet" />
-
 </head>
 
 <body class="index-page sidebar-collapse">
@@ -31,29 +30,29 @@
         <ul class="navbar-nav ml-auto">
 
           <li class="nav-item">
-            <a class="nav-link" href="https://midnightrp.fr/forum">
+            <a class="nav-link" href="">
               BLOG
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="https://midnightrp.fr/boutique">
+            <a class="nav-link" href="">
               FAQ
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="https://midnightrp.fr/staff">
+            <a class="nav-link" href="">
               CONTACT
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="https://steamcommunity.com/sharedfiles/filedetails/?id=903680908">
-             VIDEOS
+            <a class="nav-link" href="">
+              VIDEOS
             </a>
           </li>
           <hr class="vertical">
           <li class="nav-item">
-            <a class="btn supreme-btn" href="https://steamcommunity.com/sharedfiles/filedetails/?id=903680908">
-            <i class="fa fa-shopping-cart"></i> BUY NOW
+            <a class="btn supreme-btn" href="">
+              <i class="fa fa-shopping-cart"></i> BUY NOW
             </a>
           </li>
         </ul>
@@ -68,7 +67,7 @@
           <h4>We have created software that will save you time by ordering all the Supreme® items you want, and doing it when you want, at lightning speed.</h4>
           <br>
           <a href="/shop" class="btn supreme-btn btn-block">
-          <i class="fa fa-shopping-cart"></i> Acheter
+            <i class="fa fa-shopping-cart"></i> Acheter
             <div class="ripple-container"></div></a>
         </div>
         <div id="youtubePlay" class="col-md-6 hidden-xs">
@@ -156,70 +155,152 @@
       </section>
     </div>
     <section id="features">
-        <div class="features-5" style="background-image: url('/img/bg/features-bg.jpg');">
-          <div class="col-md-8 ml-auto mr-auto text-center">
-            <h2 class="title">Our main features</h2>
-          </div>
-          <div class="container">
-            <div class="row top-row">
-              <div class="col-sm-4">
-                <div class="info">
-                  <div class="icon"><i class="material-icons" style="opacity: 1;">verified_user</i></div>
-                  <h4 class="info-title">Smart Cop</h4>
-                  <p>No categories problems. No color problems. No size problems. No keywords problems. Our algorithm beats all this errors. </p>
-                </div>
-              </div>
-              <div class="col-sm-4">
-                <div class="info">
-                  <div class="icon"><i class="material-icons" style="opacity: 1;">refresh</i></div>
-                  <h4 class="info-title">Auto-restock feature</h4>
-                  <p>This powerful option completely changes your idea of convenient restocks. Now you don't have to sit in front of your monitor and wait for the item to be restocked. As soon as it is available Hot Bot will cop it automatically.</p>
-                </div>
-              </div>
-              <div class="col-sm-4">
-                <div class="info">
-                  <div class="icon"><i class="material-icons" style="opacity: 1;">settings</i></div>
-                  <h4 class="info-title">Lots of useful settings</h4>
-                  <p>You can set our bot as you like. A timer feature and an autofill that allows you to completely skip typing process. Hot Bot also has lots of delay (intended lag) and very important tools which will help you to cop any item.</p>
-                </div>
+      <div class="features-5" style="background-image: url('/img/bg/features-bg.jpg');">
+        <div class="col-md-8 ml-auto mr-auto text-center">
+          <h2 class="title">Our main features</h2>
+        </div>
+        <div class="container">
+          <div class="row top-row">
+            <div class="col-sm-4">
+              <div class="info">
+                <div class="icon"><i class="material-icons" style="opacity: 1;">verified_user</i></div>
+                <h4 class="info-title">Smart Cop</h4>
+                <p>No categories problems. No color problems. No size problems. No keywords problems. Our algorithm beats all this errors. </p>
               </div>
             </div>
-            <div class="row second-row">
-              <div class="col-sm-4">
-                <div class="info">
-                  <div class="icon"><i class="material-icons" style="opacity: 1;">store</i></div>
-                  <h4 class="info-title">Store and Restocks</h4>
-                  <p>These are very helpful because they give you an opportunity to track items that are available or have been restocked as well as to buy them instantly.</p>
-                </div>
+            <div class="col-sm-4">
+              <div class="info">
+                <div class="icon"><i class="material-icons" style="opacity: 1;">refresh</i></div>
+                <h4 class="info-title">Auto-restock feature</h4>
+                <p>This powerful option completely changes your idea of convenient restocks. Now you don't have to sit in front of your monitor and wait for the item to be restocked. As soon as it is available Hot Bot will cop it automatically.</p>
               </div>
-              <div class="col-sm-4">
-                <div class="info">
-                  <div class="icon"><i class="material-icons" style="opacity: 1;">format_list_numbered</i></div>
-                  <h4 class="info-title">Priority size/color</h4>
-                  <p>You can enter as many sizes and colors as you like. Hot Bot will cop them in the order of priority.</p>
-                </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="info">
+                <div class="icon"><i class="material-icons" style="opacity: 1;">settings</i></div>
+                <h4 class="info-title">Lots of useful settings</h4>
+                <p>You can set our bot as you like. A timer feature and an autofill that allows you to completely skip typing process. Hot Bot also has lots of delay (intended lag) and very important tools which will help you to cop any item.</p>
               </div>
-              <div class="col-sm-4">
-                <div class="info">
-                  <div class="icon"><i class="material-icons" style="opacity: 1;">face</i></div>
-                  <h4 class="info-title">Human imitation</h4>
-                  <p>Hot Bot uses algorithms that fully imitate the human manner of entering data.</p>
-                </div>
+            </div>
+          </div>
+          <div class="row second-row">
+            <div class="col-sm-4">
+              <div class="info">
+                <div class="icon"><i class="material-icons" style="opacity: 1;">store</i></div>
+                <h4 class="info-title">Store and Restocks</h4>
+                <p>These are very helpful because they give you an opportunity to track items that are available or have been restocked as well as to buy them instantly.</p>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="info">
+                <div class="icon"><i class="material-icons" style="opacity: 1;">format_list_numbered</i></div>
+                <h4 class="info-title">Priority size/color</h4>
+                <p>You can enter as many sizes and colors as you like. Hot Bot will cop them in the order of priority.</p>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="info">
+                <div class="icon"><i class="material-icons" style="opacity: 1;">face</i></div>
+                <h4 class="info-title">Human imitation</h4>
+                <p>Hot Bot uses algorithms that fully imitate the human manner of entering data.</p>
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
+    <section id="offers">
+      <div class="pricing-2" id="pricing-2">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-10 ml-auto mr-auto text-center">
+              <h2 class="title">Choose your license</h2>
+              <ul class="nav nav-pills nav-pills-firm">
+                <li class="nav-item"><a class="nav-link active" data-scroll-ignore="" data-toggle="tab" href="#pricings-chrome">Chrome extension</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="tab-content">
+            <div class="tab-pane active show" id="pricings-chrome">
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="card card-pricing card-plain">
+                    <h3 class="recomendation-caption">We think it suits you:</h3>
+                    <div class="card-body">
+                      <h6 class="card-category">One drop license</h6>
+                      <div class="title"><small>$</small>55</div>
+                      <ul>
+                        <li>One Drop Only</li>
+                        <li>Basic support</li>
+                        <li>Restocks are available only on drop days</li>
+                        <li>No SmartCop</li>
+                      </ul>
+                    </div>
+                    <div class="card-footer justify-content-center"><a class="btn btn-primary btn-round" href="/payments/new?product=supreme_bot_world_chrome_drop">Buy Now</a></div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="card card-pricing card-background card-raised" style="background-image: url('/img/bg/models-price-bg.jpg');">
+                    <div class="card-body">
+                      <h6 class="card-category">Lifetime license</h6>
+                      <div class="title title-center mt-5"><small>$</small>120</div>
+                      <ul>
+                        <li>The best value for money</li>
+                        <li>First class support and setup assistance</li>
+                        <li><b>Full access to restocks</b></li>
+                        <li><b>SmartCop Included</b></li>
+                        <li><b>1 Free Proxy</b></li>
+                      </ul>
+                    </div>
+                    <div class="card-footer justify-content-center"><a class="btn btn-primary btn-round" href="/payments/new?product=supreme_bot_world_chrome_forever">Buy Now</a></div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="card card-pricing card-plain">
+                    <div class="card-body">
+                      <h6 class="card-category">Season license</h6>
+                      <div class="title"><small>$</small>55</div>
+                      <ul>
+                        <li>Full SS20 Season</li>
+                        <li>Priority support and setup assistance</li>
+                        <li><b>Full access to restocks</b></li>
+                        <li><b>SmartCop Included</b></li>
+                      </ul>
+                    </div>
+                    <div class="card-footer justify-content-center"><a class="btn btn-primary btn-round" href="/payments/new?product=supreme_bot_world_chrome_season">Buy Now</a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
   <footer class="footer" data-background-color="black">
     <div class="container">
-      <div class="copyright float-center">
-        &copy;
-        <script>
-          document.write(new Date().getFullYear())
-        </script> Développer par
-        <a href="https://cop-finder.com" target="_blank">Cop-Finder</a>.
+      <ul class="social-buttons">
+        <a class="btn btn-just-icon btn-link btn-facebook" href="" target="_blank">
+          <i class="fa fa-facebook"></i>
+        </a>
+        <a class="btn btn-just-icon btn-link btn-twitter" href="" target="_blank">
+          <i class="fa fa-twitter"></i>
+        </a>
+        <a class="btn btn-just-icon btn-link btn-instagram" href="" target="_blank">
+          <i class="fa fa-instagram"></i>
+        </a>
+        <a class="btn btn-just-icon btn-link btn-youtube" href="" target="_blank">
+          <i class="fa fa-youtube-play"></i>
+        </a>
+      </ul>
+      <div class="text-center">
+        <img class="partner-logo" src="/img/payments/visa.png" alt="Visa">
+        <img class="partner-logo" src="/img/payments/mastercard.png" alt="Mastercard">
+        <img class="partner-logo" src="/img/payments/discover.png" alt="Discover">
+        <img class="partner-logo" src="/img/payments/american-express.png" alt="Aex">
       </div>
+      <div class="copyright pull-center">Copyright © 2020 COP FINDER | <a href="legal.pdf" target="_blank">Privacy Policy</a> | <a href="legal.pdf" target="_blank">Terms & Conditions</a></div><br>
     </div>
   </footer>
   <script src="/js/main.js"></script>
