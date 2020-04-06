@@ -28,7 +28,7 @@ document.getElementById('navbar').innerHTML =  `
       </li>
       <hr class="vertical">
       <li class="nav-item">
-        <a class="btn supreme-btn" href="">
+        <a class="btn supreme-btn" href="/index.html#offers">
           <i class="fa fa-shopping-cart"></i> BUY NOW
         </a>
       </li>

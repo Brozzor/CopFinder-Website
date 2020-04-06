@@ -20299,7 +20299,6 @@ textarea {
 .info {
   max-width: 360px;
   margin: 0 auto;
-  padding: 70px 0 30px;
 }
 .info .icon {
   color: #999;
@@ -24769,7 +24768,7 @@ footer .pull-center {
   border-bottom: 0;
 }
 .features-5:after {
-  background: rgba(0, 0, 0, 0.55);
+  background: rgba(0, 0, 0, 0.70);
   position: absolute;
   width: 100%;
   height: 100%;
