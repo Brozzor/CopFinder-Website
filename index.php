@@ -15,50 +15,23 @@
 </head>
 
 <body class="index-page sidebar-collapse">
-  <nav class="navbar navbar-transparent navbar-absolute navbar-expand-lg" color-on-scroll="100" id="sectionsNav">
-    <div class="container">
-      <div class="navbar-translate">
-        <a class="navbar-brand" href=""><img src="/img/logo/logo.png" alt="midnight-logo" class="light-logo" style="width: 200px;" /></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="navbar-toggler-icon"></span>
-          <span class="navbar-toggler-icon"></span>
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      </div>
-      <div class="collapse navbar-collapse">
-        <ul class="navbar-nav ml-auto">
-
-          <li class="nav-item">
-            <a class="nav-link" href="">
-              BLOG
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="">
-              FAQ
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="">
-              CONTACT
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="">
-              VIDEOS
-            </a>
-          </li>
-          <hr class="vertical">
-          <li class="nav-item">
-            <a class="btn supreme-btn" href="">
-              <i class="fa fa-shopping-cart"></i> BUY NOW
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+<nav class="navbar navbar-transparent navbar-absolute navbar-expand-lg" color-on-scroll="100" id="sectionsNav">
+<div class="container">
+<div class="navbar-translate">
+    <a class="navbar-brand" href="https://cop-finder.com"><img src="/img/logo/logo.png" alt="midnight-logo" class="light-logo mb-1" style="width: 203px;" /></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="navbar-toggler-icon"></span>
+      <span class="navbar-toggler-icon"></span>
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+  <div class="collapse navbar-collapse">
+  <ul class="navbar-nav ml-auto mb-1" id="navbar">
+  </ul>
+  </div>
+</div>
+</nav>
   <div class="page-header header-filter" style="background-image: url('/img/bg/main-bg2.jpg');">
     <div class="container">
       <div class="row">
@@ -278,30 +251,7 @@
       </div>
     </section>
   </div>
-  <footer class="footer" data-background-color="black">
-    <div class="container">
-      <ul class="social-buttons">
-        <a class="btn btn-just-icon btn-link btn-facebook" href="" target="_blank">
-          <i class="fa fa-facebook"></i>
-        </a>
-        <a class="btn btn-just-icon btn-link btn-twitter" href="" target="_blank">
-          <i class="fa fa-twitter"></i>
-        </a>
-        <a class="btn btn-just-icon btn-link btn-instagram" href="" target="_blank">
-          <i class="fa fa-instagram"></i>
-        </a>
-        <a class="btn btn-just-icon btn-link btn-youtube" href="" target="_blank">
-          <i class="fa fa-youtube-play"></i>
-        </a>
-      </ul>
-      <div class="text-center">
-        <img class="partner-logo" src="/img/payments/visa.png" alt="Visa">
-        <img class="partner-logo" src="/img/payments/mastercard.png" alt="Mastercard">
-        <img class="partner-logo" src="/img/payments/discover.png" alt="Discover">
-        <img class="partner-logo" src="/img/payments/american-express.png" alt="Aex">
-      </div>
-      <div class="copyright pull-center">Copyright © 2020 COP FINDER | <a href="legal.pdf" target="_blank">Privacy Policy</a> | <a href="legal.pdf" target="_blank">Terms & Conditions</a></div><br>
-    </div>
+  <footer class="footer" data-background-color="black" id="footer">
   </footer>
   <script src="/js/main.js"></script>
   <script src="/js/jquery.min.js" type="text/javascript"></script>
