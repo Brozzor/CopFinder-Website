@@ -145,6 +145,20 @@ function displayItem($catId = '0', $itemId = '0'){
 	echo json_encode($response);
 }
 
+function displayProducts($id) {
+	include '../inc/bdd.php';
+	$response = array();
+	$response[] = array('status' => '1');
+	$req = $pdo -> query("SELECT * FROM products WHERE id = '".$id."'");
+	while ($row = $req -> fetch()) {
+		$response[] = utf8ize($row);
+	}
+	header("Access-Control-Allow-Origin", "*");
+    header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+	header('Content-Type: application/json');
+	echo json_encode($response);
+}
+
 function checkWithKey($key){
 	include '../inc/bdd.php';
 	if ($key == NULL) {
@@ -232,6 +246,19 @@ switch ($use) {
 		if (checkWithKey($keyCheck)) {
 			displayItem();
 		}
+
+		break;
+
+	case 'products':
+
+			$idCheck = 1;
+			if (is_numeric($_POST['id']))
+			{
+				$idCheck = htmlspecialchars($_POST['id']);
+				displayProducts($idCheck);
+			}else{
+				break ;
+			}
 
 		break;
 
