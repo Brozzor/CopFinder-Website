@@ -1,3 +1,8 @@
+<?php 
+  require "inc/functions.php";
+  $products = productsBy();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,23 +20,8 @@
 </head>
 
 <body class="index-page sidebar-collapse">
-<nav class="navbar navbar-transparent navbar-absolute navbar-expand-lg" color-on-scroll="100" id="sectionsNav">
-<div class="container">
-<div class="navbar-translate">
-    <a class="navbar-brand" href="https://cop-finder.com"><img src="/img/logo/logo.png" alt="midnight-logo" class="light-logo mb-1" style="width: 203px;" /></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="navbar-toggler-icon"></span>
-      <span class="navbar-toggler-icon"></span>
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  </div>
-  <div class="collapse navbar-collapse">
-  <ul class="navbar-nav ml-auto mb-1" id="navbar">
-  </ul>
-  </div>
-</div>
-</nav>
+<?php include "inc/header.php"; ?>
+
   <div class="page-header header-filter" style="background-image: url('/img/bg/main-bg2.jpg');">
     <div class="container">
       <div class="row">
@@ -39,7 +29,7 @@
           <h1 class="title">A passion made available</h1>
           <h4>We have created software that will save you time by ordering all the Supreme® items you want, and doing it when you want, at lightning speed.</h4>
           <br>
-          <a href="/index.html#offers" class="btn supreme-btn btn-block">
+          <a href="/index.php#offers" class="btn supreme-btn btn-block">
             <i class="fa fa-shopping-cart"></i> Buy now
             <div class="ripple-container"></div></a>
         </div>
@@ -60,7 +50,7 @@
             <div class="col-md-8 ml-auto mr-auto text-center">
               <h2 class="title mb-0">Chrome Extension</h2>
               <h5 class="description">Any Chrome-based browser (Windows, Linux, Mac)</h5>
-              <div class="action-buttons"><a class="btn btn-primary" href="/index.html#offers">View all price</a></div>
+              <div class="action-buttons"><a class="btn btn-primary" href="/index.php#offers">View all price</a></div>
             </div>
           </div>
           <div class="row">
@@ -147,7 +137,7 @@
               <div class="info">
                 <div class="icon"><i class="material-icons" style="opacity: 1;">face</i></div>
                 <h4 class="info-title">Human imitation</h4>
-                <p>Hot Bot uses algorithms that fully imitate the human manner of entering data.</p>
+                <p>CopFinder uses algorithms that fully imitate the human manner of entering data.</p>
               </div>
             </div>
             <div class="col-sm-4">
@@ -186,7 +176,7 @@
                   <div class="card card-pricing card-plain">
                     <h3 class="recomendation-caption">We think it suits you:</h3>
                     <div class="card-body">
-                      <h6 class="card-category">One drop license</h6>
+                      <h6 class="card-category"><?php echo $products[0]['name']; ?></h6>
                       <div class="title"><small>$</small>44<small>.99</small></div>
                       <ul>
                         <li>One Drop Only</li>
@@ -196,13 +186,13 @@
                         <li>No SmartCop</li>
                       </ul>
                     </div>
-                    <div class="card-footer justify-content-center"><a class="btn btn-primary btn-round" href="/payments.html?id=1">Buy Now</a></div>
+                    <div class="card-footer justify-content-center"><a class="btn btn-primary btn-round" href="/payments.php?id=1">Buy Now</a></div>
                   </div>
                 </div>
                 <div class="col-md-4">
                   <div class="card card-pricing card-background card-raised" style="background-image: url('/img/bg/models-price-bg.jpg');">
                     <div class="card-body">
-                      <h6 class="card-category">Lifetime license</h6>
+                      <h6 class="card-category"><?php echo $products[2]['name']; ?></h6>
                       <div class="title title-center mt-5"><small>$</small>109<small>.99</small></div>
                       <ul>
                         <li>The best value for money</li>
@@ -213,13 +203,13 @@
                         <li><b>No renewel fee</b></li>
                       </ul>
                     </div>
-                    <div class="card-footer justify-content-center"><a class="btn btn-primary btn-round" href="/payments.html?id=3">Buy Now</a></div>
+                    <div class="card-footer justify-content-center"><a class="btn btn-primary btn-round" href="/payments.php?id=3">Buy Now</a></div>
                   </div>
                 </div>
                 <div class="col-md-4">
                   <div class="card card-pricing card-plain">
                     <div class="card-body">
-                      <h6 class="card-category">Annual license</h6>
+                      <h6 class="card-category"><?php echo $products[1]['name']; ?></h6>
                       <div class="title"><small>$</small>69<small>.99</small></div>
                       <ul>
                         <li>Renewal for only 19.99$/year</li>
@@ -229,7 +219,7 @@
                         <li><b>SmartCop Included</b></li>
                       </ul>
                     </div>
-                    <div class="card-footer justify-content-center"><a class="btn btn-primary btn-round" href="/payments.html?id=2">Buy Now</a></div>
+                    <div class="card-footer justify-content-center"><a class="btn btn-primary btn-round" href="/payments.php?id=2">Buy Now</a></div>
                   </div>
                 </div>
               </div>
@@ -240,8 +230,8 @@
       </div>
     </section>
   </div>
-  <footer class="footer" data-background-color="black" id="footer">
-  </footer>
+  <?php include "inc/footer.php"; ?>
+  
   <script src="/js/main.js"></script>
   <script src="/js/jquery.min.js" type="text/javascript"></script>
   <script src="/js/popper.min.js" type="text/javascript"></script>

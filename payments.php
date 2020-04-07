@@ -1,3 +1,8 @@
+<?php 
+require "inc/functions.php";
+$products = productsBy($_GET['id']);
+print_r($products);
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -13,7 +18,7 @@
     <link href="/css/copfinder.css" rel="stylesheet" />
   </head>
 
-  <body class="product-page" data-demo-android="https://tsfr.io/hotbot_android" data-demo-chrome="https://chrome.google.com/webstore/detail/supreme-hotbot/mfongdflbklhfaagadnjjbfachjedpcj" data-demo-ios="#" data-project="supreme_bot_world" style="overflow-x: hidden">
+  <body class="product-page" data-demo-ios="#" data-project="supreme_bot_world" style="overflow-x: hidden">
     <nav class="navbar navbar-transparent navbar-absolute navbar-expand-lg" color-on-scroll="100" id="sectionsNav">
       <div class="container">
         <div class="navbar-translate">
@@ -68,8 +73,8 @@
                 </div>
               </div>
               <div class="row justify-content-center socials">
-                <a class="btn btn-instagram btn-round" href="https://www.instagram.com/supremehotbot" target="_blank"><i class="fa fa-instagram"></i>Instagram</a
-                ><a class="btn btn-youtube btn-round" href="https://www.youtube.com/channel/UCfmL1cLIavWQ6GgTW1p9OGg" target="_blank"><i class="fa fa-youtube"></i>Youtube</a>
+                <a class="btn btn-instagram btn-round" href="https://www.instagram.com/" target="_blank"><i class="fa fa-instagram"></i>Instagram</a
+                ><a class="btn btn-youtube btn-round" href="https://www.youtube.com/channel/" target="_blank"><i class="fa fa-youtube"></i>Youtube</a>
               </div>
             </div>
           </div>
