@@ -22,11 +22,10 @@ if (isset($_GET['email']))
     die();
 }
 
-// Product Details  
-$productName = $products[0]['name'];  
-$productNumber = $products[0]['id'];  
-$stripeAmount = round($products[0]['price']*100, 2); 
-$currency = "usd"; 
+if (isset($_GET['idtransac']))
+{
+  checkPayments($_GET['idTransac']);
+}
 
 ?>
 <!DOCTYPE html>

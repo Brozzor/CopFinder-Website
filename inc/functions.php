@@ -1,9 +1,5 @@
 <?php
 date_default_timezone_set('Europe/Paris');
-function debug($variable)
-{
-    echo '<pre>' . print_r($variable, true) . '</pre>';
-}
 
 function str_random($length)
 {
@@ -133,20 +129,21 @@ function getSetting($nameInput)
     return $data['value'];
 }
 
-function checkout($mail, $id)
+function checkout($mail, $id, $promo_code = "none")
 {
     include_once ($_SERVER['DOCUMENT_ROOT'] .'/lib/stripe-php/init.php');
-    if (!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
-        return 'error mail';
+    if (!filter_var($mail, FILTER_VALIDATE_EMAIL) || !is_numeric($id)) {
+        return 'error mail or id';
     }
 
     \Stripe\Stripe::setApiKey(getSetting('stripe_privKey'));
 
-
-    $success_url = 'https://cop-finder.com/index.php?error=0';
-    $cancel_url  = 'https://cop-finder.com/index.php?error=1';
-
-    $metadata = array('3');
+    $products = productsBy($id);
+    $success_url = 'https://cop-finder.com/payments.php?idtransac';
+    $cancel_url  = 'https://cop-finder.com/payments.php?idtransac';
+    $idGenerate = str_random(10);
+    $price = transformPrice($products[0]['price']);
+    $promoCheck = trim(htmlspecialchars($promo_code));
 
     try {
         $session = \Stripe\Checkout\Session::create([
@@ -154,17 +151,17 @@ function checkout($mail, $id)
             "cancel_url" => $cancel_url,
             "customer_email" => $mail,
             "payment_method_types" => ["card"],
-            "client_reference_id" => implode(',', $metadata),
+            "client_reference_id" => $idGenerate,
             "line_items" => [
                 [
-                    "name" => 'license test',
-                    "amount" => '1000',
+                    "name" => $products[0]['name'],
+                    "amount" => $price,
                     "currency" => 'USD',
                     "quantity" => 1,
                 ],
             ]
         ]);
-
+        addTransac($idGenerate,$id,$mail,$promoCheck);
         return json_encode([
             'id' => $session['id']
         ]);
@@ -172,5 +169,25 @@ function checkout($mail, $id)
         return $e;
     }
 
+
+}
+
+function transformPrice($price){
+    $newPrice = str_replace('.','',strval($price));
+    if (strlen($newPrice) == 2){
+        $newPrice = $newPrice . "00";
+    } else if (strlen($newPrice) == 3) {
+        $newPrice = $newPrice . "0";
+    }
+    return $newPrice;
+}
+
+function addTransac($idTransac,$pid,$mail,$promo_code){
+    include 'bdd.php';
+    $req = $pdo->prepare("INSERT INTO transactions (id, pid, user_mail, promo_code, created, state) VALUES ($idTransac, $pid, $mail, $promo_code, '11111','create') ");
+    $req->execute();
+}
+
+function checkPayments($idTransac){
 
 }
