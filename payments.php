@@ -1,16 +1,26 @@
 <?php
+
 require "inc/functions.php";
-$products = productsBy($_GET['id']);
+
+if (isset($_GET['id']))
+{
+  $products = productsBy($_GET['id']);
+}
+else
+{
+  header('Location: /payments.php?id=2');
+}
+
+if (isset($_GET['email']))
+{
+  checkout($_GET['email'], $_GET['id']);
+}
 
 // Product Details  
 $productName = $products[0]['name'];  
 $productNumber = $products[0]['id'];  
 $stripeAmount = round($products[0]['price']*100, 2); 
 $currency = "usd"; 
-
-// Stripe API configuration   
-define('STRIPE_API_KEY', 'sk_test_j3OzPPj6P0vyX3rd8tyZ3ouR007qhkL3PK');  
-define('STRIPE_PUBLISHABLE_KEY', 'pk_test_lcUjIh4BETJefZPSVqRDpHAp00lYUNqhyx');  
 
 ?>
 <!DOCTYPE html>
@@ -27,6 +37,7 @@ define('STRIPE_PUBLISHABLE_KEY', 'pk_test_lcUjIh4BETJefZPSVqRDpHAp00lYUNqhyx');
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet" />
   <link href="/css/copfinder.css" rel="stylesheet" />
+  <script src="https://js.stripe.com/v3/"></script>
 </head>
 
 <body class="product-page" data-demo-ios="#" data-project="supreme_bot_world" style="overflow-x: hidden">
@@ -46,15 +57,15 @@ define('STRIPE_PUBLISHABLE_KEY', 'pk_test_lcUjIh4BETJefZPSVqRDpHAp00lYUNqhyx');
           <div class="card-body">
             <div class="row">
               <div class="col-md-6 mt-4">
-                <center><span>No longer worry about the time you have left before expiration or renewal, this license is for life and will allow you to focus exclusively on your business it was designed for professionals and individuals who want to take advantage of a better price</span></center>
-                <form>
+                <center><span><?php echo $products[0]['description']; ?></span></center>
+
                   <div class="form-group mt-5">
 
-                    <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
+                    <input type="email" id="emailInput" data-id="<?php echo $products[0]['id']; ?>" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
                     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                   </div>
-                  <button type="submit" class="btn supreme-btn btn-block">Proccess Payment</button>
-                </form>
+                  <button type="submit" onclick="checkout()" class="btn supreme-btn btn-block">Proccess Payment</button>
+
               </div>
               <div class="col-md-6 text-center">
 
@@ -113,7 +124,7 @@ define('STRIPE_PUBLISHABLE_KEY', 'pk_test_lcUjIh4BETJefZPSVqRDpHAp00lYUNqhyx');
                         </h4>
                       </a>
                     </div>
-                    <div id="collapseFour" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingFour" aria-expanded="true" style="">
+                    <div id="collapseFour" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingFour" aria-expanded="true">
                       <div class="panel-body">
                         <span>Our support is available 24 hours a day, 7 days a week, and we will provide you with all the help you need as soon as possible.You can contact us <a style="color: #da2727;" href="/contact">here</a></span>
                       </div>
@@ -150,9 +161,9 @@ define('STRIPE_PUBLISHABLE_KEY', 'pk_test_lcUjIh4BETJefZPSVqRDpHAp00lYUNqhyx');
   <script src="/js/bootstrap-material-design.min.js" type="text/javascript"></script>
   <script src="/js/material-kit.js" type="text/javascript"></script>
   <script type="text/javascript">
-    var stripe = Stripe('<?php //echo getSetting('stripe_publishableKey', 'value') ?>');
+    var stripe = Stripe('<?php echo getSetting('stripe_pubKey') ?>');
 
-    $('.buy-with-stripe').on('click', function(e) {
+    $('#buy').on('click', function(e) {
       e.preventDefault();
 
        $.post($(this).attr('href'), function (data) {

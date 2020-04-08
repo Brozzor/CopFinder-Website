@@ -123,3 +123,22 @@ function diff_day_timestamp($date1, $date2)
     $interval = $date1->diff($date2);
     return $interval->format('%d');
 }
+
+function getSetting($name)
+{
+    include 'bdd.php';
+    $req = $pdo->query("SELECT * FROM settings WHERE name = " . $name . "");
+    $data = $req->fetch();
+    return $data->value;
+}
+
+function checkout($mail, $id)
+{
+    require_once ('../lib/stripe-php/init.php');
+    if (filter_var($mail, FILTER_VALIDATE_EMAIL)) {
+        echo "L'adresse email '$mail' est considérée comme valide.";
+    }else{
+        echo "L'adresse email '$mail' est considérée comme invalide.";
+    }
+
+}
