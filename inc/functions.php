@@ -104,13 +104,12 @@ function productsBy($id = null)
     include 'bdd.php';
     if ($id == null) {
         $req = $pdo->prepare("SELECT * FROM products");
-    } else if (is_numeric($id)) {
+    } else if (is_numeric($id) && $id <= 3 && $id >= 1) {
         $req = $pdo->prepare("SELECT * FROM products WHERE id = $id");
     } else {
         $req = $pdo->prepare("SELECT * FROM products WHERE id = 2");
     }
     $req->execute();
-    $response = array();
     while ($row = $req -> fetch()) {
 		$response[] = $row;
 	}
