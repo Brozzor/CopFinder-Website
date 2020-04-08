@@ -134,11 +134,12 @@ function getSetting($name)
 
 function checkout($mail, $id)
 {
-    require_once ('../lib/stripe-php/init.php');
+    include_once ($_SERVER['DOCUMENT_ROOT'] .'/lib/stripe-php/init.php');
     if (filter_var($mail, FILTER_VALIDATE_EMAIL)) {
         echo "L'adresse email '$mail' est considérée comme valide.";
     }else{
         echo "L'adresse email '$mail' est considérée comme invalide.";
     }
+
 
 }
