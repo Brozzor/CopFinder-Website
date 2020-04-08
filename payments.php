@@ -13,7 +13,13 @@ else
 
 if (isset($_GET['email']))
 {
-  checkout($_GET['email'], $_GET['id']);
+  $session = checkout($_GET['email'], $_GET['id']);
+  $json = json_decode($session, true);
+
+    if ($json && isset($json['id'])) {
+      die($json['id']);
+    }
+    die();
 }
 
 // Product Details  
@@ -64,7 +70,7 @@ $currency = "usd";
                     <input type="email" id="emailInput" data-id="<?php echo $products[0]['id']; ?>" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
                     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                   </div>
-                  <button type="submit" onclick="checkout()" class="btn supreme-btn btn-block">Proccess Payment</button>
+                  <button type="submit" id="buy" class="btn supreme-btn btn-block">Proccess Payment</button>
 
               </div>
               <div class="col-md-6 text-center">
@@ -164,9 +170,8 @@ $currency = "usd";
     var stripe = Stripe('<?php echo getSetting('stripe_pubKey') ?>');
 
     $('#buy').on('click', function(e) {
-      e.preventDefault();
 
-       $.post($(this).attr('href'), function (data) {
+       $.post(checkout(), function (data) {
          stripe.redirectToCheckout({
            sessionId: data
          }).then(function(result) {

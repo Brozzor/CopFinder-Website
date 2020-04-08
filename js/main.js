@@ -4,5 +4,5 @@ function youtubePlay(){
 
 function checkout(){
     let mail = document.getElementById('emailInput');
-    window.location = window.location + "&email=" + mail.value;
+   return window.location = window.location + "&email=" + mail.value;
 }

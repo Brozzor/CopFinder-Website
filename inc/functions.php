@@ -124,21 +124,52 @@ function diff_day_timestamp($date1, $date2)
     return $interval->format('%d');
 }
 
-function getSetting($name)
+function getSetting($nameInput)
 {
     include 'bdd.php';
-    $req = $pdo->query("SELECT * FROM settings WHERE name = " . $name . "");
+    $req = $pdo->query("SELECT * FROM settings WHERE name = '".$nameInput."'");
     $data = $req->fetch();
-    return $data->value;
+
+    return $data['value'];
 }
 
 function checkout($mail, $id)
 {
     include_once ($_SERVER['DOCUMENT_ROOT'] .'/lib/stripe-php/init.php');
-    if (filter_var($mail, FILTER_VALIDATE_EMAIL)) {
-        echo "L'adresse email '$mail' est considérée comme valide.";
-    }else{
-        echo "L'adresse email '$mail' est considérée comme invalide.";
+    if (!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
+        return 'error mail';
+    }
+
+    \Stripe\Stripe::setApiKey(getSetting('stripe_privKey'));
+
+
+    $success_url = 'https://cop-finder.com/index.php?error=0';
+    $cancel_url  = 'https://cop-finder.com/index.php?error=1';
+
+    $metadata = array('3');
+
+    try {
+        $session = \Stripe\Checkout\Session::create([
+            "success_url" => $success_url,
+            "cancel_url" => $cancel_url,
+            "customer_email" => $mail,
+            "payment_method_types" => ["card"],
+            "client_reference_id" => implode(',', $metadata),
+            "line_items" => [
+                [
+                    "name" => 'license test',
+                    "amount" => '1000',
+                    "currency" => 'USD',
+                    "quantity" => 1,
+                ],
+            ]
+        ]);
+
+        return json_encode([
+            'id' => $session['id']
+        ]);
+    } catch (Exception $e) {
+        return $e;
     }
 
 
