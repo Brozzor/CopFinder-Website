@@ -139,16 +139,15 @@ function checkout($mail, $id, $promo_code = "none")
     \Stripe\Stripe::setApiKey(getSetting('stripe_privKey'));
 
     $products = productsBy($id);
-    $success_url = 'https://cop-finder.com/payments.php?idtransac';
-    $cancel_url  = 'https://cop-finder.com/payments.php?idtransac';
+    $url = 'https://cop-finder.com/payments.php?idtransac='. $idGenerate;
     $idGenerate = str_random(10);
     $price = transformPrice($products[0]['price']);
     $promoCheck = trim(htmlspecialchars($promo_code));
 
     try {
         $session = \Stripe\Checkout\Session::create([
-            "success_url" => $success_url,
-            "cancel_url" => $cancel_url,
+            "success_url" => $url,
+            "cancel_url" => $url,
             "customer_email" => $mail,
             "payment_method_types" => ["card"],
             "client_reference_id" => $idGenerate,
@@ -156,12 +155,12 @@ function checkout($mail, $id, $promo_code = "none")
                 [
                     "name" => $products[0]['name'],
                     "amount" => $price,
-                    "currency" => 'USD',
+                    "currency" => 'usd',
                     "quantity" => 1,
                 ],
             ]
         ]);
-        addTransac($idGenerate,$id,$mail,$promoCheck);
+        addTransac($idGenerate,$id,$session['id'],$mail,$promoCheck);
         return json_encode([
             'id' => $session['id']
         ]);
@@ -182,9 +181,10 @@ function transformPrice($price){
     return $newPrice;
 }
 
-function addTransac($idTransac,$pid,$mail,$promo_code){
+function addTransac($idTransac,$pid,$stripeid,$mail,$promo_code){
     include 'bdd.php';
-    $req = $pdo->prepare("INSERT INTO transactions (id, pid, user_mail, promo_code, created, state) VALUES ($idTransac, $pid, $mail, $promo_code, '11111','create') ");
+    $now = time();
+    $req = $pdo->prepare("INSERT INTO transactions(id, pid, stripid,user_mail, promo_code, created, modified, state) VALUES('$idTransac', '$pid','$stripeid', '$mail', '$promo_code', $now, $now,'create')");
     $req->execute();
 }
 
