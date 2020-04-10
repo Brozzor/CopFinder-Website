@@ -5,7 +5,8 @@ require "inc/functions.php";
 $code = false;
 if (is_numeric($_GET['id']) && isset($_GET['promo_code'])) {
   $products = productsBy($_GET['id']);
-  $price = priceCoupon($products[0]['price'], getCouponIdByName(trim(htmlspecialchars($_GET['promo_code']))), $_GET['id']) / 100;
+  $couponId = getCouponIdByName(trim(htmlspecialchars($_GET['promo_code'])));
+  $price = priceCoupon($products[0]['price'], $couponId, $_GET['id']) / 100;
   $code = true;
 } else if (is_numeric($_GET['id'])){
   $products = productsBy($_GET['id']);
@@ -66,12 +67,25 @@ if (isset($_GET['idtransac'])) {
       <div class="main main-raised main-product" style="min-height: 770px;">
         <div id="page-data">
           <h2 class="card-title text-center" id="product-name"><?php echo $products[0]['name']; ?></h2>
-          <h3 class="card-title text-center"><s id="product-old-price"></s><span id="product-price">$<?php echo $price; ?></span></h3>
+          <?php if ($code && $price != $products[0]['price']) {?>
+          <h3 class="card-title text-center"><strike><small id="product-price">$<?php echo $products[0]['price']; ?></small></strike><br>
+          <span id="product-price">$<?php echo $price; ?></span>
+          </h3>
+          <?php }else{ ?>
+          <h3 class="card-title text-center"><span id="product-price">$<?php echo $price; ?></span></h3>
+          <?php } ?>
           <div class="text-center">
             <a data-target="#promocodeModal" style="color: #d2d2d2;" data-toggle="modal" href="#" id="promocode-toggler">Have a coupon?</a>
             <?php if ($code && $price == $products[0]['price']) {?>
               <div class="alert alert-danger alert-dismissible fade show" role="alert">
               <strong>Sorry !</strong> Your code is unvailable.
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              </div>
+            <?php }else if ($code) { ?>
+              <div class="alert alert-success alert-dismissible fade show" role="alert">
+              <strong>Well done !</strong> Your <?= searchPercentEconomy($couponId) ?>% code is available.
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>

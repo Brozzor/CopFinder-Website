@@ -235,6 +235,11 @@ function priceCoupon($price, $id, $pid)
     return transformPrice($price);
 }
 
+function searchPercentEconomy($id){
+   $value = getCouponById($id);
+   return $value['promo_price'];
+}
+
 function checkPayments($idTransac)
 {
 }
