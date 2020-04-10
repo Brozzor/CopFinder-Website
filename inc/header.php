@@ -1,7 +1,7 @@
 <nav class="navbar navbar-transparent navbar-absolute navbar-expand-lg" color-on-scroll="100" id="sectionsNav">
     <div class="container">
         <div class="navbar-translate">
-            <a class="navbar-brand" href="https://cop-finder.com"><img src="/img/logo/logo.png" alt="midnight-logo" class="light-logo mb-1" style="width: 203px;" /></a>
+            <a class="navbar-brand" href="https://cop-finder.com"><img src="/img/logo/logo.png" alt="cop-finder-logo" class="light-logo mb-1" style="width: 203px;" /></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="navbar-toggler-icon"></span>
@@ -33,7 +33,7 @@
                 </li>
                 <hr class="vertical">
                 <li class="nav-item">
-                    <a class="btn supreme-btn" href="/index.html#offers">
+                    <a class="btn supreme-btn nav-supreme" href="/index.html#offers">
                         <i class="fa fa-shopping-cart"></i> BUY NOW
                     </a>
                 </li>
