@@ -1,4 +1,5 @@
 <?php
+
 date_default_timezone_set('Europe/Paris');
 
 function str_random($length)
@@ -86,13 +87,12 @@ function first_date_month()
     return $first_day_month = $retenu + ($ajd - day_in_seconds(where_day($ajd)));
 }
 
-function count_in($from, $where)
+function count_in($from, $where, $value)
 {
     include 'bdd.php';
-    $fdm = first_date_month();
-    $req = $pdo->query("SELECT COUNT(*) as nbtransac FROM " . $from . " WHERE " . $where . " >= " . $fdm . "");
+    $req = $pdo->query("SELECT COUNT(*) as nb FROM " . $from . " WHERE " . $where . " = '" . $value . "' ");
     $donnees = $req->fetch();
-    return $donnees->nbtransac;
+    return $donnees['nb'];
 }
 
 function productsBy($id = null)
@@ -106,10 +106,37 @@ function productsBy($id = null)
         $req = $pdo->prepare("SELECT * FROM products WHERE id = 2");
     }
     $req->execute();
-    while ($row = $req -> fetch()) {
-		$response[] = $row;
-	}
+    while ($row = $req->fetch()) {
+        $response[] = $row;
+    }
     return $response;
+}
+
+function getCouponIdByName($name)
+{
+    include 'bdd.php';
+    if ($name == 'none') {
+        return 0;
+    } else if (count_in('coupon', 'name', $name) != 0) {
+        $req = $pdo->prepare("SELECT id FROM coupon WHERE name = '$name' LIMIT 1");
+        $req->execute();
+        $row = $req->fetch();
+        return $row['id'];
+    } else {
+        return 0;
+    }
+}
+
+function getCouponById($id)
+{
+    include 'bdd.php';
+    if (count_in('coupon','id', $id) != 0) {
+        $req = $pdo->prepare("SELECT * FROM coupon WHERE id = '$id' LIMIT 1");
+        $req->execute();
+        return $req->fetch();
+    } else {
+        return 0;
+    }
 }
 
 function diff_day_timestamp($date1, $date2)
@@ -123,15 +150,15 @@ function diff_day_timestamp($date1, $date2)
 function getSetting($nameInput)
 {
     include 'bdd.php';
-    $req = $pdo->query("SELECT * FROM settings WHERE name = '".$nameInput."'");
+    $req = $pdo->query("SELECT * FROM settings WHERE name = '" . $nameInput . "'");
     $data = $req->fetch();
 
     return $data['value'];
 }
 
-function checkout($mail, $id, $promo_code = "none")
+function checkout($mail, $id, $promo_code = 'none')
 {
-    include_once ($_SERVER['DOCUMENT_ROOT'] .'/lib/stripe-php/init.php');
+    include_once($_SERVER['DOCUMENT_ROOT'] . '/lib/stripe-php/init.php');
     if (!filter_var($mail, FILTER_VALIDATE_EMAIL) || !is_numeric($id)) {
         return 'error mail or id';
     }
@@ -139,11 +166,10 @@ function checkout($mail, $id, $promo_code = "none")
     \Stripe\Stripe::setApiKey(getSetting('stripe_privKey'));
 
     $products = productsBy($id);
-    $url = 'https://cop-finder.com/payments.php?idtransac='. $idGenerate;
     $idGenerate = str_random(10);
-    $price = transformPrice($products[0]['price']);
-    $promoCheck = trim(htmlspecialchars($promo_code));
-
+    $url = 'https://cop-finder.com/payments.php?idtransac=' . $idGenerate;
+    $promo_code_id = getCouponIdByName(trim(htmlspecialchars($promo_code)));
+    $price = priceCoupon($products[0]['price'], $promo_code_id, $id);
     try {
         $session = \Stripe\Checkout\Session::create([
             "success_url" => $url,
@@ -160,34 +186,55 @@ function checkout($mail, $id, $promo_code = "none")
                 ],
             ]
         ]);
-        addTransac($idGenerate,$id,$session['id'],$mail,$promoCheck);
+        addTransac($idGenerate, $id, $session['id'], $mail, $promo_code_id, $products[0]['type']);
         return json_encode([
             'id' => $session['id']
         ]);
     } catch (Exception $e) {
         return $e;
     }
-
-
 }
 
-function transformPrice($price){
-    $newPrice = str_replace('.','',strval($price));
-    if (strlen($newPrice) == 2){
-        $newPrice = $newPrice . "00";
+function transformPrice($price)
+{
+    $newPrice = str_replace('.', '', strval($price));
+    if (strlen($newPrice) == 2) {
+        $newPrice *= $newPrice . "00";
     } else if (strlen($newPrice) == 3) {
         $newPrice = $newPrice . "0";
     }
     return $newPrice;
 }
 
-function addTransac($idTransac,$pid,$stripeid,$mail,$promo_code){
+function addTransac($idTransac, $pid, $stripeid, $mail, $promo_code, $type)
+{
+
     include 'bdd.php';
     $now = time();
-    $req = $pdo->prepare("INSERT INTO transactions(id, pid, stripid,user_mail, promo_code, created, modified, state) VALUES('$idTransac', '$pid','$stripeid', '$mail', '$promo_code', $now, $now,'create')");
+    $req = $pdo->prepare("INSERT INTO transactions(id, pid, stripid,user_mail, promo_code, created, modified, state, type) VALUES('$idTransac', '$pid','$stripeid', '$mail', '$promo_code', $now, $now,'create', '$type')");
     $req->execute();
 }
 
-function checkPayments($idTransac){
+function priceCoupon($price, $id, $pid)
+{
+    
+    $coupon = getCouponById($id);
+    if ($id == 0 || $coupon == 0) {
+        return transformPrice($price);
+    }
+    $products = explode(",", $coupon['pid']);
 
+    if (time() >= $coupon['validity_date'] && time() <= $coupon['expiry_date']) {
+        for ($i = 0; $i < count($products); $i++) {
+            if (intval($pid) == $products[$i] || $products[$i] == 9999) {
+                return ROUND((transformPrice($price) - ((transformPrice($price) * $coupon['promo_price']) / 100)));
+                break ;
+            }
+        }
+    }
+    return transformPrice($price);
+}
+
+function checkPayments($idTransac)
+{
 }

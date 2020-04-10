@@ -2,28 +2,37 @@
 
 require "inc/functions.php";
 
-if (isset($_GET['id']))
-{
+$code = false;
+if (is_numeric($_GET['id']) && isset($_GET['promo_code'])) {
   $products = productsBy($_GET['id']);
-}
-else
-{
+  $price = priceCoupon($products[0]['price'], getCouponIdByName(trim(htmlspecialchars($_GET['promo_code']))), $_GET['id']) / 100;
+  $code = true;
+} else if (is_numeric($_GET['id'])){
+  $products = productsBy($_GET['id']);
+  $price = $products[0]['price'];
+}else{
   header('Location: /payments.php?id=2');
 }
 
-if (isset($_GET['email']))
-{
+if (isset($_GET['email']) && isset($_GET['promo_code'])) {
+  $session = checkout($_GET['email'], $_GET['id'], $_GET['promo_code']);
+  $json = json_decode($session, true);
+
+  if ($json && isset($json['id'])) {
+    die($json['id']);
+  }
+  die();
+} else if (isset($_GET['email'])) {
   $session = checkout($_GET['email'], $_GET['id']);
   $json = json_decode($session, true);
 
-    if ($json && isset($json['id'])) {
-      die($json['id']);
-    }
-    die();
+  if ($json && isset($json['id'])) {
+    die($json['id']);
+  }
+  die();
 }
 
-if (isset($_GET['idtransac']))
-{
+if (isset($_GET['idtransac'])) {
   checkPayments($_GET['idTransac']);
 }
 
@@ -57,19 +66,29 @@ if (isset($_GET['idtransac']))
       <div class="main main-raised main-product" style="min-height: 770px;">
         <div id="page-data">
           <h2 class="card-title text-center" id="product-name"><?php echo $products[0]['name']; ?></h2>
-          <h3 class="card-title text-center"><s id="product-old-price"></s><span id="product-price">$<?php echo $products[0]['price']; ?></span></h3>
-          <div class="text-center"><a data-target="#promocodeModal" data-toggle="modal" href="#" id="promocode-toggler">Have a coupon?</a></div>
+          <h3 class="card-title text-center"><s id="product-old-price"></s><span id="product-price">$<?php echo $price; ?></span></h3>
+          <div class="text-center">
+            <a data-target="#promocodeModal" style="color: #d2d2d2;" data-toggle="modal" href="#" id="promocode-toggler">Have a coupon?</a>
+            <?php if ($code && $price == $products[0]['price']) {?>
+              <div class="alert alert-danger alert-dismissible fade show" role="alert">
+              <strong>Sorry !</strong> Your code is unvailable.
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              </div>
+            <?php } ?>
+          </div>
           <div class="card-body">
             <div class="row">
               <div class="col-md-6 mt-4">
                 <center><span><?php echo $products[0]['description']; ?></span></center>
 
-                  <div class="form-group mt-5">
+                <div class="form-group mt-5">
 
-                    <input type="email" id="emailInput" data-id="<?php echo $products[0]['id']; ?>" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
-                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                  </div>
-                  <button type="submit" id="buy" class="btn supreme-btn btn-block">Proccess Payment</button>
+                  <input type="email" id="emailInput" data-id="<?php echo $products[0]['id']; ?>" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
+                  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div>
+                <button type="submit" id="buy" class="btn supreme-btn btn-block">Proccess Payment</button>
 
               </div>
               <div class="col-md-6 text-center">
@@ -159,6 +178,30 @@ if (isset($_GET['idtransac']))
       </div>
     </div>
   </div>
+  <div class="modal fade" id="promocodeModal" role="dialog" tabindex="-1" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Enter your coupon</h5><button aria-label="Close" class="close" data-dismiss="modal" type="button"><i class="material-icons" style="opacity: 1;">clear</i></button>
+        </div>
+        <div class="modal-body">
+          <div class="form form-newsletter" id="promocode-form">
+            <div class="form-group bmd-form-group"><input class="form-control" id="promocode-input" placeholder="Coupon" type="text"></div><button class="btn btn-primary btn-just-icon" onclick="promoCodeAdd()" name="button"><i class="material-icons" style="opacity: 1;">check</i>
+              <div class="ripple-container"></div>
+            </button>
+          </div>
+          <div class="clearfix"></div>
+          <div class="text-center js-simple-hide">
+            <h5>We sometimes give you promotional codes for reductions, follow our social networks and beware of our next updates and promotions.</h5>
+            <ul class="social-buttons" style="padding-left: 0">
+              <a class="btn btn-just-icon btn-link btn-instagram" href="https://www.instagram.com/" target="_blank"><i class="fa fa-instagram"></i></a>
+              <a class="btn btn-just-icon btn-link btn-youtube" href="https://www.youtube.com/channel/" target="_blank"><i class="fa fa-youtube-play"></i></a>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <?php include "inc/footer.php"; ?>
   <script src="/js/main.js"></script>
   <script src="/js/jquery.min.js" type="text/javascript"></script>
@@ -170,13 +213,13 @@ if (isset($_GET['idtransac']))
 
     $('#buy').on('click', function(e) {
 
-       $.post(checkout(), function (data) {
-         stripe.redirectToCheckout({
-           sessionId: data
-         }).then(function(result) {
-           console.log(result);
-         });
-       });
+      $.post(checkout(), function(data) {
+        stripe.redirectToCheckout({
+          sessionId: data
+        }).then(function(result) {
+          console.log(result);
+        });
+      });
     });
   </script>
 </body>
