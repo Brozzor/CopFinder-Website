@@ -28,14 +28,16 @@ switch ($event->type) {
     case 'checkout.session.completed':
         $session = $event->data->object;
 
-        $session->client_reference_id;
+        
+        $transaction = transactionsBy($session->client_reference_id);
+        $type = $transaction['type'];
         $currency = strtoupper($session->display_items[0]->currency);
-        $txn_id = $session->payment_intent;
 
         $price = $price / 100;
 
         if ($type == 'license') {
-            
+            //updateTransac();
+            createUser($transaction['user_mail'], $transaction['pid'], $transaction['ip']);
         }
 
         if ($type == 'renew') {
