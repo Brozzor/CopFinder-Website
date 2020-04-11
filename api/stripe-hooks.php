@@ -31,9 +31,7 @@ switch ($event->type) {
         
         $transaction = transactionsBy($session->client_reference_id);
         $type = $transaction['type'];
-        $currency = strtoupper($session->display_items[0]->currency);
-
-        $price = $price / 100;
+        //$currency = strtoupper($session->display_items[0]->currency);
 
         if ($type == 'license') {
             $uid = createUser($transaction['user_mail'], $transaction['pid'], $transaction['ip']);
