@@ -116,7 +116,7 @@ function transactionsBy($id)
 {
     include 'bdd.php';
     if (is_numeric($id)) {
-        $req = $pdo->prepare("SELECT * FROM transactions WHERE id = $id");
+        $req = $pdo->prepare("SELECT * FROM transactions WHERE id = '$id'");
     }
     return $req->fetch();
 }
@@ -264,10 +264,12 @@ function createUser($mail, $pid, $ip)
 
 function get_ip_address()
 {
-    if (isset($_SERVER['HTTP_X_REAL_IP'])) {
-        return $_SERVER['HTTP_X_REAL_IP'];
-    } else if (isset($_SERVER['REMOTE_ADDR'])) {
-        return $_SERVER['REMOTE_ADDR'];
-    }
-    return 'UNKOWN';
+    if(!empty($_SERVER['HTTP_CLIENT_IP'])){
+        $ip = $_SERVER['HTTP_CLIENT_IP'];
+      }elseif(!empty($_SERVER['HTTP_X_FORWARDED_FOR'])){
+        $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+      }else{
+        $ip = $_SERVER['REMOTE_ADDR'];
+  }
+  return $ip;
 }
