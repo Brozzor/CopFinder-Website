@@ -1,8 +1,6 @@
 <?php
 require "inc/functions.php";
 
-updateTransac("da6SNf2qd9","pendhing",'1');
-
 $code = false;
 if (is_numeric($_GET['id']) && isset($_GET['promo_code'])) {
   $products = productsBy($_GET['id']);
@@ -12,8 +10,6 @@ if (is_numeric($_GET['id']) && isset($_GET['promo_code'])) {
 } else if (is_numeric($_GET['id'])){
   $products = productsBy($_GET['id']);
   $price = $products[0]['price'];
-}else if (isset($_GET['idtransac'])){
-  echo checkPayment($_GET['idtransac']);
 }else{
   header('Location: /payments.php?id=2');
 }

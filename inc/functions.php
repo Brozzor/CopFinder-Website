@@ -139,7 +139,7 @@ function checkout($mail, $id, $promo_code = 'none')
 
     $products = productsBy($id);
     $idGenerate = str_random(10);
-    $url = 'https://cop-finder.com/payments.php?idtransac=' . $idGenerate;
+    $url = 'https://cop-finder.com/payments-info.php?idtransac=' . $idGenerate;
     $promo_code_id = getCouponIdByName(trim(htmlspecialchars($promo_code)));
     $price = priceCoupon($products[0]['price'], $promo_code_id, $id);
     try {
@@ -253,4 +253,11 @@ function checkPayment($id){
         $res = true;
     }
     return $res;
+}
+
+function isPaymentExist($id){
+    if (count_in('transactions', 'id', $id)){
+        return true;
+    }
+    return false;
 }
