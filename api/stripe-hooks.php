@@ -24,6 +24,7 @@ try {
     exit();
 }
 // Handle the event
+mail("377roro@gmail.com", "page charger", "la page a juste été charger");
 switch ($event->type) {
     case 'checkout.session.completed':
         $session = $event->data->object;
@@ -32,8 +33,9 @@ switch ($event->type) {
         $transaction = transactionsBy($session->client_reference_id);
         $type = $transaction['type'];
         //$currency = strtoupper($session->display_items[0]->currency);
-
+        mail("377roro@gmail.com", "completed", "checkout complete");
         if ($type == 'license') {
+            mail("377roro@gmail.com", "arriver license", "mail envoyer depuis license");
             $uid = createUser($transaction['user_mail'], $transaction['pid'], $transaction['ip']);
             updateTransac($session->client_reference_id,'completed',$uid);
         }
