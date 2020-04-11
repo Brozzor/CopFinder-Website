@@ -58,7 +58,7 @@ function checkGoodAccount($mail, $token){
 	}
 
 	insertGenerateKey($res['id'], $generateKey);
-	displayJson('1', "Bonjour ".$res['global_name']."", $generateKey);
+	displayJson('1', "Hello", $generateKey);
 }
 
 function displayJson($status, $statusMsg, $key = ''){
@@ -74,7 +74,7 @@ function displayJson($status, $statusMsg, $key = ''){
 function displayPersoInfo($key){
 	include '../inc/bdd.php';
 	$response = array();
-	$req = $pdo -> query("SELECT id,username,mail,global_name,tel,address,city,postcode,country FROM users WHERE generate_key = '".$key."'");
+	$req = $pdo -> query("SELECT id,mail,global_name,tel,address,city,postcode,country FROM users WHERE generate_key = '".$key."'");
 	$response[] = array('status' => '1');
 
 	while ($row = $req -> fetch()) {
@@ -141,19 +141,6 @@ function displayItem($catId = '0', $itemId = '0'){
 		$response[] = utf8ize($row);
 	}
 
-	header('Content-Type: application/json');
-	echo json_encode($response);
-}
-
-function displayProducts($id) {
-	include '../inc/bdd.php';
-	$response = array();
-	$response[] = array('status' => '1');
-	$req = $pdo -> query("SELECT * FROM products WHERE id = '".$id."'");
-	while ($row = $req -> fetch()) {
-		$response[] = utf8ize($row);
-	}
-	header("Access-Control-Allow-Origin", "*");
 	header('Content-Type: application/json');
 	echo json_encode($response);
 }
@@ -248,19 +235,6 @@ switch ($use) {
 
 		break;
 
-	case 'products':
-
-			$idCheck = 1;
-			if (is_numeric($_POST['id']))
-			{
-				$idCheck = htmlspecialchars($_POST['id']);
-				displayProducts($idCheck);
-			}else{
-				break ;
-			}
-
-		break;
-
 	case 'item-choice':
 
 		$keyCheck = htmlspecialchars($_POST['key']);
@@ -296,7 +270,6 @@ switch ($use) {
 
 		if (checkWithKey($keyCheck)) {
 			$nameCheck = htmlspecialchars($_POST['name']);
-			$mailCheck = htmlspecialchars($_POST['mail']);
 			$telCheck = htmlspecialchars($_POST['tel']);
 			$cityCheck = htmlspecialchars($_POST['city']);
 			$postcodeCheck = htmlspecialchars($_POST['postcode']);

@@ -37,7 +37,7 @@ function reconnect_from_cookie()
         $req->execute([$user_id]);
         $user = $req->fetch();
         if ($user) {
-            $expected = $user_id . '==' . $user->remember_token . sha1($user_id . 'ratonlaveurs');
+            $expected = $user_id . '==' . $user->remember_token . sha1($user_id . 'ceciestunmot');
             if ($expected == $remember_token) {
                 session_start();
                 $_SESSION['auth'] = $user;
@@ -49,42 +49,6 @@ function reconnect_from_cookie()
             setcookie('remember', null, -1);
         }
     }
-}
-
-function where_month($variable)
-{
-    return date('m', $variable);
-}
-
-function where_day($variable)
-{
-    return date('d', $variable);
-}
-
-function day_in_seconds($var)
-{
-    return $var * 86400;
-}
-
-function hours_in_seconds($var)
-{
-    return $var * 3600;
-}
-
-function mins_in_seconds($var)
-{
-    return $var * 60;
-}
-
-function first_date_month()
-{
-    $ajd = time();
-    $ajd_heure = hours_in_seconds(date("H"));
-    $ajd_min = mins_in_seconds(date("i"));
-    $ajd_sec = date("s");
-    $retenu = 86400 - ($ajd_heure + $ajd_min + $ajd_sec);
-
-    return $first_day_month = $retenu + ($ajd - day_in_seconds(where_day($ajd)));
 }
 
 function count_in($from, $where, $value)
@@ -264,9 +228,8 @@ function createUser($mail, $pid, $ip)
 
 function get_ip_address()
 {
-    if(!empty($_SERVER['HTTP_CLIENT_IP'])){
-        $ip = $_SERVER['HTTP_CLIENT_IP'];
-      }elseif(!empty($_SERVER['HTTP_X_FORWARDED_FOR'])){
+    $ip = "UNKOWN";
+    if(isset($_SERVER['HTTP_X_FORWARDED_FOR'])){
         $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
       }else{
         $ip = $_SERVER['REMOTE_ADDR'];

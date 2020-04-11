@@ -35,9 +35,8 @@ switch ($event->type) {
         //$currency = strtoupper($session->display_items[0]->currency);
 
         if ($type == 'license') {
-            mail("377roro@gmail.com", "arriver license", "mail envoyer depuis license");
             $uid = createUser($transaction['user_mail'], $transaction['pid'], $transaction['ip']);
-            updateTransac($session->client_reference_id,'completed',$uid);
+            updateTransac($session->client_reference_id,"completed",$uid);
         }
 
         if ($type == 'renew') {
