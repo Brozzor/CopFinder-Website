@@ -12,6 +12,8 @@ if (is_numeric($_GET['id']) && isset($_GET['promo_code'])) {
 } else if (is_numeric($_GET['id'])){
   $products = productsBy($_GET['id']);
   $price = $products[0]['price'];
+}else if (isset($_GET['idtransac'])){
+  echo checkPayment($_GET['idtransac']);
 }else{
   header('Location: /payments.php?id=2');
 }
@@ -32,10 +34,6 @@ if (isset($_GET['email']) && isset($_GET['promo_code'])) {
     die($json['id']);
   }
   die();
-}
-
-if (isset($_GET['idtransac'])) {
- // checkPayments($_GET['idTransac']);
 }
 
 ?>

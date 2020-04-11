@@ -243,3 +243,14 @@ function updateTransac($id,$state,$uid)
     $req = $pdo->prepare("UPDATE transactions SET state = '".$state."', uid = '".$uid."' WHERE id = '".$id."'");
     $req->execute();
 }
+
+function checkPayment($id){
+    include 'bdd.php';
+    $req = $pdo->query("SELECT state FROM transactions WHERE id = '" . $id . "' LIMIT 1");
+    $row = $req->fetch();
+    $res = false;
+    if ($row['state'] == 'completed'){
+        $res = true;
+    }
+    return $res;
+}
