@@ -1,5 +1,5 @@
 <?php
-
+include_once($_SERVER['DOCUMENT_ROOT'] . '/lib/stripe-php/init.php');
 require_once('../inc/functions.php');
 require_once('../inc/bdd.php');
 

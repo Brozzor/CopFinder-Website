@@ -34,7 +34,7 @@ if (isset($_GET['email']) && isset($_GET['promo_code'])) {
 }
 
 if (isset($_GET['idtransac'])) {
-  checkPayments($_GET['idTransac']);
+ // checkPayments($_GET['idTransac']);
 }
 
 ?>
