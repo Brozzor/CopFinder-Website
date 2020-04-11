@@ -112,6 +112,15 @@ function productsBy($id = null)
     return $response;
 }
 
+function transactionsBy($id)
+{
+    include 'bdd.php';
+    if (is_numeric($id)) {
+        $req = $pdo->prepare("SELECT * FROM transactions WHERE id = $id");
+    }
+    return $req->fetch();
+}
+
 function getCouponIdByName($name)
 {
     include 'bdd.php';
@@ -130,7 +139,7 @@ function getCouponIdByName($name)
 function getCouponById($id)
 {
     include 'bdd.php';
-    if (count_in('coupon','id', $id) != 0) {
+    if (count_in('coupon', 'id', $id) != 0) {
         $req = $pdo->prepare("SELECT * FROM coupon WHERE id = '$id' LIMIT 1");
         $req->execute();
         return $req->fetch();
@@ -208,16 +217,16 @@ function transformPrice($price)
 
 function addTransac($idTransac, $pid, $stripeid, $mail, $promo_code, $type)
 {
-
     include 'bdd.php';
     $now = time();
-    $req = $pdo->prepare("INSERT INTO transactions(id, pid, stripid,user_mail, promo_code, created, modified, state, type) VALUES('$idTransac', '$pid','$stripeid', '$mail', '$promo_code', $now, $now,'create', '$type')");
+    $ip = get_ip_address();
+    $req = $pdo->prepare("INSERT INTO transactions(id, pid, stripid,user_mail, promo_code, created, modified, state, type,uid,ip) VALUES('$idTransac', '$pid','$stripeid', '$mail', '$promo_code', $now, $now,'create', '$type', '0', '$ip')");
     $req->execute();
 }
 
 function priceCoupon($price, $id, $pid)
 {
-    
+
     $coupon = getCouponById($id);
     if ($id == 0 || $coupon == 0) {
         return transformPrice($price);
@@ -228,18 +237,47 @@ function priceCoupon($price, $id, $pid)
         for ($i = 0; $i < count($products); $i++) {
             if (intval($pid) == $products[$i] || $products[$i] == 9999) {
                 return ROUND((transformPrice($price) - ((transformPrice($price) * $coupon['promo_price']) / 100)));
-                break ;
+                break;
             }
         }
     }
     return transformPrice($price);
 }
 
-function searchPercentEconomy($id){
-   $value = getCouponById($id);
-   return $value['promo_price'];
+function searchPercentEconomy($id)
+{
+    $value = getCouponById($id);
+    return $value['promo_price'];
 }
 
-function checkPayments($idTransac)
+function createUser($mail, $pid, $ip)
 {
+    include 'bdd.php';
+    $now = time();
+    $product = productsBy($pid);
+    $expiryDate = $now + ($product[0]['active_day'] * 86440);
+    $password = str_random(6);
+    $token = str_random(16);
+    $req = $pdo->prepare("INSERT INTO users(mail,password,created_account_date,created_account_ip,token,token_expiry_date) VALUES('$mail', '$password', '$now', '$ip', '$token','$expiryDate')");
+    $req->execute();
+}
+
+function get_ip_address()
+{
+    if ($_SERVER['HTTP_CLIENT_IP'])
+        $ipaddress = $_SERVER['HTTP_CLIENT_IP'];
+    else if ($_SERVER['HTTP_X_FORWARDED_FOR'])
+        $ipaddress = $_SERVER['HTTP_X_FORWARDED_FOR'];
+    else if ($_SERVER['HTTP_X_FORWARDED'])
+        $ipaddress = $_SERVER['HTTP_X_FORWARDED'];
+    else if ($_SERVER['HTTP_FORWARDED_FOR'])
+        $ipaddress = $_SERVER['HTTP_FORWARDED_FOR'];
+    else if ($_SERVER['HTTP_FORWARDED'])
+        $ipaddress = $_SERVER['HTTP_FORWARDED'];
+    else if ($_SERVER['REMOTE_ADDR'])
+        $ipaddress = $_SERVER['REMOTE_ADDR'];
+    else
+        $ipaddress = 'UNKNOWN';
+
+    return $ipaddress;
 }
