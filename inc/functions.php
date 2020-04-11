@@ -277,6 +277,6 @@ function get_ip_address()
 function updateTransac($id,$state,$uid)
 {
     include 'bdd.php';
-    $req = $pdo->prepare("UPDATE transactions SET state = '$state' AND uid = '$uid' WHERE id = '$id'");
+    $req = $pdo->prepare("UPDATE transactions SET state = '".$state."', uid = '".$uid."' WHERE id = '".$id."'");
     $req->execute();
 }

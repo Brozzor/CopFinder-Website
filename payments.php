@@ -1,6 +1,8 @@
 <?php
-
 require "inc/functions.php";
+
+updateTransac("da6SNf2qd9","pendhing",'1');
+
 $code = false;
 if (is_numeric($_GET['id']) && isset($_GET['promo_code'])) {
   $products = productsBy($_GET['id']);

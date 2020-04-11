@@ -33,7 +33,7 @@ switch ($event->type) {
         $transaction = transactionsBy($session->client_reference_id);
         $type = $transaction['type'];
         //$currency = strtoupper($session->display_items[0]->currency);
-        mail("377roro@gmail.com", "completed", "checkout complete : $type");
+
         if ($type == 'license') {
             mail("377roro@gmail.com", "arriver license", "mail envoyer depuis license");
             $uid = createUser($transaction['user_mail'], $transaction['pid'], $transaction['ip']);
