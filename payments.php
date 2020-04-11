@@ -1,7 +1,6 @@
 <?php
 
 require "inc/functions.php";
-
 $code = false;
 if (is_numeric($_GET['id']) && isset($_GET['promo_code'])) {
   $products = productsBy($_GET['id']);

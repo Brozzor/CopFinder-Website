@@ -116,6 +116,7 @@ function transactionsBy($id)
 {
     include 'bdd.php';
     $req = $pdo->prepare("SELECT * FROM transactions WHERE id = '$id'");
+    $req->execute();
     return $req->fetch();
 }
 
