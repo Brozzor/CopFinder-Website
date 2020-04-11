@@ -158,7 +158,7 @@ function checkout($mail, $id, $promo_code = 'none')
                 ],
             ]
         ]);
-        addTransac($idGenerate, $id, $session['id'], $mail, $promo_code_id, $products[0]['type']);
+        addTransac($idGenerate, $id, $session['id'], $mail, $promo_code_id, $products[0]['type'], $price);
         return json_encode([
             'id' => $session['id']
         ]);
@@ -178,12 +178,12 @@ function transformPrice($price)
     return $newPrice;
 }
 
-function addTransac($idTransac, $pid, $stripeid, $mail, $promo_code, $type)
+function addTransac($idTransac, $pid, $stripeid, $mail, $promo_code, $type,$price)
 {
     include 'bdd.php';
     $now = time();
     $ip = get_ip_address();
-    $req = $pdo->prepare("INSERT INTO transactions(id, pid, stripid,user_mail, promo_code, created, modified, state, type,uid,ip) VALUES('$idTransac', '$pid','$stripeid', '$mail', '$promo_code', $now, $now,'create', '$type', '0', '$ip')");
+    $req = $pdo->prepare("INSERT INTO transactions(id, pid, stripid,user_mail, promo_code, created, modified, state, type,uid,ip,price) VALUES('$idTransac', '$pid','$stripeid', '$mail', '$promo_code', $now, $now,'create', '$type', '0', '$ip','$price')");
     $req->execute();
 }
 
