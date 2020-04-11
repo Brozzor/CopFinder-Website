@@ -115,9 +115,7 @@ function productsBy($id = null)
 function transactionsBy($id)
 {
     include 'bdd.php';
-    if (is_numeric($id)) {
-        $req = $pdo->prepare("SELECT * FROM transactions WHERE id = '$id'");
-    }
+    $req = $pdo->prepare("SELECT * FROM transactions WHERE id = '$id'");
     return $req->fetch();
 }
 
@@ -260,6 +258,7 @@ function createUser($mail, $pid, $ip)
     $token = str_random(16);
     $req = $pdo->prepare("INSERT INTO users(mail,password,created_account_date,created_account_ip,token,token_expiry_date) VALUES('$mail', '$password', '$now', '$ip', '$token','$expiryDate')");
     $req->execute();
+    return $pdo->lastInsertId();
 }
 
 function get_ip_address()
@@ -272,4 +271,11 @@ function get_ip_address()
         $ip = $_SERVER['REMOTE_ADDR'];
   }
   return $ip;
+}
+
+function updateTransac($id,$state,$uid)
+{
+    include 'bdd.php';
+    $req = $pdo->prepare("UPDATE transactions SET state = '$state' AND uid = '$uid' WHERE id = '$id'");
+    $req->execute();
 }

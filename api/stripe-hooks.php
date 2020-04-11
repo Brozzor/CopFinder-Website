@@ -36,8 +36,8 @@ switch ($event->type) {
         $price = $price / 100;
 
         if ($type == 'license') {
-            //updateTransac();
-            createUser($transaction['user_mail'], $transaction['pid'], $transaction['ip']);
+            $uid = createUser($transaction['user_mail'], $transaction['pid'], $transaction['ip']);
+            updateTransac($session->client_reference_id,'completed',$uid);
         }
 
         if ($type == 'renew') {
