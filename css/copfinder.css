@@ -26232,6 +26232,20 @@ a, a:hover, a:active, a:visited {
   float: right;
 }
 
+.article-list-item {
+  color: #72767D;
+  border: 1px solid #EEF0F1 !important;
+  border-radius: 5px;
+  margin-bottom: 8px;
+  font-size: 20px;
+  padding: 24px 28px;
+  display: block;
+  transition: .2s ease-in-out;
+  text-decoration: none;
+  font-weight: 400;
+  text-align: left;
+}
+
 @media (max-width: 768px)
 {
   .lightbox-link {

@@ -12,22 +12,22 @@
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto mb-1">
                 <li class="nav-item">
-                    <a class="nav-link" href="">
+                    <a class="nav-link" href="/blog.php">
                         BLOG
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="">
+                    <a class="nav-link" href="/faq.php">
                         FAQ
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="">
+                    <a class="nav-link" href="/contact.php">
                         CONTACT
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="">
+                    <a class="nav-link" href="/videos.php">
                         VIDEOS
                     </a>
                 </li>

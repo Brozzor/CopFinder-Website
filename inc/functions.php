@@ -178,7 +178,7 @@ function transformPrice($price)
     return $newPrice;
 }
 
-function addTransac($idTransac, $pid, $stripeid, $mail, $promo_code, $type,$price)
+function addTransac($idTransac, $pid, $stripeid, $mail, $promo_code, $type, $price)
 {
     include 'bdd.php';
     $now = time();
@@ -232,35 +232,48 @@ function createUser($mail, $pid, $ip)
 function get_ip_address()
 {
     $ip = "UNKOWN";
-    if(isset($_SERVER['HTTP_X_FORWARDED_FOR'])){
+    if (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
         $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
-      }else{
+    } else {
         $ip = $_SERVER['REMOTE_ADDR'];
-  }
-  return $ip;
+    }
+    return $ip;
 }
 
-function updateTransac($id,$state,$uid)
+function updateTransac($id, $state, $uid)
 {
     include 'bdd.php';
-    $req = $pdo->prepare("UPDATE transactions SET state = '".$state."', uid = '".$uid."' WHERE id = '".$id."'");
+    $req = $pdo->prepare("UPDATE transactions SET state = '" . $state . "', uid = '" . $uid . "' WHERE id = '" . $id . "'");
     $req->execute();
 }
 
-function checkPayment($id){
+function checkPayment($id)
+{
     include 'bdd.php';
     $req = $pdo->query("SELECT state FROM transactions WHERE id = '" . $id . "' LIMIT 1");
     $row = $req->fetch();
     $res = false;
-    if ($row['state'] == 'completed'){
+    if ($row['state'] == 'completed') {
         $res = true;
     }
     return $res;
 }
 
-function isPaymentExist($id){
-    if (count_in('transactions', 'id', $id)){
+function isPaymentExist($id)
+{
+    if (count_in('transactions', 'id', $id)) {
         return true;
     }
     return false;
+}
+
+function allFaq($lang)
+{
+    include 'bdd.php';
+    $req = $pdo->prepare("SELECT * FROM faq WHERE language = '" . $lang . "' ");
+    $req->execute();
+    while ($row = $req->fetch()) {
+        $response[] = $row;
+    }
+    return $response;
 }
