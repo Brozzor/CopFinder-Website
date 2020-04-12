@@ -261,7 +261,3 @@ function isPaymentExist($id){
     }
     return false;
 }
-
-function sendMailBuyLicense($mail,$password,$token){
-
-}

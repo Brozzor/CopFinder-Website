@@ -2,7 +2,7 @@
 sendMailBuyLicense('377roro@gmail.com','thebestpass33dDF','TOT4efs36f4s1see4s5fe4f65se1fe5sf1O');
 function sendMailBuyLicense($mail,$password,$token){
 $subject = "Thanks for purchase";
-$message = `
+$message = '
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -18,7 +18,7 @@ $message = `
             margin: 0;
             padding: 0;
             font-size: 100%;
-            font-family: 'Avenir Next', "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+            font-family: "Avenir Next", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
             line-height: 1.65;
         }
 
@@ -179,9 +179,9 @@ $message = `
                             <h2>Welcome to Cop Finder,</h2>
 
                             <p>Thank you for purchasing a cop finder license to be able to use it you must install it on your chrome browser by clicking on the button just above then enter as identify your email address and as token key :
-                                <strong>$token</strong><br>
+                                <strong>'.$token.'</strong><br>
                                 You can change your token key at any time or renew it in your member area accessible <a href="https://cop-finder/manager">https://cop-finder/manager</a><br>
-                                Your password to connect to your customer area is: <strong>$password</strong> 
+                                Your password to connect to your customer area is: <strong>'.$password.'</strong> 
                             </p>
 
                             <table>
@@ -218,7 +218,7 @@ $message = `
     </table>
 </body>
 
-</html>`;
+</html>';
 $headers="MIME-Version: 1.0\r\n";
 $headers.='From:"cop-finder.com"<contact@cop-finder.com>'."\n";
 $headers.= 'Content-Type:text/html; charset="uft-8"'."\n";
