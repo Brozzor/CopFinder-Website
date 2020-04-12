@@ -38,12 +38,12 @@ $faq = allFaq('FR');
                             <div class="col-md-12 mt-4">
                                 <center><span>Here are several answers that can help you, if you do not find an answer to your problem contact us: <a style="color: black" href="/contact.php">here</a></span></center>
 
-                                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                <div class="panel-group mt-4" id="accordion" role="tablist" aria-multiselectable="true">
                                     <?php 
                                     foreach ($faq as $row){
                                     ?>
                                     <div class="panel panel-default">
-                                        <div class="panel-heading" role="tab" id="heading<?= $row['id']; ?>">
+                                        <div class="panel-heading shadow p-3 mb-3 bg-white rounded" role="tab" id="heading<?= $row['id']; ?>">
                                             <a role="button" style="color: black;" data-toggle="collapse" data-parent="#accordion" href="#collapse<?= $row['id']; ?>" aria-expanded="false" aria-controls="collapse<?= $row['id']; ?>" class="collapsed">
                                                 <h4 class="panel-title">
                                                <?= $row['question']; ?>
@@ -53,7 +53,7 @@ $faq = allFaq('FR');
                                             </a>
                                         </div>
                                         <div id="collapse<?= $row['id']; ?>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading<?= $row['id']; ?>" aria-expanded="false">
-                                            <div class="panel-body">
+                                            <div class="panel-body mb-3 ml-1 mr-1">
                                                 <span><?= $row['answer']; ?></span>
                                             </div>
                                         </div>
