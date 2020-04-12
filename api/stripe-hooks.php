@@ -2,6 +2,7 @@
 include_once($_SERVER['DOCUMENT_ROOT'] . '/lib/stripe-php/init.php');
 require_once('../inc/functions.php');
 require_once('../inc/bdd.php');
+require_once('../inc/mail.php');
 
 \Stripe\Stripe::setApiKey(getSetting('stripe_pubKey'));
 $endpoint_secret = getSetting('stripe_whooks', 'value');
@@ -32,11 +33,11 @@ switch ($event->type) {
         
         $transaction = transactionsBy($session->client_reference_id);
         $type = $transaction['type'];
-        //$currency = strtoupper($session->display_items[0]->currency);
 
         if ($type == 'license') {
-            $uid = createUser($transaction['user_mail'], $transaction['pid'], $transaction['ip']);
-            updateTransac($session->client_reference_id,"completed",$uid);
+            $user = createUser($transaction['user_mail'], $transaction['pid'], $transaction['ip']);
+            updateTransac($session->client_reference_id,"completed",$user['uid']);
+            sendMailBuyLicense($transaction['user_mail'],$user['password'],$user['token']);
         }
 
         if ($type == 'renew') {

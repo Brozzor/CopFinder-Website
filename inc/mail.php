@@ -1,5 +1,5 @@
 <?php
-sendMailBuyLicense('377roro@gmail.com','thebestpass33dDF','TOT4efs36f4s1see4s5fe4f65se1fe5sf1O');
+
 function sendMailBuyLicense($mail,$password,$token){
 $subject = "Thanks for purchase";
 $message = '

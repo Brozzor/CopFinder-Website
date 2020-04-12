@@ -223,7 +223,10 @@ function createUser($mail, $pid, $ip)
     $token = str_random(16);
     $req = $pdo->prepare("INSERT INTO users(mail,password,created_account_date,created_account_ip,token,token_expiry_date) VALUES('$mail', '$password', '$now', '$ip', '$token','$expiryDate')");
     $req->execute();
-    return $pdo->lastInsertId();
+    $res['uid'] = $pdo->lastInsertId();
+    $res['password'] = $password;
+    $res['token'] = $token;
+    return $res;
 }
 
 function get_ip_address()
