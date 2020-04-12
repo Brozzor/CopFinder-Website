@@ -169,7 +169,7 @@ $message = '
                     <tr>
                         <td align="center" class="masthead">
 
-                        <img width="300px" src="http://copfinder/img/logo/logo.png" alt="logo copfinder">
+                        <img width="300px" src="https://cop-finder.com/img/logo/logo.png" alt="logo copfinder">
 
                         </td>
                     </tr>
@@ -188,7 +188,7 @@ $message = '
                                 <tr>
                                     <td align="center">
                                         <p>
-                                            <a href="https://google.fr" class="button">Install Cop Finder</a>
+                                            <a href="https://google.fr" style="color: white;" class="button">Install Cop Finder</a>
                                         </p>
                                     </td>
                                 </tr>
