@@ -38,7 +38,7 @@ if (isPaymentExist($idTransac)) {
     </div>
     <div class="section section-gray">
         <div class="container">
-            <div class="main main-raised main-product" style="min-height: 770px;">
+            <div class="main main-raised main-product" style="min-height: 370px;">
                 <div id="page-data">
                     <?php if ($isPay) { ?>
                         <h2 class="card-title text-center" id="product-name">Successfully Payment</h2>
@@ -53,7 +53,7 @@ if (isPaymentExist($idTransac)) {
 
                                 <?php if ($isPay) { ?>
                                     <div class="alert alert-success fade show" role="alert">
-                                        <strong>Well done !</strong> Well done ! your payment has been made and we have emailed you your license key, if you do not receive it check your spam and if after 1 hour you still have not received anything contact support in the contact section:<a href="/contact">here</a>
+                                        <strong>Well done !</strong> Well done ! your payment has been made and we have emailed you your license key, if you do not receive it check your spam and if after 1 hour you still have not received anything contact support in the contact section : <a href="/contact">click here</a>
                                     </div>
 
                                 <?php } else { ?>
