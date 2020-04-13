@@ -231,13 +231,14 @@ function createUser($mail, $pid, $ip)
 
 function get_ip_address()
 {
-    $ip = "UNKOWN";
-    if (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+    if(!empty($_SERVER['HTTP_CLIENT_IP'])){
+        $ip = $_SERVER['HTTP_CLIENT_IP'];
+      }elseif(!empty($_SERVER['HTTP_X_FORWARDED_FOR'])){
         $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
-    } else {
+      }else{
         $ip = $_SERVER['REMOTE_ADDR'];
-    }
-    return $ip;
+  }
+  return $ip;
 }
 
 function updateTransac($id, $state, $uid)
@@ -276,4 +277,27 @@ function allFaq($lang)
         $response[] = $row;
     }
     return $response;
+}
+
+function createTicket($name, $mail, $msg,$ip)
+{
+    include 'bdd.php';
+    $nameCheck = trim(htmlspecialchars($name));
+    if (!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
+        return 'Mail is not valid';
+    }
+    if (strlen($msg) < 25){
+        return 'Message is less than 25 characters';
+    }
+    $now = time();
+    $req1 = $pdo->query("SELECT COUNT(*) as nb FROM support WHERE ip = '$ip' AND date_send > $now - 900");
+    $donnees = $req1->fetch();
+    if ($donnees['nb'] >= 1){
+        return 'You have already sent a message in the last 15 minutes';
+    }
+    $messageCheck = addslashes(trim(htmlspecialchars($msg)));
+    
+    $req = $pdo->prepare("INSERT INTO support(name, mail, message, ip, date_send) VALUES('$nameCheck', '$mail', '$messageCheck', '$ip', '$now')");
+    $req->execute();
+    return 'send';
 }

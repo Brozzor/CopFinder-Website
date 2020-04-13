@@ -26261,6 +26261,10 @@ a, a:hover, a:active, a:visited {
   .lightbox-link {
     visibility: hidden;
   }
+}
+
+@media (max-width: 991px)
+{
   .vertical {
     visibility: hidden;
   }

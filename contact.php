@@ -1,6 +1,12 @@
 <?php
 require "inc/functions.php";
 
+$mailstate = 'pending';
+
+if (!empty($_POST['name']) && !empty($_POST['mail']) && !empty($_POST['msg']))
+{
+   $mailstate = createTicket($_POST['name'],$_POST['mail'],$_POST['msg'],get_ip_address());
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +22,6 @@ require "inc/functions.php";
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet" />
     <link href="/css/copfinder.css" rel="stylesheet" />
-    <script src="https://js.stripe.com/v3/"></script>
 </head>
 
 <body class="product-page" data-demo-ios="#" data-project="supreme_bot_world" style="overflow-x: hidden">
@@ -36,9 +41,9 @@ require "inc/functions.php";
                         <div class="row">
 
                             <div class="col-md-12 mt-4">
-                                <center><span></span></center>
+                                <center><span>You can perhaps find the answer to your question in the FAQ: <a style="color: black" href="/faq.php">here</a></span></center>
 
-                                <form method="POST" action="">
+                                <form method="POST" class="mt-4" action="">
                                     <div class="form-group">
                                         <label for="name">Name</label>
                                         <input type="text" class="form-control" id="name" name="name"  placeholder="Enter Name">
@@ -54,6 +59,16 @@ require "inc/functions.php";
                                     
 
                                     <button type="submit" class="btn supreme-btn btn-block">Submit</button>
+                                    <?php if ($mailstate == 'send'){ ?>
+                                        <div class="alert alert-success fade show" role="alert">
+                                            <strong>Your message is send !</strong> Please wait 12 to 24 hours to receive the recipient's response
+                                        </div>
+                                    <?php }else if ($mailstate != 'pending'){ ?>
+                                        <div class="alert alert-danger fade show" role="alert">
+                                            <strong>Your message is not send : </strong> <?= $mailstate ?>
+                                        </div>
+                                    <?php } ?>
+
                                 </form>
 
 

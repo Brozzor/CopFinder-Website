@@ -16,7 +16,6 @@ $faq = allFaq('FR');
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet" />
     <link href="/css/copfinder.css" rel="stylesheet" />
-    <script src="https://js.stripe.com/v3/"></script>
 </head>
 
 <body class="product-page" data-demo-ios="#" data-project="supreme_bot_world" style="overflow-x: hidden">
