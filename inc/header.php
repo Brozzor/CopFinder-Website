@@ -33,7 +33,7 @@
                 </li>
                 <hr class="vertical">
                 <li class="nav-item">
-                    <a class="btn supreme-btn nav-supreme" href="/index.html#offers">
+                    <a class="btn supreme-btn nav-supreme" href="/index.php#offers">
                         <i class="fa fa-shopping-cart"></i> BUY NOW
                     </a>
                 </li>

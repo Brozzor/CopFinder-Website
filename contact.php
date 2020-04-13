@@ -1,6 +1,6 @@
 <?php
 require "inc/functions.php";
-$faq = allFaq('FR');
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +10,7 @@ $faq = allFaq('FR');
     <link rel="icon" type="image/png" href="/img/logo/icon.png" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>
-        CopFinder - F.A.Q
+        CopFinder - Contact
     </title>
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no" name="viewport" />
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
@@ -30,37 +30,31 @@ $faq = allFaq('FR');
         <div class="container">
             <div class="main main-raised main-product" style="min-height: 370px;">
                 <div id="page-data">
-                    <h2 class="card-title text-center" id="product-name">F.A.Q</h2>
+                    <h2 class="card-title text-center" id="product-name">Contact</h2>
 
                     <div class="card-body">
                         <div class="row">
 
                             <div class="col-md-12 mt-4">
-                                <center><span>Here are several answers that can help you, if you do not find an answer to your problem contact us: <a style="color: black" href="/contact.php">here</a></span></center>
+                                <center><span></span></center>
 
-                                <div class="panel-group mt-4" id="accordion" role="tablist" aria-multiselectable="true">
-                                    <?php 
-                                    foreach ($faq as $row){
-                                    ?>
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading shadow p-3 mb-3 bg-white rounded" role="tab" id="heading<?= $row['id']; ?>">
-                                            <a role="button" style="color: black;" data-toggle="collapse" data-parent="#accordion" href="#collapse<?= $row['id']; ?>" aria-expanded="false" aria-controls="collapse<?= $row['id']; ?>" class="collapsed">
-                                                <h4 class="panel-title">
-                                               <?= $row['question']; ?>
-                                                    <i class="fa fa-arrow-down"  style="color:#3c4858"></i>
-                                                </h4>
-                                                
-                                            </a>
-                                        </div>
-                                        <div id="collapse<?= $row['id']; ?>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading<?= $row['id']; ?>" aria-expanded="false">
-                                            <div class="panel-body mb-3 ml-1 mr-1">
-                                                <span><?= $row['answer']; ?></span>
-                                            </div>
-                                        </div>
+                                <form method="POST" action="">
+                                    <div class="form-group">
+                                        <label for="name">Name</label>
+                                        <input type="text" class="form-control" id="name" name="name"  placeholder="Enter Name">
                                     </div>
-                                    <?php } ?>
+                                    <div class="form-group">
+                                        <label for="mail">Email address</label>
+                                        <input type="email" class="form-control" id="mail" name="mail" aria-describedby="emailHelp" placeholder="Enter email">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="msg">Message</label>
+                                        <textarea name="msg" class="form-control textarea-border" id="msg" rows="6" placeholder="Message..." ></textarea>
+                                    </div>
+                                    
 
-                                </div>
+                                    <button type="submit" class="btn supreme-btn btn-block">Submit</button>
+                                </form>
 
 
                             </div>

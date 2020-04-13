@@ -1567,13 +1567,7 @@ pre code {
   background-color: transparent;
   border: 0;
 }
-.form-control:focus {
-  color: #495057;
-  background-color: #fff;
-  border-color: #80bdff;
-  outline: 0;
-  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-}
+
 .form-control::placeholder {
   color: #6c757d;
   opacity: 1;
@@ -9266,13 +9260,6 @@ pre code {
 .form-control::-ms-expand {
   background-color: transparent;
   border: 0;
-}
-.form-control:focus {
-  color: #495057;
-  background-color: transparent;
-  border-color: #9acffa;
-  outline: 0;
-  box-shadow: none, 0 0 0 0.2rem rgba(33, 150, 243, 0.25);
 }
 .form-control::placeholder {
   color: #6c757d;
@@ -18291,7 +18278,7 @@ fieldset[disabled] .is-focused .switch label:focus {
 }
 .form-control,
 .is-focused .form-control {
-  background-image: linear-gradient(to top, #9c27b0 2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #d2d2d2 1px, rgba(210, 210, 210, 0) 1px);
+  background-image: linear-gradient(to top, rgba(210, 210, 210, 0) 2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #d2d2d2 1px, rgba(210, 210, 210, 0) 1px);
 }
 .form-control:invalid {
   background-image: linear-gradient(to top, #f44336 2px, rgba(244, 67, 54, 0) 2px), linear-gradient(to top, #d2d2d2 1px, rgba(210, 210, 210, 0) 1px);
@@ -18418,7 +18405,7 @@ fieldset[disabled][disabled] .form-control,
 }
 .is-focused [class^="bmd-label"],
 .is-focused [class*=" bmd-label"] {
-  color: #9c27b0;
+  color: #3c4858;
 }
 .is-focused .bmd-label-placeholder {
   color: #999;
@@ -26260,6 +26247,13 @@ a, a:hover, a:active, a:visited {
 
 .rounded {
   border-radius: .25rem!important;
+}
+
+.textarea-border {
+  border: 1px solid #d2d2d2; 
+  background-image: none!important;
+  padding-left: 7px;
+  padding-right: 7px;
 }
 
 @media (max-width: 768px)
