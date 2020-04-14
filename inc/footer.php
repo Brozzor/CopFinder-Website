@@ -14,6 +14,6 @@
             <img class="partner-logo" src="/img/payments/discover.png" alt="Discover">
             <img class="partner-logo" src="/img/payments/american-express.png" alt="Aex">
         </div>
-        <div class="copyright pull-center">Copyright © 2020 COP FINDER | <a href="legal.pdf" target="_blank">Privacy Policy</a> | <a href="legal.pdf" target="_blank">Terms & Conditions</a></div><br>
+        <div class="copyright pull-center">Copyright © 2020 COP FINDER | <a href="/privacy.php" target="_blank">Privacy Policy</a> | <a href="terms.php" target="_blank">Terms & Conditions</a></div><br>
     </div>
 </footer>
