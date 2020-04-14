@@ -82,7 +82,6 @@
             </div>
         </footer>
     </div>
-    <script src="https://hotbot.store/assets/web/v2/application-94751829bc5ff2201d578421a74260ddc81fc4a8d90cbbf282da59856f0a7176.js" data-turbolinks-track="true" type="text/javascript"></script>
 </body>
 
 </html>
