@@ -1,6 +1,6 @@
-<?php 
-  require "inc/functions.php";
-  $products = productsBy();
+<?php
+require "inc/functions.php";
+$products = productsBy();
 
 ?>
 <!DOCTYPE html>
@@ -20,7 +20,7 @@
 </head>
 
 <body class="index-page sidebar-collapse">
-<?php include "inc/header.php"; ?>
+  <?php include "inc/header.php"; ?>
 
   <div class="page-header header-filter" style="background-image: url('/img/bg/main-bg2.jpg');">
     <div class="container">
@@ -81,7 +81,12 @@
 
                 <img class="macbook-img" style="box-sizing: initial;" src="/img/other/macbook.png" alt="Cadre">
               </div>
-              <div class="product-video-link phone-video-link"><a class="btn btn-primary btn-sm video-modal-toggle" href="youtube.com"><i class="fa fa-youtube-play"></i>Cop demonstration</a></div>
+              <div class="product-video-link phone-video-link mt-4">
+                <a class="btn btn-primary btn-sm video-modal-toggle" href="https://youtube.com">
+                  <i class="fa fa-youtube-play"></i>
+                  Cop demonstration
+                </a>
+              </div>
             </div>
             <div class="col-lg-3 col-md-12 mr-auto mobile-column mobile-info-column">
               <div class="info info-horizontal app-sequence-info">
@@ -134,21 +139,21 @@
           </div>
           <div class="row second-row">
             <div class="col-sm-4">
-              <div class="info">
+              <div class="info mt-4">
                 <div class="icon"><i class="material-icons" style="opacity: 1;">face</i></div>
                 <h4 class="info-title">Human imitation</h4>
                 <p>CopFinder uses algorithms that fully imitate the human manner of entering data.</p>
               </div>
             </div>
             <div class="col-sm-4">
-              <div class="info">
+              <div class="info mt-4">
                 <div class="icon"><i class="material-icons" style="opacity: 1;">store</i></div>
                 <h4 class="info-title">Store and Restocks</h4>
                 <p>These are very helpful because they give you an opportunity to track items that are available or have been restocked as well as to buy them instantly.</p>
               </div>
             </div>
             <div class="col-sm-4">
-              <div class="info">
+              <div class="info mt-4">
                 <div class="icon"><i class="material-icons" style="opacity: 1;">format_list_numbered</i></div>
                 <h4 class="info-title">FastCop 2.3/sec</h4>
                 <p>be the first to buy with our algorithm and our optimisations, they have an execution time of 2.3s</p>
@@ -231,7 +236,7 @@
     </section>
   </div>
   <?php include "inc/footer.php"; ?>
-  
+
   <script src="/js/main.js"></script>
   <script src="/js/jquery.min.js" type="text/javascript"></script>
   <script src="/js/popper.min.js" type="text/javascript"></script>

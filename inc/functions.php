@@ -279,6 +279,17 @@ function allFaq($lang)
     return $response;
 }
 
+function allVideos()
+{
+    include 'bdd.php';
+    $req = $pdo->prepare("SELECT * FROM videos");
+    $req->execute();
+    while ($row = $req->fetch()) {
+        $response[] = $row;
+    }
+    return $response;
+}
+
 function createTicket($name, $mail, $msg,$ip)
 {
     include 'bdd.php';
@@ -300,4 +311,15 @@ function createTicket($name, $mail, $msg,$ip)
     $req = $pdo->prepare("INSERT INTO support(name, mail, message, ip, date_send) VALUES('$nameCheck', '$mail', '$messageCheck', '$ip', '$now')");
     $req->execute();
     return 'send';
+}
+
+function isLanguage($sDefault = 'en') {
+    if(!empty($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
+      $aBrowserLanguages = explode(',',$_SERVER['HTTP_ACCEPT_LANGUAGE']);
+      foreach($aBrowserLanguages as $sBrowserLanguage) {
+        $sLang = strtolower(substr($sBrowserLanguage,0,2));
+          return $sLang;  
+      }
+    }
+    return $sDefault;
 }
