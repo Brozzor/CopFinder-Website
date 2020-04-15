@@ -30,6 +30,7 @@
                                 <li>Adresse de livraison</li>
                                 <li>code postal</li>
                                 <li>Numéro de téléphone mobile</li>
+                                <li>Informations sur la carte bancaire</li>
                             </ul>
                             <p>Informations collectées automatiquement :</p>
                             <ul>
@@ -49,16 +50,17 @@
                             </ul>
                             <p>Stockage des données personnelles :</p>
                             <ul>
-                                <li>Le stockage des informations personnelles est stocker sur l'ordinateur de l'utilisateur et est stocker dans notre base de données héberger sur un serveur loué appartenant à l'entreprise OVH</li>
+                                <li>Le stockage des informations personnelles est stocker sur l'ordinateur de l'utilisateur et il est aussi stocker dans notre base de données héberger sur un serveur loué appartenant à l'entreprise OVH</li>
+                                <li>Les données sur la carte bleu sont stockés sur votre ordinateur et n'est pas envoyer dans nos bases de données</li>
                             </ul>
                             <h4 class="mt-5">3.Protection des informations personnelles.</h4>
                             <ul>
-                                <li>La protection des informations personnelles est mise en œuvre par la méthode HTTPS lors du transfert de votre ordinateur a nos serveurs. </li>
+                                <li>La protection des informations personnelles est mise en œuvre par la méthode HTTPS lors du transfert de votre ordinateur à nos serveurs. </li>
                                 <li>La base de données est protégée par les méthodes et les ressources de l'entreprise OVH : <a style="color: black;" href="https://www.ovh.com/fr/protection-donnees-personnelles/">https://www.ovh.com/fr/protection-donnees-personnelles/</a></li>
                             </ul>
                             <h4 class="mt-5">4. L'ordre de transfert des données personnelles à des tiers.</h4>
                             <ul>
-                                <li>Nous ne transferons aucunement vos données personnelles à des tiers</li>
+                                <li>Nous ne transferons ni ne partageons aucunement vos données personnelles à des tiers.</li>
                                 <li>Les données peuvent être ouvertes dans les cas prévus par la loi applicable: </li>
                                 <ul>
                                     <li>demande officielle des agences d'exécution</li>
