@@ -14,8 +14,7 @@ function logged_only()
         session_start();
     }
     if (!isset($_SESSION['auth'])) {
-        $_SESSION['flash']['danger'] = "Veuillez vous connectez pour acceder à cette page";
-        header('Location: https://buisson.pro/login.php');
+        header('Location: index.php');
         exit();
     }
 }
@@ -37,7 +36,7 @@ function reconnect_from_cookie()
         $req->execute([$user_id]);
         $user = $req->fetch();
         if ($user) {
-            $expected = $user_id . '==' . $user->remember_token . sha1($user_id . 'ceciestunmot');
+            $expected = $user_id . '==' . $user['remember_token'] . sha1($user_id . 'lebougestdechainer');
             if ($expected == $remember_token) {
                 session_start();
                 $_SESSION['auth'] = $user;
@@ -109,6 +108,15 @@ function getCouponById($id)
     } else {
         return 0;
     }
+}
+
+function getCouponByUid()
+{
+    include 'bdd.php';
+    $id = $_SESSION['auth']['id'];
+    $req = $pdo->prepare("SELECT * FROM coupon WHERE uid_create = '$id' LIMIT 1");
+    $req->execute();
+    return $req->fetch();
 }
 
 function diff_day_timestamp($date1, $date2)
@@ -313,7 +321,8 @@ function createTicket($name, $mail, $msg,$ip)
     return 'send';
 }
 
-function isLanguage($sDefault = 'en') {
+function isLanguage($sDefault = 'en') 
+{
     if(!empty($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
       $aBrowserLanguages = explode(',',$_SERVER['HTTP_ACCEPT_LANGUAGE']);
       foreach($aBrowserLanguages as $sBrowserLanguage) {
@@ -322,4 +331,36 @@ function isLanguage($sDefault = 'en') {
       }
     }
     return $sDefault;
+}
+
+function checkAccount($mail, $password)
+{
+    include 'bdd.php';
+    if (!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
+        return 'Mail is not valid';
+    }
+    $passwordCheck = trim(htmlspecialchars($password));
+
+    $req = $pdo->prepare("SELECT id,mail,password FROM users WHERE mail = '$mail' LIMIT 1");
+    $req->execute();
+    $user = $req->fetch();
+    if ($user['password'] != NULL && $user['password'] == $passwordCheck)
+    {
+        $_SESSION['auth'] = $user;
+        $remember_token = str_random(250);
+        $pdo->prepare('UPDATE users SET remember_token = ? WHERE id = ?')->execute([$remember_token, $user['id']]);
+        setcookie('remember', $user['id'] . '==' . $remember_token . sha1($user['id'] . 'lebougestdechainer'), time() + 60 * 60 * 24 * 7);
+        header('Location: main.php');
+    }else{
+        return 'Bad password or mail';
+    }
+}
+
+function getUserInfos()
+{
+    include 'bdd.php';
+    $id = $_SESSION['auth']['id'];
+    $req = $pdo->prepare("SELECT * FROM users WHERE id = '$id'");
+    $req->execute();
+    return $req->fetch();
 }

@@ -109,9 +109,9 @@ function displayCat(){
 
 }
 
-function addInfoUser($key,$name,$mail,$tel,$city,$postcode,$country,$address){
+function addInfoUser($key,$name,$tel,$city,$postcode,$country,$address){
 	include '../inc/bdd.php';
-	$request = $pdo->prepare("UPDATE users SET mail = '".$mail."', global_name = '".$name."', tel = '".$tel."', city = '".$city."', postcode = '".$postcode."', country = '".$country."', address = '".$address."' WHERE generate_key = '".$key."'");
+	$request = $pdo->prepare("UPDATE users SET global_name = '".$name."', tel = '".$tel."', city = '".$city."', postcode = '".$postcode."', country = '".$country."', address = '".$address."' WHERE generate_key = '".$key."'");
 	$request->execute();
 	displayJson('1', "inserer");
 }
@@ -275,7 +275,7 @@ switch ($use) {
 			$postcodeCheck = htmlspecialchars($_POST['postcode']);
 			$countryCheck = htmlspecialchars($_POST['country']);
 			$addressCheck = htmlspecialchars($_POST['address']);
-			addInfoUser($keyCheck,$nameCheck,$mailCheck,$telCheck,$cityCheck,$postcodeCheck,$countryCheck,$addressCheck);
+			addInfoUser($keyCheck,$nameCheck,$telCheck,$cityCheck,$postcodeCheck,$countryCheck,$addressCheck);
 		}
 
 		break;
