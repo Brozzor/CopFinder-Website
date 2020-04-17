@@ -34,7 +34,7 @@
                 <hr class="vertical">
                 <li class="nav-item">
                     <a class="btn supreme-btn nav-supreme" href="/index.php#offers">
-                        <i class="fa fa-shopping-cart"></i> BUY NOW
+                        <i class="fa fa-shopping-cart"></i> <?= TXT_BUY_NOW; ?>
                     </a>
                 </li>
             </ul>
