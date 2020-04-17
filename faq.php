@@ -1,6 +1,7 @@
 <?php
 require "inc/functions.php";
-$faq = allFaq('FR');
+require "lang/lang.php";
+$faq = allFaq(LANG_UTIL);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,7 +36,7 @@ $faq = allFaq('FR');
                         <div class="row">
 
                             <div class="col-md-12 mt-4">
-                                <center><span>Here are several answers that can help you, if you do not find an answer to your problem contact us: <a style="color: black" href="/contact.php">here</a></span></center>
+                                <center><span><?= TXT_FAQ_SUBTITLE; ?> <a style="color: black" href="/contact.php"><?= TXT_HERE; ?></a></span></center>
 
                                 <div class="panel-group mt-4" id="accordion" role="tablist" aria-multiselectable="true">
                                     <?php 

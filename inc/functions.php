@@ -321,18 +321,6 @@ function createTicket($name, $mail, $msg,$ip)
     return 'send';
 }
 
-function isLanguage($sDefault = 'en') 
-{
-    if(!empty($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
-      $aBrowserLanguages = explode(',',$_SERVER['HTTP_ACCEPT_LANGUAGE']);
-      foreach($aBrowserLanguages as $sBrowserLanguage) {
-        $sLang = strtolower(substr($sBrowserLanguage,0,2));
-          return $sLang;  
-      }
-    }
-    return $sDefault;
-}
-
 function checkAccount($mail, $password)
 {
     include 'bdd.php';

@@ -1,5 +1,6 @@
 <?php
 require "inc/functions.php";
+require "lang/lang.php";
 
 $isPay = false;
 $idTransac = trim(htmlspecialchars($_GET['idtransac']));
@@ -40,9 +41,9 @@ if (isPaymentExist($idTransac)) {
             <div class="main main-raised main-product" style="min-height: 370px;">
                 <div id="page-data">
                     <?php if ($isPay) { ?>
-                        <h2 class="card-title text-center" id="product-name">Successfully Payment</h2>
+                        <h2 class="card-title text-center" id="product-name"><?= TXT_PAY_SUCCESS_TITLE; ?></h2>
                     <?php } else { ?>
-                        <h2 class="card-title text-center" id="product-name">Error Payment</h2>
+                        <h2 class="card-title text-center" id="product-name"><?= TXT_PAY_NOT_SUCCESS_TITLE; ?></h2>
                     <?php } ?>
 
 
@@ -52,12 +53,12 @@ if (isPaymentExist($idTransac)) {
 
                                 <?php if ($isPay) { ?>
                                     <div class="alert alert-success fade show" role="alert">
-                                        <strong>Well done !</strong> Well done ! your payment has been made and we have emailed you your license key, if you do not receive it check your spam and if after 1 hour you still have not received anything contact support in the contact section : <a href="/contact">click here</a>
+                                        <strong><?= TXT_PAY_WELLDONE; ?></strong> <?= TXT_PAY_SUCCESS; ?> <a href="/contact"><?= TXT_HERE; ?></a>
                                     </div>
 
                                 <?php } else { ?>
                                     <div class="alert alert-danger fade show" role="alert">
-                                        <strong>Well done !</strong> We are sorry but your payment was unsuccessful
+                                        <strong><?= TXT_SORRY; ?></strong> <?= TXT_PAY_NOT_SUCCESS; ?>
                                     </div>
                                 <?php } ?>
 

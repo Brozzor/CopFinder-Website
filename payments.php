@@ -1,5 +1,6 @@
 <?php
 require "inc/functions.php";
+require "lang/lang.php";
 $code = false;
 if (is_numeric($_GET['id']) && isset($_GET['promo_code'])) {
   $products = productsBy($_GET['id']);
@@ -72,14 +73,14 @@ if (isset($_GET['email']) && isset($_GET['promo_code'])) {
             <a data-target="#promocodeModal" style="color: #d2d2d2;" data-toggle="modal" href="#" id="promocode-toggler">Have a coupon?</a>
             <?php if ($code && $price == $products[0]['price']) {?>
               <div class="alert alert-danger alert-dismissible fade show" role="alert">
-              <strong>Sorry !</strong> Your code is unvailable.
+              <strong><?= TXT_SORRY; ?> !</strong> <?= TXT_PAY_CODE_UNVAILABLE; ?>
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
               </div>
             <?php }else if ($code) { ?>
               <div class="alert alert-success alert-dismissible fade show" role="alert">
-              <strong>Well done !</strong> Your <?= searchPercentEconomy($couponId) ?>% code is available.
+              <strong><?= TXT_PAY_WELLDONE; ?></strong> <?= TXT_PAY_YOUR; ?> <?= searchPercentEconomy($couponId) ?>% <?= TXT_PAY_CODE_AVAILABLE; ?>
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -93,10 +94,10 @@ if (isset($_GET['email']) && isset($_GET['promo_code'])) {
 
                 <div class="form-group mt-5">
 
-                  <input type="email" id="emailInput" data-id="<?php echo $products[0]['id']; ?>" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
-                  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                  <input type="email" id="emailInput" data-id="<?php echo $products[0]['id']; ?>" class="form-control" aria-describedby="emailHelp" placeholder="<?= TXT_PAY_ENTER_MAIL; ?>">
+                  <small id="emailHelp" class="form-text text-muted"><?= TXT_PAY_NOT_SHARE_MAIL; ?></small>
                 </div>
-                <button type="submit" id="buy" class="btn supreme-btn btn-block">Proccess Payment</button>
+                <button type="submit" id="buy" class="btn supreme-btn btn-block"><?= TXT_PAY_PROCCESS; ?></button>
 
               </div>
               <div class="col-md-6 text-center">
@@ -106,14 +107,14 @@ if (isset($_GET['email']) && isset($_GET['promo_code'])) {
                     <div class="panel-heading" role="tab" id="headingOne">
                       <a role="button" style="color: black;" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne" class="collapsed">
                         <h4 class="panel-title">
-                          Panel
+                          <?= TXT_PAY_ACCORDEON1_TITLE; ?>
                           <i class="fa fa-cog"></i>
                         </h4>
                       </a>
                     </div>
                     <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false" style="height: 0px;">
                       <div class="panel-body">
-                        <span>We have designed one of the best panels to manage your tasks and make it as easy as possible for you to use them.</span>
+                        <span><?= TXT_PAY_ACCORDEON1_DESC; ?></span>
                       </div>
                     </div>
                   </div>
@@ -121,14 +122,14 @@ if (isset($_GET['email']) && isset($_GET['promo_code'])) {
                     <div class="panel-heading" role="tab" id="headingTwo">
                       <a class="collapsed" role="button" style="color: black;" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                         <h4 class="panel-title">
-                          Absolutely safe
+                        <?= TXT_PAY_ACCORDEON2_TITLE; ?>
                           <i class="fa fa-lock"></i>
                         </h4>
                       </a>
                     </div>
                     <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo" aria-expanded="false" style="height: 0px;">
                       <div class="panel-body">
-                        <span>We have no access to your personal data. You will be redirected to our Stripe partners to make the payment.</span>
+                        <span><?= TXT_PAY_ACCORDEON2_DESC; ?></span>
                       </div>
                     </div>
                   </div>
@@ -136,14 +137,14 @@ if (isset($_GET['email']) && isset($_GET['promo_code'])) {
                     <div class="panel-heading" role="tab" id="headingThree">
                       <a class="collapsed" role="button" style="color: black;" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                         <h4 class="panel-title">
-                          After payment
+                        <?= TXT_PAY_ACCORDEON3_TITLE; ?>
                           <i class="fa fa-envelope"></i>
                         </h4>
                       </a>
                     </div>
                     <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree" aria-expanded="false" style="height: 0px;">
                       <div class="panel-body">
-                        <span>You will arrive on a page where you will have access to your license key, it is also sent to you by email and you can retrieve it at any time by connecting to your panel (your access code will be sent by email)</span>
+                        <span><?= TXT_PAY_ACCORDEON3_DESC; ?></span>
                       </div>
                     </div>
                   </div>
@@ -151,14 +152,14 @@ if (isset($_GET['email']) && isset($_GET['promo_code'])) {
                     <div class="panel-heading" role="tab" id="headingFour">
                       <a class="" role="button" style="color: black;" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
                         <h4 class="panel-title">
-                          Support 7/7 24h
+                        <?= TXT_PAY_ACCORDEON4_TITLE; ?>
                           <i class="fa fa-comments-o"></i>
                         </h4>
                       </a>
                     </div>
                     <div id="collapseFour" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingFour" aria-expanded="true">
                       <div class="panel-body">
-                        <span>Our support is available 24 hours a day, 7 days a week, and we will provide you with all the help you need as soon as possible.You can contact us <a style="color: #da2727;" href="/contact">here</a></span>
+                        <span><?= TXT_PAY_ACCORDEON4_DESC; ?> <a style="color: #da2727;" href="/contact"><?= TXT_HERE; ?></a></span>
                       </div>
                     </div>
                   </div>
@@ -174,8 +175,8 @@ if (isset($_GET['email']) && isset($_GET['promo_code'])) {
           <div class="features-1">
             <div class="row">
               <div class="col-md-8 ml-auto mr-auto">
-                <h2 class="card-title">Haven't made a decision yet?</h2>
-                <h5 class="description">Join our community on social networks. We will gladly help with any question..</h5>
+                <h2 class="card-title"><?= TXT_PAY_MADE_DECISION; ?></h2>
+                <h5 class="description"><?= TXT_PAY_JOIN_COMMUNITY; ?></h5>
               </div>
             </div>
             <div class="row justify-content-center socials">
