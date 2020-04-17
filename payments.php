@@ -70,7 +70,7 @@ if (isset($_GET['email']) && isset($_GET['promo_code'])) {
           <h3 class="card-title text-center"><span id="product-price">$<?php echo $price; ?></span></h3>
           <?php } ?>
           <div class="text-center">
-            <a data-target="#promocodeModal" style="color: #d2d2d2;" data-toggle="modal" href="#" id="promocode-toggler">Have a coupon?</a>
+            <a data-target="#promocodeModal" style="color: #d2d2d2;" data-toggle="modal" href="#" id="promocode-toggler"><?= TXT_PAY_COUPON_HAVE; ?></a>
             <?php if ($code && $price == $products[0]['price']) {?>
               <div class="alert alert-danger alert-dismissible fade show" role="alert">
               <strong><?= TXT_SORRY; ?> !</strong> <?= TXT_PAY_CODE_UNVAILABLE; ?>
@@ -191,7 +191,7 @@ if (isset($_GET['email']) && isset($_GET['promo_code'])) {
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Enter your coupon</h5><button aria-label="Close" class="close" data-dismiss="modal" type="button"><i class="material-icons" style="opacity: 1;">clear</i></button>
+          <h5 class="modal-title"><?= TXT_PAY_COUPON_ENTER; ?></h5><button aria-label="Close" class="close" data-dismiss="modal" type="button"><i class="material-icons" style="opacity: 1;">clear</i></button>
         </div>
         <div class="modal-body">
           <div class="form form-newsletter" id="promocode-form">
@@ -201,7 +201,7 @@ if (isset($_GET['email']) && isset($_GET['promo_code'])) {
           </div>
           <div class="clearfix"></div>
           <div class="text-center js-simple-hide">
-            <h5>We sometimes give you promotional codes for reductions, follow our social networks and beware of our next updates and promotions.</h5>
+            <h5><?= TXT_PAY_COUPON_DESC; ?></h5>
             <ul class="social-buttons" style="padding-left: 0">
               <a class="btn btn-just-icon btn-link btn-instagram" href="https://www.instagram.com/" target="_blank"><i class="fa fa-instagram"></i></a>
               <a class="btn btn-just-icon btn-link btn-youtube" href="https://www.youtube.com/channel/" target="_blank"><i class="fa fa-youtube-play"></i></a>

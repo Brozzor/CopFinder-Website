@@ -25,7 +25,7 @@ define('TXT_ACCUEIL_CHOOSE_LICENSE', 'Choose your license');
 
 // FEATURES
 define('TXT_ACCUEIL_FEATURES1_TITLE', 'Supports Proxy');
-define('TXT_ACCUEIL_FEATURES1_DESC', 'CopFinder supports personal proxies as well as offers ours. It gives you an opportunity to cop several orders at the same time.');
+define('TXT_ACCUEIL_FEATURES1_DESC', 'Copfinder takes charges of all proxies, to make you cop multiples items on the same time.');
 
 define('TXT_ACCUEIL_FEATURES2_TITLE', 'Unlimited Tasks');
 define('TXT_ACCUEIL_FEATURES2_DESC', 'Run as many tasks as you need to cop as many items as you need. You’re one step closer to becoming a reseller');
@@ -108,6 +108,13 @@ define('TXT_PAY_ACCORDEON3_DESC', 'You will arrive on a page where you will have
 
 define('TXT_PAY_ACCORDEON4_TITLE', 'Support 7/7 24h');
 define('TXT_PAY_ACCORDEON4_DESC', 'Our support is available 24 hours a day, 7 days a week, and we will provide you with all the help you need as soon as possible.You can contact us');
+
+// coupon
+
+define('TXT_PAY_COUPON_DESC', 'We sometimes give you promotional codes for reductions, follow our social networks and beware of our next updates and promotions.');
+define('TXT_PAY_COUPON_ENTER', 'Enter your coupon');
+define('TXT_PAY_COUPON_HAVE', 'Have a coupon?');
+
 
 //---------------------------------------------------------
 // payments-info.php

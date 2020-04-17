@@ -2,118 +2,124 @@
 //---------------------------------------------------------
 // général
 //---------------------------------------------------------
-define('LANG_UTIL', 'EN');
-define('TXT_BUY_NOW', 'BUY NOW');
-define('TXT_CHROME_EXTENSION', 'Chrome Extension');
-define('TXT_HERE', 'here');
-define('TXT_SORRY', 'sorry');
+define('LANG_UTIL', 'FR');
+define('TXT_BUY_NOW', 'Acheter ici');
+define('TXT_CHROME_EXTENSION', 'Extension Chrome ');
+define('TXT_HERE', 'ici');
+define('TXT_SORRY', 'désolé');
+define('TXT_CHECK', 'verifier');
 
 //---------------------------------------------------------
 // index.php
 //---------------------------------------------------------
-define('TXT_ACCUEIL_INDEX', 'A passion made available');
-define('TXT_ACCUEIL_SUBTITLE_INDEX', 'We have created software that will save you time by ordering all the Supreme® items you want, and doing it when you want, at lightning speed.');
-define('TXT_ACCUEIL_INDEX_WATCH_VIDEO', 'Watch the presentation video');
-define('TXT_ACCUEIL_SUBTITLE_CHROME', 'Any Chrome-based browser (Windows, Linux, Mac)');
-define('TXT_ACCUEIL_VIEW_ALL_PRICE', 'View all price');
-define('TXT_ACCUEIL_COP_DEMONSTRATION', 'Cop demonstration');
-define('TXT_ACCUEIL_INCLUDE_ALL_FEATURES', 'Includes all the main features');
-define('TXT_ACCUEIL_OUR_MAIN_FEATURES', 'Our main features');
-define('TXT_ACCUEIL_CHOOSE_LICENSE', 'Choose your license');
+define('TXT_ACCUEIL_INDEX', 'Une passion mise à disposition');
+define('TXT_ACCUEIL_SUBTITLE_INDEX', 'Nous avons conçus un logiciel qui vous permettra de commander tout les equipements de la marque Supreme® que vous souhaitez, quand vous voulez, a la vitesse de l éclair.');
+define('TXT_ACCUEIL_INDEX_WATCH_VIDEO', 'Regardez la presentation vidéo');
+define('TXT_ACCUEIL_SUBTITLE_CHROME', 'N importe quel navigateur chrome (Windows, Linux, Mac)');
+define('TXT_ACCUEIL_VIEW_ALL_PRICE', 'Voir tout les prix');
+define('TXT_ACCUEIL_COP_DEMONSTRATION', 'Demonstration du bot');
+define('TXT_ACCUEIL_INCLUDE_ALL_FEATURES', 'Inclure toute les features');
+define('TXT_ACCUEIL_OUR_MAIN_FEATURES', 'Notre feature principale');
+define('TXT_ACCUEIL_CHOOSE_LICENSE', 'Choisissez votre license');
 
 
 
 // FEATURES
-define('TXT_ACCUEIL_FEATURES1_TITLE', 'Supports Proxy');
-define('TXT_ACCUEIL_FEATURES1_DESC', 'CopFinder supports personal proxies as well as offers ours. It gives you an opportunity to cop several orders at the same time.');
+define('TXT_ACCUEIL_FEATURES1_TITLE', 'Supports pour le Proxy');
+define('TXT_ACCUEIL_FEATURES1_DESC', 'CopFinder prend en charge n importe quelle proxy, pour vous permettre de copper plusieurs items en meme temps');
 
-define('TXT_ACCUEIL_FEATURES2_TITLE', 'Unlimited Tasks');
-define('TXT_ACCUEIL_FEATURES2_DESC', 'Run as many tasks as you need to cop as many items as you need. You’re one step closer to becoming a reseller');
+define('TXT_ACCUEIL_FEATURES2_TITLE', 'Taches illimités');
+define('TXT_ACCUEIL_FEATURES2_DESC', 'Lancez autant de taches que vous voulez. Vous etes a deux doigts de devenir un revendeur.');
 
-define('TXT_ACCUEIL_FEATURES3_TITLE', 'Staff is already');
-define('TXT_ACCUEIL_FEATURES3_DESC', 'Our chrome extension has been developped specialy to be update as fast as possible by our team if supreme modify the website.');
+define('TXT_ACCUEIL_FEATURES3_TITLE', 'Le staff est prêt');
+define('TXT_ACCUEIL_FEATURES3_DESC', 'Notre extension chrome a été développée spécialement pour être mise a jour aussi vite que possible par notre equipe si supreme modifie son site web.');
 
-define('TXT_ACCUEIL_FEATURES4_TITLE', 'All restocks on your phone');
-define('TXT_ACCUEIL_FEATURES4_DESC', 'Our mobile app gives you a chance to track and cop items with our auto-restock feature.. Once the item is restocked you will get a notification and the purchase will start.');
+define('TXT_ACCUEIL_FEATURES4_TITLE', 'Tout les reestocks sans votre téléphone.');
+define('TXT_ACCUEIL_FEATURES4_DESC', 'Notre application mobile vous donnes une chance de suivre les items de votre choix et les restocks... Une fois les items restocks, vous recevrez une notification et l achat pourra être effectué.');
 
 // FEATURES ++
 
-define('TXT_ACCUEIL_MORE_FEATURES1_TITLE', 'Smart Cop');
-define('TXT_ACCUEIL_MORE_FEATURES1_DESC', 'No categories problems. No color problems. No size problems. No keywords problems. Our algorithm beats all this errors. ');
+define('TXT_ACCUEIL_MORE_FEATURES1_TITLE', 'Un Bot intelligent');
+define('TXT_ACCUEIL_MORE_FEATURES1_DESC', 'Pas de problèmes de categories. Pas de problèmes de couleurs. Pas de problèmes de taille. Pas de problèmes de noms . Notre algorithme est meilleur que celui des autres. ');
 
-define('TXT_ACCUEIL_MORE_FEATURES2_TITLE', 'Lots of useful settings');
-define('TXT_ACCUEIL_MORE_FEATURES2_DESC', 'The bot is very versatile, you can set a timer, and the stuff you want to cop, then the bot is completly automatical, and it will buy for you, and skip all the steps very fast. Our bot CopFinder has been tested and approved.');
+define('TXT_ACCUEIL_MORE_FEATURES2_TITLE', 'Beaucoup d outils pratiques.');
+define('TXT_ACCUEIL_MORE_FEATURES2_DESC', 'Le bot est très complet, vous pouvre mettre un timer et tout les items que vous souhaitez acheter. Il est égalememnt completement automatique, il achètera pour vous et passera toutes les étapes de l achat. Notre bot a été testé et approuvé.');
 
 define('TXT_ACCUEIL_MORE_FEATURES3_TITLE', 'Auto-restock feature');
-define('TXT_ACCUEIL_MORE_FEATURES3_DESC', 'Our bot allows you 2 things : first you can buy very fast, and secondly, you can select your items before they are on stock, you wont have to wait the stock time and the CopFinder will do all steps for you.');
+define('TXT_ACCUEIL_MORE_FEATURES3_DESC', 'Notre bot vous permet 2 choses : premièrement, vous pouvez acheter très vite. Ensuite, vous pouvez selectionnez les items que vous souhaiter acheter avant leurs mise en stocke vous n aurez pas a attendre la disponibilité CopFinder se chargera de tout le reste.');
 
-define('TXT_ACCUEIL_MORE_FEATURES4_TITLE', 'Human imitation');
-define('TXT_ACCUEIL_MORE_FEATURES4_DESC', 'CopFinder uses algorithms that fully imitate the human manner of entering data.');
+define('TXT_ACCUEIL_MORE_FEATURES4_TITLE', 'Imitation hummaine');
+define('TXT_ACCUEIL_MORE_FEATURES4_DESC', 'CopFinder utilises des algorithmes qui immitent les manières humaines pour rentrer les informations. ');
 
-define('TXT_ACCUEIL_MORE_FEATURES5_TITLE', 'Store and Restocks');
-define('TXT_ACCUEIL_MORE_FEATURES5_DESC', 'These are very helpful because they give you an opportunity to track items that are available or have been restocked as well as to buy them instantly.');
+define('TXT_ACCUEIL_MORE_FEATURES5_TITLE', 'Magasin et restocks');
+define('TXT_ACCUEIL_MORE_FEATURES5_DESC', 'Cette option est très pratique, elle voous permet d avoir l opportunité de suivre la disponibilité des articles avec leurs date de sortie et leurs disponibilité lors de leurs sortiespour les acheter instantanéments.'); 
 
 define('TXT_ACCUEIL_MORE_FEATURES6_TITLE', 'FastCop 2.3/sec');
-define('TXT_ACCUEIL_MORE_FEATURES6_DESC', 'Be the first to buy with our algorithm and our optimisations, they have an execution time of 2.3s');
+define('TXT_ACCUEIL_MORE_FEATURES6_DESC', 'Soyez le premier a achetter avec notre algorithme et son optimisation, il a un temps d exécuion de 2.3 secondes');
 
-// PRODUCTS
+// PRODUCTS 
 
-define('TXT_ACCUEIL_PRODUCT1_LIST1', 'One Drop Only');
-define('TXT_ACCUEIL_PRODUCT1_LIST2', 'Basic support');
-define('TXT_ACCUEIL_PRODUCT1_LIST3', 'Restocks are available only on drop days');
-define('TXT_ACCUEIL_PRODUCT1_LIST4', 'FastCop Included');
-define('TXT_ACCUEIL_PRODUCT1_LIST5', 'No SmartCop');
+define('TXT_ACCUEIL_PRODUCT1_LIST1', 'Un seul drop');
+define('TXT_ACCUEIL_PRODUCT1_LIST2', 'Support Basique');
+define('TXT_ACCUEIL_PRODUCT1_LIST3', 'Les restocks sont disponibles une fois par jours');
+define('TXT_ACCUEIL_PRODUCT1_LIST4', 'FastCop inclus');
+define('TXT_ACCUEIL_PRODUCT1_LIST5', 'Pas de SmartCop');
 
-define('TXT_ACCUEIL_PRODUCT2_LIST1', 'Renewal for only 19.99$/year');
-define('TXT_ACCUEIL_PRODUCT2_LIST2', 'Priority support and setup assistance');
-define('TXT_ACCUEIL_PRODUCT2_LIST3', 'Full access to restocks');
-define('TXT_ACCUEIL_PRODUCT2_LIST4', 'FastCop Included');
-define('TXT_ACCUEIL_PRODUCT2_LIST5', 'SmartCop Included');
+define('TXT_ACCUEIL_PRODUCT2_LIST1', 'Renouvlable pour seulement 19.99€/ans');
+define('TXT_ACCUEIL_PRODUCT2_LIST2', 'Support prioritaire et aide disponible');
+define('TXT_ACCUEIL_PRODUCT2_LIST3', 'Accès complet aux restocks');
+define('TXT_ACCUEIL_PRODUCT2_LIST4', 'FastCop inclus');
+define('TXT_ACCUEIL_PRODUCT2_LIST5', 'SmartCop inclus');
 
-define('TXT_ACCUEIL_PRODUCT3_LIST1', 'The best value for money');
-define('TXT_ACCUEIL_PRODUCT3_LIST2', 'First class support and setup assistance');
+define('TXT_ACCUEIL_PRODUCT3_LIST1', 'Le meilleur investissement');
+define('TXT_ACCUEIL_PRODUCT3_LIST2', 'Support de première classe et assistance de mise en place');
 define('TXT_ACCUEIL_PRODUCT3_LIST3', 'Full access to restocks');
-define('TXT_ACCUEIL_PRODUCT3_LIST4', 'SmartCop Included');
-define('TXT_ACCUEIL_PRODUCT3_LIST5', 'FastCop Included');
-define('TXT_ACCUEIL_PRODUCT3_LIST6', 'No renewel fee');
+define('TXT_ACCUEIL_PRODUCT3_LIST4', 'SmartCop inclus');
+define('TXT_ACCUEIL_PRODUCT3_LIST5', 'FastCop inclus');
+define('TXT_ACCUEIL_PRODUCT3_LIST6', 'Pas besoin de renouveler');
 
 //---------------------------------------------------------
 // faq.php
 //---------------------------------------------------------
 
-define('TXT_FAQ_SUBTITLE', 'Here are several answers that can help you, if you do not find an answer to your problem contact us');
+define('TXT_FAQ_SUBTITLE', 'Voici quelques réponses qui peuvent vous aider, si vous ne trouvez pas de réponse a votre problème, contactez nous');
 
 //---------------------------------------------------------
 // payments.php
 //---------------------------------------------------------
-define('TXT_PAY_CODE_UNVAILABLE', 'Your code is unvailable.');
-define('TXT_PAY_CODE_AVAILABLE', 'code is available.');
-define('TXT_PAY_YOUR', 'Your');
-define('TXT_PAY_WELLDONE', 'Well done !');
-define('TXT_PAY_NOT_SHARE_MAIL', 'We\'ll never share your email with anyone else.');
-define('TXT_PAY_ENTER_MAIL', 'Enter email');
-define('TXT_PAY_PROCCESS', 'Proccess Payment');
-define('TXT_PAY_MADE_DECISION', 'Haven\'t made a decision yet?');
-define('TXT_PAY_JOIN_COMMUNITY', 'Join our community on social networks. We will gladly help with any question..');
+define('TXT_PAY_CODE_UNVAILABLE', 'Erreur lors de la generation du code.');
+define('TXT_PAY_CODE_AVAILABLE', 'code est disponible.');
+define('TXT_PAY_YOUR', 'Votre');
+define('TXT_PAY_WELLDONE', 'Bien joué !');
+define('TXT_PAY_NOT_SHARE_MAIL', 'Nous ne partagerons jamais vos données personnelles.');
+define('TXT_PAY_ENTER_MAIL', 'Entrez votre email');
+define('TXT_PAY_PROCCESS', 'Procédez au paiement');
+define('TXT_PAY_MADE_DECISION', 'Vous ne vous êtes pas encore décidé ?');
+define('TXT_PAY_JOIN_COMMUNITY', 'Rejoignez notre communauté sur nos réseaux sociaux. Nous serons content de répondre a vos questions..');
 
 
-define('TXT_PAY_ACCORDEON1_TITLE', 'Panel');
-define('TXT_PAY_ACCORDEON1_DESC', 'We have designed one of the best panels to manage your tasks and make it as easy as possible for you to use them.');
+define('TXT_PAY_ACCORDEON1_TITLE', 'Interface'); 
+define('TXT_PAY_ACCORDEON1_DESC', 'Nous avons réalisés le meilleur interface possible pour gérer vos taches et le rendre aussi simple que possible pour que vous puissisez l utiliser.');
 
-define('TXT_PAY_ACCORDEON2_TITLE', 'Absolutely safe');
-define('TXT_PAY_ACCORDEON2_DESC', 'We have no access to your personal data. You will be redirected to our Stripe partners to make the payment.');
+define('TXT_PAY_ACCORDEON2_TITLE', 'Complètement sécurisé');
+define('TXT_PAY_ACCORDEON2_DESC', 'Nous n avons pas accès a vos données personnelles, vous serez rediigés vers le site pour effectuer l achat.');
 
-define('TXT_PAY_ACCORDEON3_TITLE', 'After payment');
-define('TXT_PAY_ACCORDEON3_DESC', 'You will arrive on a page where you will have access to your license key, it is also sent to you by email and you can retrieve it at any time by connecting to your panel (your access code will be sent by email)');
+define('TXT_PAY_ACCORDEON3_TITLE', 'Après avoir payé');
+define('TXT_PAY_ACCORDEON3_DESC', 'Vous arriverez sur la page ou vous pourrez avoir accès a la clé de license, cette dernière sera envoyée par mail une fois l achat validé.');
 
 define('TXT_PAY_ACCORDEON4_TITLE', 'Support 7/7 24h');
-define('TXT_PAY_ACCORDEON4_DESC', 'Our support is available 24 hours a day, 7 days a week, and we will provide you with all the help you need as soon as possible.You can contact us');
+define('TXT_PAY_ACCORDEON4_DESC', 'Notre support est disponnible 24heure sur 24 et 7 jours sur 7 et nous répondrons à vos questions aussi vite que possible.Vous pouvez nous contacter');
+// coupon
+
+define('TXT_PAY_COUPON_DESC', 'We sometimes give you promotional codes for reductions, follow our social networks and beware of our next updates and promotions.');
+define('TXT_PAY_COUPON_ENTER', 'Enter your coupon');
+define('TXT_PAY_COUPON_HAVE', 'Have a coupon?');
 
 //---------------------------------------------------------
 // payments-info.php
 //---------------------------------------------------------
-define('TXT_PAY_NOT_SUCCESS_TITLE', 'Error Payment');
-define('TXT_PAY_SUCCESS_TITLE', 'Successfully Payment');
+define('TXT_PAY_NOT_SUCCESS_TITLE', 'Erreur lors du payement ');
+define('TXT_PAY_SUCCESS_TITLE', 'Payment effectué');
 
-define('TXT_PAY_SUCCESS', 'your payment has been made and we have emailed you your license key, if you do not receive it check your spam and if after 1 hour you still have not received anything contact support in the contact section :');
-define('TXT_PAY_NOT_SUCCESS', 'We are sorry but your payment was unsuccessful');
+define('TXT_PAY_SUCCESS', 'Votre paiement a été effectué et votre clé a été envoyée par mail. Si vous n avez rien reçu vérifiez vos spams , si après 1 heure vous n avez toujours rien reçu contactez le supprot dans notre onglet contact:');
+define('TXT_PAY_NOT_SUCCESS', 'Nous sommes désolé il y a eu une erreur lors du paiement.');
