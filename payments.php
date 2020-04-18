@@ -90,7 +90,7 @@ if (isset($_GET['email']) && isset($_GET['promo_code'])) {
           <div class="card-body">
             <div class="row">
               <div class="col-md-6 mt-4">
-                <center><span><?php echo $products[0]['description']; ?></span></center>
+                <center><span><?php echo getGoodDesc($products[0]['description'], $products[0]['description_fr']); ?></span></center>
 
                 <div class="form-group mt-5">
 

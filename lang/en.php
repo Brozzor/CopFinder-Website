@@ -50,8 +50,8 @@ define('TXT_ACCUEIL_MORE_FEATURES3_DESC', 'Our bot allows you 2 things : first y
 define('TXT_ACCUEIL_MORE_FEATURES4_TITLE', 'Human imitation');
 define('TXT_ACCUEIL_MORE_FEATURES4_DESC', 'CopFinder uses algorithms that fully imitate the human manner of entering data.');
 
-define('TXT_ACCUEIL_MORE_FEATURES5_TITLE', 'Store and Restocks');
-define('TXT_ACCUEIL_MORE_FEATURES5_DESC', 'These are very helpful because they give you an opportunity to track items that are available or have been restocked as well as to buy them instantly.');
+define('TXT_ACCUEIL_MORE_FEATURES5_TITLE', 'EasyCop');
+define('TXT_ACCUEIL_MORE_FEATURES5_DESC', 'We have created a part in the extension which will allow you to easily choose an article and add it directly to a task with a simple press of a button.');
 
 define('TXT_ACCUEIL_MORE_FEATURES6_TITLE', 'FastCop 2.3/sec');
 define('TXT_ACCUEIL_MORE_FEATURES6_DESC', 'Be the first to buy with our algorithm and our optimisations, they have an execution time of 2.3s');

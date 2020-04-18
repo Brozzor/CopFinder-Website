@@ -51,8 +51,8 @@ define('TXT_ACCUEIL_MORE_FEATURES3_DESC', 'Notre bot vous permet 2 choses : prem
 define('TXT_ACCUEIL_MORE_FEATURES4_TITLE', 'Imitation hummaine');
 define('TXT_ACCUEIL_MORE_FEATURES4_DESC', 'CopFinder utilises des algorithmes qui immitent les manières humaines pour rentrer les informations.');
 
-define('TXT_ACCUEIL_MORE_FEATURES5_TITLE', 'Magasin et restocks');
-define('TXT_ACCUEIL_MORE_FEATURES5_DESC', 'Cette option est très pratique, elle vous permet d\'avoir l\'opportunité de suivre la disponibilité des articles avec leurs date de sortie et leurs disponibilités lors de leurs sorties pour les acheter instantanéments.'); 
+define('TXT_ACCUEIL_MORE_FEATURES5_TITLE', 'EasyCop');
+define('TXT_ACCUEIL_MORE_FEATURES5_DESC', 'Nous avons créé une partie dans l\'extension qui vous permettra de choisir facilement un article et de l\'ajouter directement à une tache d\'un simple appuie sur un bouton'); 
 
 define('TXT_ACCUEIL_MORE_FEATURES6_TITLE', 'FastCop 2.3/sec');
 define('TXT_ACCUEIL_MORE_FEATURES6_DESC', 'Soyez le premier à acheter avec notre algorithme et son optimisation, le temps d\'exécution d\'une tache est de 2.3 secondes');
@@ -98,11 +98,11 @@ define('TXT_PAY_MADE_DECISION', 'Vous ne vous êtes pas encore décidé ?');
 define('TXT_PAY_JOIN_COMMUNITY', 'Rejoignez notre communauté sur nos réseaux sociaux. Nous serons content de répondre à vos questions..');
 
 
-define('TXT_PAY_ACCORDEON1_TITLE', 'Interface'); 
-define('TXT_PAY_ACCORDEON1_DESC', 'Nous avons réalisés le meilleur interface possible pour gérer vos taches et le rendre aussi simple que possible pour que vous puissisez l\'utiliser.');
+define('TXT_PAY_ACCORDEON1_TITLE', 'Panel'); 
+define('TXT_PAY_ACCORDEON1_DESC', 'Nous avons réalisé le meilleur panel possible pour gérer vos taches et rendre l\'utilisation du logiciel aussi simple que possible.');
 
 define('TXT_PAY_ACCORDEON2_TITLE', 'Complètement sécurisé');
-define('TXT_PAY_ACCORDEON2_DESC', 'Nous n\'avons pas accès à vos données personnelles, vous serez redirigés vers le site pour effectuer l\'achat.');
+define('TXT_PAY_ACCORDEON2_DESC', 'Nous n\'avons pas accès à vos données personnelles, vous serez redirigés vers notre partenaire de paiement Stripe pour effectuer l\'achat.');
 
 define('TXT_PAY_ACCORDEON3_TITLE', 'Après avoir payé');
 define('TXT_PAY_ACCORDEON3_DESC', 'Vous arriverez sur la page ou vous pourrez avoir accès à la clé de license, cette dernière sera envoyée par mail une fois l\'achat validé.');
@@ -111,7 +111,7 @@ define('TXT_PAY_ACCORDEON4_TITLE', 'Support 7/7 24h');
 define('TXT_PAY_ACCORDEON4_DESC', 'Notre support est disponnible 24 heure sur 24 et 7 jours sur 7 et nous répondrons à vos questions aussi vite que possible. Vous pouvez nous contacter');
 // coupon
 
-define('TXT_PAY_COUPON_DESC', 'Nous vous donnons parfois des codes promotionnels de reductions, suivez nos réseaux sociaux et restez a l\'affut de toutes nos mises a jours de nos promotions et de nos informations.');
+define('TXT_PAY_COUPON_DESC', 'Nous vous donnons parfois des codes promotionnels de reductions, suivez nos réseaux sociaux et restez à l\'affut de toutes les mises à jours et de nos informations.');
 define('TXT_PAY_COUPON_ENTER', 'Entrer le code');
 define('TXT_PAY_COUPON_HAVE', 'Avez vous un code ?');
 
@@ -119,7 +119,7 @@ define('TXT_PAY_COUPON_HAVE', 'Avez vous un code ?');
 // payments-info.php
 //---------------------------------------------------------
 define('TXT_PAY_NOT_SUCCESS_TITLE', 'Erreur lors du payement');
-define('TXT_PAY_SUCCESS_TITLE', 'Payment effectué');
+define('TXT_PAY_SUCCESS_TITLE', 'Paiement effectué');
 
 define('TXT_PAY_SUCCESS', 'Votre paiement à été effectué et votre clé à été envoyée par mail. Si vous n\'avez rien reçu vérifiez vos spams , si après 1 heure vous n\'avez toujours rien reçu contactez le support dans notre onglet contact:');
 define('TXT_PAY_NOT_SUCCESS', 'Nous sommes désolés il y a eu une erreur lors du paiement.');

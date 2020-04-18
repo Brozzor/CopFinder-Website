@@ -351,3 +351,12 @@ function getUserInfos()
     $req->execute();
     return $req->fetch();
 }
+
+function getGoodDesc($en,$fr)
+{
+    if(LANG_UTIL == 'FR'){
+        return $fr;
+    }else{
+        return $en;
+    }
+}
