@@ -17,3 +17,11 @@
         <div class="copyright pull-center">Copyright © 2020 COP FINDER | <a href="/privacy.php" target="_blank">Privacy Policy</a> | <a href="terms.php" target="_blank">Terms & Conditions</a></div><br>
     </div>
 </footer>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-163966679-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-163966679-1');
+</script>

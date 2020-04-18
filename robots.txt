@@ -1,0 +1,6 @@
+User-agent: *
+
+Disallow: /manager/
+Disallow: /manager
+
+Allow: /
