@@ -41,16 +41,16 @@ if (!empty($_POST['name']) && !empty($_POST['mail']) && !empty($_POST['msg']))
                         <div class="row">
 
                             <div class="col-md-12 mt-4">
-                                <center><span>You can perhaps find the answer to your question in the FAQ: <a style="color: black" href="/faq.php">here</a></span></center>
+                                <center><span><?= TXT_CONTACT_SUBTITLE; ?> <a style="color: black" href="/faq.php"><?= TXT_HERE; ?></a></span></center>
 
                                 <form method="POST" class="mt-4" action="">
                                     <div class="form-group">
-                                        <label for="name">Name</label>
-                                        <input type="text" class="form-control" id="name" name="name"  placeholder="Enter Name">
+                                        <label for="name"><?= TXT_CONTACT_NAME; ?></label>
+                                        <input type="text" class="form-control" id="name" name="name"  placeholder="<?= TXT_CONTACT_ENTER_NAME; ?>">
                                     </div>
                                     <div class="form-group">
-                                        <label for="mail">Email address</label>
-                                        <input type="email" class="form-control" id="mail" name="mail" aria-describedby="emailHelp" placeholder="Enter email">
+                                        <label for="mail"><?= TXT_CONTACT_MAIL; ?></label>
+                                        <input type="email" class="form-control" id="mail" name="mail" aria-describedby="emailHelp" placeholder="<?= TXT_CONTACT_ENTER_MAIL; ?>">
                                     </div>
                                     <div class="form-group">
                                         <label for="msg">Message</label>
@@ -58,7 +58,7 @@ if (!empty($_POST['name']) && !empty($_POST['mail']) && !empty($_POST['msg']))
                                     </div>
                                     
 
-                                    <button type="submit" class="btn supreme-btn btn-block">Submit</button>
+                                    <button type="submit" class="btn supreme-btn btn-block"><?= TXT_CONTACT_SUBMIT; ?></button>
                                     <?php if ($mailstate == 'send'){ ?>
                                         <div class="alert alert-success fade show" role="alert">
                                             <strong>Your message is send !</strong> Please wait 12 to 24 hours to receive the recipient's response

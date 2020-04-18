@@ -1,6 +1,5 @@
 <?php
 require "inc/functions.php";
-require "lang/lang.php";
 
 $isPay = false;
 $idTransac = trim(htmlspecialchars($_GET['idtransac']));

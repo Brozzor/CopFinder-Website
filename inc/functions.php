@@ -1,5 +1,5 @@
 <?php
-
+require "lang/lang.php";
 date_default_timezone_set('Europe/Paris');
 
 function str_random($length)
@@ -239,14 +239,14 @@ function createUser($mail, $pid, $ip)
 
 function get_ip_address()
 {
-    if(!empty($_SERVER['HTTP_CLIENT_IP'])){
+    if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
         $ip = $_SERVER['HTTP_CLIENT_IP'];
-      }elseif(!empty($_SERVER['HTTP_X_FORWARDED_FOR'])){
+    } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
         $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
-      }else{
+    } else {
         $ip = $_SERVER['REMOTE_ADDR'];
-  }
-  return $ip;
+    }
+    return $ip;
 }
 
 function updateTransac($id, $state, $uid)
@@ -298,24 +298,24 @@ function allVideos()
     return $response;
 }
 
-function createTicket($name, $mail, $msg,$ip)
+function createTicket($name, $mail, $msg, $ip)
 {
     include 'bdd.php';
     $nameCheck = trim(htmlspecialchars($name));
     if (!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
         return 'Mail is not valid';
     }
-    if (strlen($msg) < 25){
+    if (strlen($msg) < 25) {
         return 'Message is less than 25 characters';
     }
     $now = time();
     $req1 = $pdo->query("SELECT COUNT(*) as nb FROM support WHERE ip = '$ip' AND date_send > $now - 900");
     $donnees = $req1->fetch();
-    if ($donnees['nb'] >= 1){
+    if ($donnees['nb'] >= 1) {
         return 'You have already sent a message in the last 15 minutes';
     }
     $messageCheck = addslashes(trim(htmlspecialchars($msg)));
-    
+
     $req = $pdo->prepare("INSERT INTO support(name, mail, message, ip, date_send) VALUES('$nameCheck', '$mail', '$messageCheck', '$ip', '$now')");
     $req->execute();
     return 'send';
@@ -332,14 +332,13 @@ function checkAccount($mail, $password)
     $req = $pdo->prepare("SELECT id,mail,password FROM users WHERE mail = '$mail' LIMIT 1");
     $req->execute();
     $user = $req->fetch();
-    if ($user['password'] != NULL && $user['password'] == $passwordCheck)
-    {
+    if ($user['password'] != NULL && $user['password'] == $passwordCheck) {
         $_SESSION['auth'] = $user;
         $remember_token = str_random(250);
         $pdo->prepare('UPDATE users SET remember_token = ? WHERE id = ?')->execute([$remember_token, $user['id']]);
         setcookie('remember', $user['id'] . '==' . $remember_token . sha1($user['id'] . 'lebougestdechainer'), time() + 60 * 60 * 24 * 7);
         header('Location: main.php');
-    }else{
+    } else {
         return 'Bad password or mail';
     }
 }

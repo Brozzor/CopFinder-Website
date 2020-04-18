@@ -1,6 +1,5 @@
 <?php
 require "inc/functions.php";
-require "lang/lang.php";
 $faq = allFaq(LANG_UTIL);
 ?>
 <!DOCTYPE html>

@@ -124,3 +124,14 @@ define('TXT_PAY_SUCCESS_TITLE', 'Successfully Payment');
 
 define('TXT_PAY_SUCCESS', 'your payment has been made and we have emailed you your license key, if you do not receive it check your spam and if after 1 hour you still have not received anything contact support in the contact section :');
 define('TXT_PAY_NOT_SUCCESS', 'We are sorry but your payment was unsuccessful');
+
+//---------------------------------------------------------
+// contact.php
+//---------------------------------------------------------
+define('TXT_CONTACT_SUBTITLE', 'You can perhaps find the answer to your question in the FAQ:');
+define('TXT_CONTACT_ENTER_MAIL', 'Enter Mail');
+define('TXT_CONTACT_MAIL', 'Mail address');
+define('TXT_CONTACT_ENTER_NAME', 'Enter Name');
+define('TXT_CONTACT_NAME', 'Name');
+define('TXT_CONTACT_SUBMIT', 'Submit');
+

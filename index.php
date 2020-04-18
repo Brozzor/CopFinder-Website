@@ -1,6 +1,6 @@
 <?php
 require "inc/functions.php";
-require "lang/lang.php";
+
 $products = productsBy();
 
 ?>
@@ -64,10 +64,10 @@ $products = productsBy();
                 </div>
               </div>
               <div class="info info-horizontal">
-                <div class="icon icon-firm"><i class="material-icons" style="opacity: 1;">shopping_basket</i></div>
+                <div class="icon icon-firm"><i class="material-icons" style="opacity: 1;">pause</i></div>
                 <div class="description">
-                  <h4 class="info-title"><?= TXT_ACCUEIL_FEATURES2_TITLE; ?></h4>
-                  <p><?= TXT_ACCUEIL_FEATURES2_DESC; ?></p>
+                  <h4 class="info-title"><?= TXT_ACCUEIL_FEATURES4_TITLE; ?></h4>
+                  <p><?= TXT_ACCUEIL_FEATURES4_DESC; ?></p>
                 </div>
               </div>
             </div>
@@ -98,10 +98,10 @@ $products = productsBy();
                 </div>
               </div>
               <div class="info info-horizontal app-sequence-info">
-                <div class="icon icon-firm"><i class="material-icons" style="opacity: 1;">notifications_active</i></div>
+                <div class="icon icon-firm"><i class="material-icons" style="opacity: 1;">shopping_basket</i></div>
                 <div class="description">
-                  <h4 class="info-title"><?= TXT_ACCUEIL_FEATURES4_TITLE; ?></h4>
-                  <p><?= TXT_ACCUEIL_FEATURES4_DESC; ?></p>
+                  <h4 class="info-title"><?= TXT_ACCUEIL_FEATURES2_TITLE; ?></h4>
+                  <p><?= TXT_ACCUEIL_FEATURES2_DESC; ?></p>
                 </div>
               </div>
             </div>
