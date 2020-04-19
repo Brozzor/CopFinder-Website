@@ -41,8 +41,9 @@ if (isset($_GET['email']) && isset($_GET['promo_code'])) {
   <link rel="icon" type="image/png" href="/img/logo/icon.png" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    CopFinder - Products
+    CopFinder - <?php echo $products[0]['name']; ?>
   </title>
+  <meta name="description" content="<?php echo getGoodDesc($products[0]['description'], $products[0]['description_fr']); ?>">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no" name="viewport" />
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet" />

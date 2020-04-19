@@ -12,10 +12,10 @@ $products = productsBy();
   <link rel="icon" type="image/png" href="/img/logo/icon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    CopFinder - The fastest world copbot supreme
+    CopFinder - The Fastest World Copbot Supreme
   </title>
   <meta property="og:type" content="website"/>
-  <meta property="og:title" content="CopFinder | cop bot supreme"/>
+  <meta property="og:title" content="CopFinder | Cop Bot Supreme"/>
   <meta name="description" content="CopFinder is the best solution for buying limited items from Supreme New York. Automate the entire process and never miss another release!"/>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
