@@ -53,7 +53,7 @@ if (isset($_GET['email']) && isset($_GET['promo_code'])) {
 
 <body class="product-page" data-demo-ios="#" data-project="supreme_bot_world" style="overflow-x: hidden">
   <?php include "inc/header.php"; ?>
-  <div class="page-header header-filter" data-parallax="true" filter-color="black" style="background-image: url('/img/bg/main-bg2.webp'); transform: translate3d(0px, 0px, 0px);">
+  <div class="page-header header-filter" data-parallax="true" filter-color="black" style="background-image: url('/img/bg/main-bg2.jpg'); transform: translate3d(0px, 0px, 0px);">
     <div class="container">
       <div class="row title-row"></div>
     </div>

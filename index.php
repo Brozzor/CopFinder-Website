@@ -26,7 +26,7 @@ $products = productsBy();
 <body class="index-page sidebar-collapse">
   <?php include "inc/header.php"; ?>
 
-  <div class="page-header header-filter" style="background-image: url('/img/bg/main-bg2.webp');">
+  <div class="page-header header-filter" style="background-image: url('/img/bg/main-bg2.jpg');">
     <div class="container">
       <div class="row">
         <div class="col-md-6">
@@ -83,7 +83,7 @@ $products = productsBy();
               </div>
               <div class="banner__carousel">
 
-                <img class="macbook-img" style="box-sizing: initial;" src="/img/other/macbook.webp" alt="Macbook CopFinder">
+                <img class="macbook-img" style="box-sizing: initial;" src="/img/other/macbook.png" alt="Macbook CopFinder">
               </div>
               <div class="product-video-link phone-video-link mt-4">
                 <a class="btn btn-primary btn-sm video-modal-toggle" href="https://youtube.com">
@@ -113,7 +113,7 @@ $products = productsBy();
       </section>
     </div>
     <section id="features">
-      <div class="features-5" style="background-image: url('/img/bg/features-bg.webp');">
+      <div class="features-5" style="background-image: url('/img/bg/features-bg.jpg');">
         <div class="col-md-8 ml-auto mr-auto text-center">
           <h2 class="title"><?= TXT_ACCUEIL_OUR_MAIN_FEATURES; ?></p></h2>
         </div>
@@ -199,7 +199,7 @@ $products = productsBy();
                   </div>
                 </div>
                 <div class="col-md-4">
-                  <div class="card card-pricing card-background card-raised" style="background-image: url('/img/bg/models-price-bg.webp');">
+                  <div class="card card-pricing card-background card-raised" style="background-image: url('/img/bg/models-price-bg.jpg');">
                     <div class="card-body">
                       <h6 class="card-category"><?php echo $products[2]['name']; ?></h6>
                       <div class="title title-center mt-5"><small>$</small>109<small>.99</small></div>
