@@ -1,10 +1,10 @@
 <footer class="footer" data-background-color="black" id="footer">
     <div class="container">
         <ul class="social-buttons">
-            <a class="btn btn-just-icon btn-link btn-instagram" href="" target="_blank">
+            <a class="btn btn-just-icon btn-link btn-instagram" href="https://www.instagram.com/copfinder/" target="_blank">
                 <i class="fa fa-instagram"></i>
             </a>
-            <a class="btn btn-just-icon btn-link btn-youtube" href="" target="_blank">
+            <a class="btn btn-just-icon btn-link btn-youtube" href="https://www.youtube.com/channel/UCY6nETvukK3fN2gqV38FRMw/" target="_blank">
                 <i class="fa fa-youtube-play"></i>
             </a>
         </ul>

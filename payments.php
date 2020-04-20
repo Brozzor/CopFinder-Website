@@ -181,7 +181,8 @@ if (isset($_GET['email']) && isset($_GET['promo_code'])) {
               </div>
             </div>
             <div class="row justify-content-center socials">
-              <a class="btn btn-instagram btn-round" href="https://www.instagram.com/" target="_blank"><i class="fa fa-instagram"></i>Instagram</a><a class="btn btn-youtube btn-round" href="https://www.youtube.com/channel/" target="_blank"><i class="fa fa-youtube"></i>Youtube</a>
+              <a class="btn btn-instagram btn-round" href="https://www.instagram.com/copfinder" target="_blank"><i class="fa fa-instagram"></i>Instagram</a>
+              <a class="btn btn-youtube btn-round" href="https://www.youtube.com/channel/UCY6nETvukK3fN2gqV38FRMw/" target="_blank"><i class="fa fa-youtube"></i>Youtube</a>
             </div>
           </div>
         </div>
@@ -204,8 +205,8 @@ if (isset($_GET['email']) && isset($_GET['promo_code'])) {
           <div class="text-center js-simple-hide">
             <h5><?= TXT_PAY_COUPON_DESC; ?></h5>
             <ul class="social-buttons" style="padding-left: 0">
-              <a class="btn btn-just-icon btn-link btn-instagram" href="https://www.instagram.com/" target="_blank"><i class="fa fa-instagram"></i></a>
-              <a class="btn btn-just-icon btn-link btn-youtube" href="https://www.youtube.com/channel/" target="_blank"><i class="fa fa-youtube-play"></i></a>
+              <a class="btn btn-just-icon btn-link btn-instagram" href="https://www.instagram.com/copfinder" target="_blank"><i class="fa fa-instagram"></i></a>
+              <a class="btn btn-just-icon btn-link btn-youtube" href="https://www.youtube.com/channel/UCY6nETvukK3fN2gqV38FRMw/" target="_blank"><i class="fa fa-youtube-play"></i></a>
             </ul>
           </div>
         </div>
