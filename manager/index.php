@@ -2,13 +2,13 @@
 require "../inc/functions.php";
 reconnect_from_cookie();
 
-if(isset($_SESSION['auth'])){
+if (isset($_SESSION['auth'])) {
     header('Location: main.php');
     exit();
 }
 
-if(!empty($_POST['mail']) && !empty($_POST['password'])){
-   echo checkAccount($_POST['mail'], $_POST['password']);      
+if (!empty($_POST['mail']) && !empty($_POST['password'])) {
+    echo checkAccount($_POST['mail'], $_POST['password']);
 }
 
 ?>
@@ -46,8 +46,8 @@ if(!empty($_POST['mail']) && !empty($_POST['password'])){
 
                             <div class="col-md-12 mt-4">
                                 <center><span>You must be affiliated to be able to connect on this page, if you forgot your password you can contact the support : <a style="color: black" href="/contact.php">here</a></span></center>
-                           
-                            <form method="POST" class="mt-4" action="">
+
+                                <form method="POST" class="mt-4" action="">
                                     <div class="form-group bmd-form-group">
                                         <label for="mail" class="bmd-label-static">Email address</label>
                                         <input type="email" class="form-control" id="mail" name="mail" aria-describedby="emailHelp" placeholder="Enter email">
@@ -56,13 +56,13 @@ if(!empty($_POST['mail']) && !empty($_POST['password'])){
                                         <label for="password" class="bmd-label-static">Password</label>
                                         <input type="password" class="form-control" id="password" name="password" placeholder="Enter Password">
                                     </div>
-                                    
-                                    
+
+
 
                                     <button type="submit" class="btn supreme-btn btn-block">Log in</button>
-                                    
+
                                 </form>
- </div>
+                            </div>
                         </div>
                     </div>
                 </div>

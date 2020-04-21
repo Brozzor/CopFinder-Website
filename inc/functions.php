@@ -1,5 +1,5 @@
 <?php
-require "lang/lang.php";
+require $_SERVER['DOCUMENT_ROOT'] . "/lang/lang.php";
 date_default_timezone_set('Europe/Paris');
 
 function str_random($length)
@@ -359,4 +359,20 @@ function getGoodDesc($en,$fr)
     }else{
         return $en;
     }
+}
+
+function getLastUseCoupon($cid)
+{
+    include 'bdd.php';
+    $req = $pdo->prepare("SELECT user_mail,modified,products.name,products.commission FROM transactions INNER JOIN products ON transactions.pid = products.id WHERE promo_code = '$cid' AND state = 'completed'");
+    $req->execute();
+    while ($row = $req->fetch()) {
+        $response[] = $row;
+    }
+    return $response;
+}
+
+function transformTimetoDate($timestamp)
+{
+    return date("Y-m-d H:i:s", $timestamp);
 }

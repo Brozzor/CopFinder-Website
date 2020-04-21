@@ -30,7 +30,7 @@
                 <hr class="vertical">
                 <li class="nav-item">
                     <a class="btn supreme-btn nav-supreme" href="logout.php">
-                         Déconnection
+                         LOGOUT
                     </a>
                 </li>
             </ul>
