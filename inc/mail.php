@@ -188,7 +188,7 @@ $message = '
                                 <tr>
                                     <td align="center">
                                         <p>
-                                            <a href="https://google.fr" style="color: white;" class="button">Install Cop Finder</a>
+                                            <a href="https://chrome.google.com/webstore/detail/copfinder/jjnpbaehcbblehaikehechlckjoaamck" style="color: white;" class="button">Install Cop Finder</a>
                                         </p>
                                     </td>
                                 </tr>
