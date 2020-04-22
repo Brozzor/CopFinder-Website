@@ -3,10 +3,9 @@ require('../inc/functions.php');
 reconnect_from_cookie();
 logged_only();
 
-$user = getUserInfos();
-$coupon = getCouponByUid();
-$lastCouponUtil = getLastUseCoupon($coupon['id']);
-
+$id = $_SESSION['auth']['id'];
+$user = getUserInfos($id);
+$transac = getTransacs($id);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,62 +34,50 @@ $lastCouponUtil = getLastUseCoupon($coupon['id']);
         <div class="container">
             <div class="main main-raised main-product" style="min-height: 370px;">
                 <div id="page-data">
-                    <h2 class="card-title text-center" id="product-name">0$</h2>
+                    <h2 class="card-title text-center" id="product-name">Manager</h2>
 
                     <div class="card-body">
-                        <div class="col-md-12 mt-4">
-                                <center><span>Your affiliate code is : <strong><?= $coupon['name'] ?></strong> </span></center>
+                        <div class="col-md-12">
+                            <center><span>Manage your invoices and renew your license</span></center>
                             <div class="row mt-5">
                                 <div class="col-lg-6">
-                                    <center><h2>Last repayment request</h2></center>
+                                    <center>
+                                        <h2>Invoices</h2>
+                                    </center>
                                     <table class="table text-center">
                                         <thead class="thead-light">
                                             <tr>
-                                                <th scope="col">#</th>
-                                                <th scope="col">First</th>
-                                                <th scope="col">Last</th>
-                                                <th scope="col">Handle</th>
+                                                <th scope="col"></th>
+                                                <th scope="col">Price</th>
+                                                <th scope="col">Type</th>
+                                                <th scope="col">Date</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php 
-                                    //foreach ($lastCouponUtil as $row){
+                                            <?php
+                                            $i = 1;
+                                            foreach ($transac as $row) {
                                             ?>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>Mark</td>
-                                                <td>Otto</td>
-                                                <td>@mdo</td>
-                                            </tr>
-                                    <?php // } ?>
+                                                <tr>
+                                                    <th scope="row"><?= $i; ?></th>
+                                                    <td><?= $row['price']; ?></td>
+                                                    <td><?= $row['type']; ?></td>
+                                                    <td><?= $row['modified']; ?></td>
+                                                </tr>
+                                            <?php $i++;
+                                            } ?>
                                         </tbody>
                                     </table>
                                 </div>
                                 <div class="col-lg-6">
-                                <center><h2>Last use of the code</h2></center>
-                                    <table class="table text-center">
-                                        <thead class="thead-light">
-                                            <tr>
-                                                <th scope="col">Mail</th>
-                                                <th scope="col">Date</th>
-                                                <th scope="col">Product</th>
-                                                <th scope="col">Commission</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                        <?php 
-                                    foreach ($lastCouponUtil as $row){
-                                            ?>
-                                            <tr >
-                                                <td><?= $row['user_mail']; ?></td>
-                                                <td><?= transformTimetoDate($row['modified']); ?></td>
-                                                <td><?= $row['name']; ?></td>
-                                                <td><?= $row['commission']; ?>$</td>
-                                                
-                                            </tr>
-                                    <?php } ?>
-                                        </tbody>
-                                    </table>
+                                    <center>
+                                        <h2>License</h2>
+                                    </center>
+                                    <div class="card">
+                                        <div class="card-body">
+                                            
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

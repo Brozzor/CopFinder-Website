@@ -8,7 +8,7 @@ if (isset($_SESSION['auth'])) {
 }
 
 if (!empty($_POST['mail']) && !empty($_POST['password'])) {
-    echo checkAccount($_POST['mail'], $_POST['password']);
+    checkAccount($_POST['mail'], $_POST['password']);
 }
 
 ?>

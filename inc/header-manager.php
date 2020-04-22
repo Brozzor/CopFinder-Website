@@ -1,3 +1,6 @@
+<?php 
+
+?>
 <nav class="navbar navbar-transparent navbar-absolute navbar-expand-lg" color-on-scroll="100" id="sectionsNav">
     <div class="container">
         <div class="navbar-translate">
@@ -16,11 +19,30 @@
                         HOME
                     </a>
                 </li>
+                <?php if ($user['state'] >= '1') { ?>
+                <li class="nav-item">
+                    <a class="nav-link" href="affiliate.php">
+                        AFFILIATE
+                    </a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="repayment.php">
                         REPAYMENT
                     </a>
                 </li>
+                <?php } if($user['state'] >= '2'){ ?>
+                <li class="nav-item">
+                    <a class="nav-link" href="staff.php">
+                        STAFF
+                    </a>
+                </li>
+                <?php } if($user['state'] >= '3'){ ?>
+                <li class="nav-item">
+                    <a class="nav-link" href="admin.php">
+                        ADMIN
+                    </a>
+                </li>
+                <?php } ?>
                 <li class="nav-item">
                     <a class="nav-link" href="/contact.php">
                         CONTACT

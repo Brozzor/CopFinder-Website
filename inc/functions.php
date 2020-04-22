@@ -343,10 +343,9 @@ function checkAccount($mail, $password)
     }
 }
 
-function getUserInfos()
+function getUserInfos($id)
 {
     include 'bdd.php';
-    $id = $_SESSION['auth']['id'];
     $req = $pdo->prepare("SELECT * FROM users WHERE id = '$id'");
     $req->execute();
     return $req->fetch();
@@ -375,4 +374,15 @@ function getLastUseCoupon($cid)
 function transformTimetoDate($timestamp)
 {
     return date("Y-m-d H:i:s", $timestamp);
+}
+
+function getTransacs($id)
+{
+    include 'bdd.php';
+    $req = $pdo->prepare("SELECT * FROM transactions WHERE uid = '$id'");
+    $req->execute();
+    while ($row = $req->fetch()) {
+        $response[] = $row;
+    }
+    return $response;
 }
