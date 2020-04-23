@@ -1,11 +1,9 @@
 <?php
 require "inc/functions.php";
-
 $mailstate = 'pending';
 
-if (!empty($_POST['name']) && !empty($_POST['mail']) && !empty($_POST['msg']))
-{
-   $mailstate = createTicket($_POST['name'],$_POST['mail'],$_POST['msg'],get_ip_address());
+if (!empty($_POST['name']) && !empty($_POST['mail']) && !empty($_POST['msg'])) {
+    $mailstate = createTicket($_POST['name'], $_POST['mail'], $_POST['msg'], get_ip_address());
 }
 ?>
 <!DOCTYPE html>
@@ -22,6 +20,7 @@ if (!empty($_POST['name']) && !empty($_POST['mail']) && !empty($_POST['msg']))
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet" />
     <link href="/css/copfinder.css" rel="stylesheet" />
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 
 <body class="product-page" data-demo-ios="#" data-project="supreme_bot_world" style="overflow-x: hidden">
@@ -46,7 +45,7 @@ if (!empty($_POST['name']) && !empty($_POST['mail']) && !empty($_POST['msg']))
                                 <form method="POST" class="mt-4" action="">
                                     <div class="form-group">
                                         <label for="name"><?= TXT_CONTACT_NAME; ?></label>
-                                        <input type="text" class="form-control" id="name" name="name"  placeholder="<?= TXT_CONTACT_ENTER_NAME; ?>">
+                                        <input type="text" class="form-control" id="name" name="name" placeholder="<?= TXT_CONTACT_ENTER_NAME; ?>">
                                     </div>
                                     <div class="form-group">
                                         <label for="mail"><?= TXT_CONTACT_MAIL; ?></label>
@@ -54,16 +53,21 @@ if (!empty($_POST['name']) && !empty($_POST['mail']) && !empty($_POST['msg']))
                                     </div>
                                     <div class="form-group">
                                         <label for="msg">Message</label>
-                                        <textarea name="msg" class="form-control textarea-border" id="msg" rows="6" placeholder="Message..." ></textarea>
+                                        <textarea name="msg" class="form-control textarea-border" id="msg" rows="6" placeholder="Message..."></textarea>
                                     </div>
-                                    
+                             
+
+                                    <div class="g-recaptcha" data-sitekey="6LeTWu0UAAAAAD15IrNLdl3JkRoISHfDqW-jPs75"></div>
+                                    <br />
+
+
 
                                     <button type="submit" class="btn supreme-btn btn-block"><?= TXT_CONTACT_SUBMIT; ?></button>
-                                    <?php if ($mailstate == 'send'){ ?>
+                                    <?php if ($mailstate == 'send') { ?>
                                         <div class="alert alert-success fade show" role="alert">
                                             <strong>Your message is send !</strong> Please wait 12 to 24 hours to receive the recipient's response
                                         </div>
-                                    <?php }else if ($mailstate != 'pending'){ ?>
+                                    <?php } else if ($mailstate != 'pending') { ?>
                                         <div class="alert alert-danger fade show" role="alert">
                                             <strong>Your message is not send : </strong> <?= $mailstate ?>
                                         </div>

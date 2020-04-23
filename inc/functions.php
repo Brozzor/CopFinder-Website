@@ -305,6 +305,9 @@ function createTicket($name, $mail, $msg, $ip)
     if (!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
         return 'Mail is not valid';
     }
+    if (!recaptchaCheck($_POST["g-recaptcha-response"])){
+        return 'Captcha is not valid';
+    }
     if (strlen($msg) < 25) {
         return 'Message is less than 25 characters';
     }
@@ -385,4 +388,17 @@ function getTransacs($id)
         $response[] = $row;
     }
     return $response;
+}
+
+function recaptchaCheck($captcha)
+{
+    $ip = get_ip_address();
+    $secretKey = '6LeTWu0UAAAAAEZQHXUVIs47T_hm1nqaC4XoWChQ';
+    $response=file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".$secretKey."&response=".$captcha."&remoteip=".$ip);
+    $responseKeys = json_decode($response,true);
+
+	if ($responseKeys["success"] == true) {
+		return true;
+    }
+    return false;
 }
