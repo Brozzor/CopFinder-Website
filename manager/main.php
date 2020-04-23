@@ -44,7 +44,7 @@ $transac = getTransacs($id);
                                     <center>
                                         <h2>Invoices</h2>
                                     </center>
-                                    <table class="table text-center">
+                                    <table class="table text-center mt-4">
                                         <thead class="thead-light">
                                             <tr>
                                                 <th scope="col"></th>
@@ -59,10 +59,10 @@ $transac = getTransacs($id);
                                             foreach ($transac as $row) {
                                             ?>
                                                 <tr>
-                                                    <th scope="row"><?= $i; ?></th>
-                                                    <td><?= $row['price']; ?></td>
+                                                    <th><?= $i; ?></th>
+                                                    <td><?= centsToDollars($row['price']); ?>$</td>
                                                     <td><?= $row['type']; ?></td>
-                                                    <td><?= $row['modified']; ?></td>
+                                                    <td><?= transformTimetoDate($row['modified']); ?></td>
                                                 </tr>
                                             <?php $i++;
                                             } ?>
@@ -75,7 +75,20 @@ $transac = getTransacs($id);
                                     </center>
                                     <div class="card">
                                         <div class="card-body">
-                                            
+                                            <center>
+                                                <h3 class="badge badge-secondary"><?= daysRemainingLicense($user['token_expiry_date']); ?></h3><br>
+                                                <span>Days remaining</span>
+                                                <hr class="mb-3">
+                                                <img src="/img/other/app.png" width="100%" alt="CopFinder">
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <button class="btn btn-block supreme-btn mt-3">Renewal for 19.99$</button>
+                                                    </div>
+                                                    <div class="col">
+                                                        <a target="_blank" href="https://chrome.google.com/webstore/detail/copfinder/jjnpbaehcbblehaikehechlckjoaamck"><button class="btn btn-block btn-dark mt-3">Download</button></a>
+                                                    </div>
+                                                </div>
+                                            </center>
                                         </div>
                                     </div>
                                 </div>

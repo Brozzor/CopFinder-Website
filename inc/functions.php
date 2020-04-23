@@ -402,3 +402,17 @@ function recaptchaCheck($captcha)
     }
     return false;
 }
+
+function centsToDollars($cents)
+{
+    return $cents / 100;
+}
+
+function daysRemainingLicense($expired)
+{
+    $res = $expired - time();
+    if ($res >= 0)
+    {
+       return round($res / 86400);
+    }
+}

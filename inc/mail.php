@@ -180,7 +180,7 @@ $message = '
 
                             <p>Thank you for purchasing a cop finder license to be able to use it you must install it on your chrome browser by clicking on the button just above then enter as identify your email address and as token key :
                                 <strong>'.$token.'</strong><br>
-                                You can change your token key at any time or renew it in your member area accessible <a href="https://cop-finder/manager">https://cop-finder/manager</a><br>
+                                You can change your token key at any time or renew it in your member area accessible <a href="https://cop-finder.com/manager">https://cop-finder.com/manager</a><br>
                                 Your password to connect to your customer area is: <strong>'.$password.'</strong> 
                             </p>
 
