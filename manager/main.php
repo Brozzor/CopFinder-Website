@@ -6,6 +6,19 @@ logged_only();
 $id = $_SESSION['auth']['id'];
 $user = getUserInfos($id);
 $transac = getTransacs($id);
+$bestLicense = getBestLicense($transac);
+$daysRemaining = daysRemainingLicense($user['token_expiry_date']);
+
+if (isset($_GET['renew'])) {
+
+    $session = checkout($user['mail'], '4');
+    $json = json_decode($session, true);
+
+    if ($json && isset($json['id'])) {
+        die($json['id']);
+    }
+    die();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -69,6 +82,7 @@ $transac = getTransacs($id);
                                         </tbody>
                                     </table>
                                 </div>
+
                                 <div class="col-lg-6">
                                     <center>
                                         <h2>License</h2>
@@ -76,22 +90,35 @@ $transac = getTransacs($id);
                                     <div class="card">
                                         <div class="card-body">
                                             <center>
-                                                <h3 class="badge badge-secondary"><?= daysRemainingLicense($user['token_expiry_date']); ?></h3><br>
-                                                <span>Days remaining</span>
-                                                <hr class="mb-3">
-                                                <img src="/img/other/app.png" width="100%" alt="CopFinder">
-                                                <div class="row">
-                                                    <div class="col">
-                                                        <button class="btn btn-block supreme-btn mt-3">Renewal for 19.99$</button>
+                                                <?php if ($daysRemaining > 0 || $bestLicense == '3') { ?>
+                                                    <?php if ($bestLicense == '3') { ?>
+                                                        <h3 class="badge badge-secondary">Infinity</h3><br>
+                                                    <?php } else { ?>
+                                                        <h3 class="badge badge-secondary"><?= daysRemainingLicense($user['token_expiry_date']); ?></h3><br> 
+                                                    <?php } ?>
+                                                    <span>Days remaining</span>
+                                                    <hr class="mb-3">
+                                                    <img src="/img/other/app.png" width="100%" alt="CopFinder">
+                                                    <div class="row">
+                                                        <?php if ($bestLicense == '2') { ?>
+                                                            <div class="col">
+                                                                <button id="buy" class="btn btn-block supreme-btn mt-3">Renewal for 19.99$</button>
+                                                            </div>
+                                                        <?php } ?>
+                                                        <div class="col">
+                                                            <a target="_blank" href="https://chrome.google.com/webstore/detail/copfinder/jjnpbaehcbblehaikehechlckjoaamck"><button class="btn btn-block btn-dark mt-3">Download</button></a>
+                                                        </div>
+
                                                     </div>
-                                                    <div class="col">
-                                                        <a target="_blank" href="https://chrome.google.com/webstore/detail/copfinder/jjnpbaehcbblehaikehechlckjoaamck"><button class="btn btn-block btn-dark mt-3">Download</button></a>
-                                                    </div>
-                                                </div>
+                                                <?php } else { ?>
+                                                    <h4>You have no license available</h4>
+                                                <?php } ?>
+
                                             </center>
                                         </div>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>
@@ -104,6 +131,21 @@ $transac = getTransacs($id);
     <?php include "../inc/footer.php"; ?>
     <script src="/js/main.js"></script>
     <script src="/js/jquery.min.js" type="text/javascript"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script type="text/javascript">
+        var stripe = Stripe('<?= $daysRemaining ?>');
+
+        $('#buy').on('click', function(e) {
+
+            $.post(window.location.origin + window.location.pathname + "?renew=1", function(data) {
+                stripe.redirectToCheckout({
+                    sessionId: data
+                }).then(function(result) {
+                    console.log(result);
+                });
+            });
+        });
+    </script>
     <script src="/js/popper.min.js" type="text/javascript"></script>
     <script src="/js/bootstrap-material-design.min.js" type="text/javascript"></script>
     <script src="/js/material-kit.js" type="text/javascript"></script>

@@ -58,12 +58,12 @@ function count_in($from, $where, $value)
     return $donnees['nb'];
 }
 
-function productsBy($id = null)
+function productsBy($id = null,$root = false)
 {
     include 'bdd.php';
     if ($id == null) {
         $req = $pdo->prepare("SELECT * FROM products");
-    } else if (is_numeric($id) && $id <= 3 && $id >= 1) {
+    } else if ((is_numeric($id) && $id <= 3 && $id >= 1) || ($id == 4 && $root == true)) {
         $req = $pdo->prepare("SELECT * FROM products WHERE id = $id");
     } else {
         $req = $pdo->prepare("SELECT * FROM products WHERE id = 2");
@@ -145,7 +145,7 @@ function checkout($mail, $id, $promo_code = 'none')
 
     \Stripe\Stripe::setApiKey(getSetting('stripe_privKey'));
 
-    $products = productsBy($id);
+    $products = productsBy($id,true);
     $idGenerate = str_random(10);
     $url = 'https://cop-finder.com/payments-info.php?idtransac=' . $idGenerate;
     $promo_code_id = getCouponIdByName(trim(htmlspecialchars($promo_code)));
@@ -415,4 +415,15 @@ function daysRemainingLicense($expired)
     {
        return round($res / 86400);
     }
+}
+
+function getBestLicense($transac)
+{
+    $bestPid = 0;
+    foreach ($transac as $row) {
+        if ($bestPid < $row['pid']){
+            $bestPid = $row['pid'];
+        }
+    }
+    return $bestPid;
 }
