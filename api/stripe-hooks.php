@@ -41,7 +41,7 @@ switch ($event->type) {
         }
 
         if ($type == 'renewal') {
-            $id = searchUserIdby($mail);
+            $id = searchUserIdby($transaction['user_mail']);
             updateTransac($session->client_reference_id,"completed",$id);
             addDayLicense($id,'365');
         }
