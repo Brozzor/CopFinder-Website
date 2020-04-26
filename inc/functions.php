@@ -421,7 +421,7 @@ function getBestLicense($transac)
 {
     $bestPid = 0;
     foreach ($transac as $row) {
-        if ($bestPid < $row['pid']){
+        if ($bestPid < $row['pid'] && $row['pid'] != 4){
             $bestPid = $row['pid'];
         }
     }
@@ -441,6 +441,6 @@ function addDayLicense($id, $days)
 {
     include 'bdd.php';
     $newDate = (86400 * $days);
-    $req = $pdo->prepare("UPDATE users SET token_expiry_date += '" . $newDate . "' WHERE id = '" . $id . "'");
+    $req = $pdo->prepare("UPDATE users SET token_expiry_date = token_expiry_date + '" . $newDate . "' WHERE id = '" . $id . "'");
     $req->execute();
 }
