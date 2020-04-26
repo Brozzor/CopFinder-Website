@@ -133,7 +133,7 @@ if (isset($_GET['renew'])) {
     <script src="/js/jquery.min.js" type="text/javascript"></script>
     <script src="https://js.stripe.com/v3/"></script>
     <script type="text/javascript">
-        var stripe = Stripe('<?= $daysRemaining ?>');
+        var stripe = Stripe('<?php echo getSetting('stripe_pubKey') ?>');
 
         $('#buy').on('click', function(e) {
 
