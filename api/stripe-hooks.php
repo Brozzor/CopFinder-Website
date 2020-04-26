@@ -40,8 +40,10 @@ switch ($event->type) {
             sendMailBuyLicense($transaction['user_mail'],$user['password'],$user['token']);
         }
 
-        if ($type == 'renew') {
-            
+        if ($type == 'renewal') {
+            $id = searchUserIdby($mail);
+            updateTransac($session->client_reference_id,"completed",$id);
+            addDayLicense($id,'365');
         }
 
         break;

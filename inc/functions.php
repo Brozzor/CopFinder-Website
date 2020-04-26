@@ -427,3 +427,20 @@ function getBestLicense($transac)
     }
     return $bestPid;
 }
+
+function searchUserIdby($mail)
+{
+    include 'bdd.php';
+    $req = $pdo->query("SELECT id FROM users WHERE mail = '" . $mail . "'");
+    $data = $req->fetch();
+
+    return $data['id'];
+}
+
+function addDayLicense($id, $days)
+{
+    include 'bdd.php';
+    $newDate = (86400 * $days);
+    $req = $pdo->prepare("UPDATE users SET token_expiry_date += '" . $newDate . "' WHERE id = '" . $id . "'");
+    $req->execute();
+}
