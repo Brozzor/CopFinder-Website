@@ -9,14 +9,28 @@ $products = productsBy();
 
 <head>
   <meta charset="utf-8" />
-  <link rel="icon" type="image/png" href="/img/logo/icon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    CopFinder - The Fastest World Copbot Supreme
+    CopFinder - <?= SEO_TITLE; ?>
   </title>
   <meta property="og:type" content="website"/>
   <meta property="og:title" content="CopFinder | Cop Bot Supreme"/>
-  <meta name="description" content="CopFinder is the best solution for buying limited items from Supreme New York. Automate the entire process and never miss another release!"/>
+  <meta property="og:url" content="https://cop-finder.com/" />
+  <meta property="og:image" content="https://cop-finder.com/img/logo/logo.png" />
+  <meta property="og:site_name" content="CopFinder">
+  <meta property="og:description" content="<?= SEO_DESC; ?>">
+
+  <meta name="robots" content="index" />
+  <link href="/site.webmanifest" rel="manifest" />
+  <link rel="canonical" href="https://cop-finder.com" />
+  <link href="/img/logo/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" />
+  <link href="/img/logo/apple-touch-icon.png" rel="shortcut icon" type="image/x-icon" />
+  <link href="/img/logo/icon-32.png" rel="icon" sizes="32x32" type="image/png" />
+  <link href="/img/logo/icon-16.png" rel="icon" sizes="16x16" type="image/png" />
+  <meta content="#da2727" name="msapplication-TileColor" />
+  <meta content="#da2727" name="theme-color" />
+  
+  <meta name="description" content="<?= SEO_DESC; ?>"/>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">

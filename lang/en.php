@@ -7,6 +7,8 @@ define('TXT_BUY_NOW', 'BUY NOW');
 define('TXT_CHROME_EXTENSION', 'Chrome Extension');
 define('TXT_HERE', 'here');
 define('TXT_SORRY', 'sorry');
+define('SEO_DESC', 'CopFinder is the best solution for buying limited items from Supreme New York. Automate the entire process and never miss another release!');
+define('SEO_TITLE', 'The Fastest World Copbot Supreme');
 
 //---------------------------------------------------------
 // index.php
@@ -135,3 +137,9 @@ define('TXT_CONTACT_ENTER_NAME', 'Enter Name');
 define('TXT_CONTACT_NAME', 'Name');
 define('TXT_CONTACT_SUBMIT', 'Submit');
 
+//---------------------------------------------------------
+// footer.php
+//---------------------------------------------------------
+
+define('TXT_FOOTER_PRIVACY', 'Privacy Policy');
+define('TXT_FOOTER_CGU', 'Terms & Conditions');

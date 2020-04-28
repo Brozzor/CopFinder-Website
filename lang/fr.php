@@ -8,6 +8,9 @@ define('TXT_CHROME_EXTENSION', 'Extension Chrome ');
 define('TXT_HERE', 'ici');
 define('TXT_SORRY', 'désolé');
 define('TXT_CHECK', 'verifier');
+define('SEO_DESC', 'CopFinder est la meilleure solution pour acheter des items Supreme en édition limiter. Automatisez l\'ensemble du processus et ne manquez plus aucun drop');
+define('SEO_TITLE', 'Le CopBot Supreme le plus rapide qui existe');
+
 
 //---------------------------------------------------------
 // index.php
@@ -133,3 +136,10 @@ define('TXT_CONTACT_MAIL', 'Adresse Email');
 define('TXT_CONTACT_ENTER_NAME', 'Entrer votre nom');
 define('TXT_CONTACT_NAME', 'Nom');
 define('TXT_CONTACT_SUBMIT', 'Envoyer');
+
+//---------------------------------------------------------
+// footer.php
+//---------------------------------------------------------
+
+define('TXT_FOOTER_PRIVACY', 'Politique de confidentialité');
+define('TXT_FOOTER_CGU', 'Conditions générales');
