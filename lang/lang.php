@@ -1,4 +1,5 @@
 <?php
+
 function isLanguage($sDefault = 'en') 
 {
     if(!empty($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {

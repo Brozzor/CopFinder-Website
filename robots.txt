@@ -4,3 +4,5 @@ Disallow: /manager/
 Disallow: /manager
 
 Allow: /
+
+Sitemap: https://cop-finder.com/sitemap.xml
