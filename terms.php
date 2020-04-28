@@ -8,13 +8,20 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons&amp;amp;subset=cyrillic" rel="stylesheet" type="text/css">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" media="all" href="/css/copfinder.css " data-turbolinks-track="true">
+    <link href="/site.webmanifest" rel="manifest" />
+  <link href="/img/logo/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" />
+  <link href="/img/logo/apple-touch-icon.png" rel="shortcut icon" type="image/x-icon" />
+  <link href="/img/logo/icon-32.png" rel="icon" sizes="32x32" type="image/png" />
+  <link href="/img/logo/icon-16.png" rel="icon" sizes="16x16" type="image/png" />
+  <meta content="#da2727" name="msapplication-TileColor" />
+  <meta content="#da2727" name="theme-color" />
 </head>
 
-<body class="signup-page">
+<body class="signup-page" style="background-color: #6c757d">
     <nav class="navbar navbar-transparent navbar-absolute navbar-expand-lg" color-on-scroll="100" id="sectionsNav">
         <div class="container mt-5"><a class="ml-auto mr-auto top-logo" href="/"><img width="350px" src="/img/logo/logo.png"></a></div>
     </nav>
-    <div class="page-header header-filter" filter-color="black" style="background-image: url('/img/bg/policy-bg.jpg'); background-size: contain; background-position: top center;">
+    <div class="page-header header-filter" filter-color="black" style="background-size: contain; background-position: top center;">
         <div class="container">
             <div class="row">
                 <div class="col-md-10 ml-auto mr-auto">

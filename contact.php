@@ -21,6 +21,13 @@ if (!empty($_POST['name']) && !empty($_POST['mail']) && !empty($_POST['msg'])) {
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet" />
     <link href="/css/copfinder.css" rel="stylesheet" />
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <link href="/site.webmanifest" rel="manifest" />
+    <link href="/img/logo/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" />
+    <link href="/img/logo/apple-touch-icon.png" rel="shortcut icon" type="image/x-icon" />
+    <link href="/img/logo/icon-32.png" rel="icon" sizes="32x32" type="image/png" />
+    <link href="/img/logo/icon-16.png" rel="icon" sizes="16x16" type="image/png" />
+    <meta content="#da2727" name="msapplication-TileColor" />
+    <meta content="#da2727" name="theme-color" />
 </head>
 
 <body class="product-page" data-demo-ios="#" data-project="supreme_bot_world" style="overflow-x: hidden">

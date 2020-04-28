@@ -3,12 +3,12 @@
     "short_name": "CopFinder",
     "icons": [
         {
-            "src": "img/logo/icon-192.png",
+            "src": "/img/logo/icon-192.png",
             "sizes": "192x192",
             "type": "image/png"
         },
         {
-            "src": "img/logo/icon-256.png",
+            "src": "/img/logo/icon-256.png",
             "sizes": "256x256",
             "type": "image/png"
         }

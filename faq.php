@@ -16,6 +16,13 @@ $faq = allFaq(LANG_UTIL);
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet" />
     <link href="/css/copfinder.css" rel="stylesheet" />
+    <link href="/site.webmanifest" rel="manifest" />
+    <link href="/img/logo/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" />
+    <link href="/img/logo/apple-touch-icon.png" rel="shortcut icon" type="image/x-icon" />
+    <link href="/img/logo/icon-32.png" rel="icon" sizes="32x32" type="image/png" />
+    <link href="/img/logo/icon-16.png" rel="icon" sizes="16x16" type="image/png" />
+    <meta content="#da2727" name="msapplication-TileColor" />
+    <meta content="#da2727" name="theme-color" />
 </head>
 
 <body class="product-page" data-demo-ios="#" data-project="supreme_bot_world" style="overflow-x: hidden">
@@ -38,25 +45,25 @@ $faq = allFaq(LANG_UTIL);
                                 <center><span><?= TXT_FAQ_SUBTITLE; ?> <a style="color: black" href="/contact.php"><?= TXT_HERE; ?></a></span></center>
 
                                 <div class="panel-group mt-4" id="accordion" role="tablist" aria-multiselectable="true">
-                                    <?php 
-                                    foreach ($faq as $row){
+                                    <?php
+                                    foreach ($faq as $row) {
                                     ?>
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading shadow p-3 mb-3 bg-white rounded" role="tab" id="heading<?= $row['id']; ?>">
-                                            <a role="button" style="color: black;" data-toggle="collapse" data-parent="#accordion" href="#collapse<?= $row['id']; ?>" aria-expanded="false" aria-controls="collapse<?= $row['id']; ?>" class="collapsed">
-                                                <h4 class="panel-title">
-                                               <?= $row['question']; ?>
-                                                    <i class="fa fa-arrow-down"  style="color:#3c4858"></i>
-                                                </h4>
-                                                
-                                            </a>
-                                        </div>
-                                        <div id="collapse<?= $row['id']; ?>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading<?= $row['id']; ?>" aria-expanded="false">
-                                            <div class="panel-body mb-3 ml-1 mr-1">
-                                                <span><?= $row['answer']; ?></span>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading shadow p-3 mb-3 bg-white rounded" role="tab" id="heading<?= $row['id']; ?>">
+                                                <a role="button" style="color: black;" data-toggle="collapse" data-parent="#accordion" href="#collapse<?= $row['id']; ?>" aria-expanded="false" aria-controls="collapse<?= $row['id']; ?>" class="collapsed">
+                                                    <h4 class="panel-title">
+                                                        <?= $row['question']; ?>
+                                                        <i class="fa fa-arrow-down" style="color:#3c4858"></i>
+                                                    </h4>
+
+                                                </a>
+                                            </div>
+                                            <div id="collapse<?= $row['id']; ?>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading<?= $row['id']; ?>" aria-expanded="false">
+                                                <div class="panel-body mb-3 ml-1 mr-1">
+                                                    <span><?= $row['answer']; ?></span>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
                                     <?php } ?>
 
                                 </div>
