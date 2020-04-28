@@ -14,7 +14,7 @@
             <img class="partner-logo" src="/img/payments/discover.png" alt="Discover">
             <img class="partner-logo" src="/img/payments/american-express.png" alt="Aex">
         </div>
-        <div class="copyright pull-center">Copyright © 2020 COPFINDER | <a href="/privacy.php" target="_blank"><?= TXT_FOOTER_PRIVACY; ?></a> | <a href="terms.php" target="_blank"><?= TXT_FOOTER_CGU; ?></a></div><br>
+        <div class="copyright pull-center">Copyright © 2020 COPFINDER | <a href="/privacy" target="_blank"><?= TXT_FOOTER_PRIVACY; ?></a> | <a href="/terms" target="_blank"><?= TXT_FOOTER_CGU; ?></a></div><br>
     </div>
 </footer>
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163966679-1"></script>

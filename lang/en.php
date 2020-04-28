@@ -3,6 +3,7 @@
 // général
 //---------------------------------------------------------
 define('LANG_UTIL', 'EN');
+define('LANG_UTIL_LOWER', 'en');
 define('TXT_BUY_NOW', 'BUY NOW');
 define('TXT_CHROME_EXTENSION', 'Chrome Extension');
 define('TXT_HERE', 'here');

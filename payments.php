@@ -11,7 +11,7 @@ if (is_numeric($_GET['id']) && isset($_GET['promo_code'])) {
   $products = productsBy($_GET['id']);
   $price = $products[0]['price'];
 }else{
-  header('Location: /payments.php?id=2');
+  header('Location: /LANG_UTIL_LOWER/products/2');
 }
 
 if (isset($_GET['email']) && isset($_GET['promo_code'])) {
@@ -34,7 +34,7 @@ if (isset($_GET['email']) && isset($_GET['promo_code'])) {
 
 ?>
 <!DOCTYPE html>
-<html lang="<?= strtolower(LANG_UTIL); ?>">
+<html lang="<?= LANG_UTIL_LOWER; ?>">
 
 <head>
   <meta charset="utf-8" />

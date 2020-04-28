@@ -12,30 +12,44 @@
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto mb-1">
                 <li class="nav-item">
-                    <a class="nav-link" href="/index.php#features">
+                    <a class="nav-link" href="/<?= LANG_UTIL_LOWER; ?>/#features">
                         Features
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/faq.php">
+                    <a class="nav-link" href="/<?= LANG_UTIL_LOWER; ?>/faq">
                         FAQ
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/contact.php">
+                    <a class="nav-link" href="/<?= LANG_UTIL_LOWER; ?>/contact">
                         CONTACT
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/videos.php">
+                    <a class="nav-link" href="/<?= LANG_UTIL_LOWER; ?>/videos">
                         VIDEOS
                     </a>
                 </li>
+
                 <hr class="vertical">
                 <li class="nav-item">
-                    <a class="btn supreme-btn nav-supreme" href="/index.php#offers">
+                    <a class="btn supreme-btn nav-supreme" href="/<?= LANG_UTIL_LOWER; ?>/#offers">
                         <i class="fa fa-shopping-cart"></i> <?= TXT_BUY_NOW; ?>
                     </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-left: 10px">
+                    <img width="35px" src="/img/flags/<?= LANG_UTIL_LOWER; ?>.png" alt="<?= LANG_UTIL_LOWER; ?>" >
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="min-width: 30px">
+                        <a class="dropdown-item" href="/en/">
+                            <img class="flags" src="/img/flags/en.png" alt="English">
+                        </a>
+                        <a class="dropdown-item" href="/fr/">
+                            <img class="flags" src="/img/flags/fr.png" alt="Français">
+                        </a>
+                    </div>
                 </li>
             </ul>
         </div>

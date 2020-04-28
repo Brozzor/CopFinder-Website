@@ -7,7 +7,7 @@ if (!empty($_POST['name']) && !empty($_POST['mail']) && !empty($_POST['msg'])) {
 }
 ?>
 <!DOCTYPE html>
-<html lang="<?= strtolower(LANG_UTIL); ?>">
+<html lang="<?= LANG_UTIL_LOWER; ?>">
 
 <head>
     <meta charset="utf-8" />
@@ -47,7 +47,7 @@ if (!empty($_POST['name']) && !empty($_POST['mail']) && !empty($_POST['msg'])) {
                         <div class="row">
 
                             <div class="col-md-12 mt-4">
-                                <center><span><?= TXT_CONTACT_SUBTITLE; ?> <a style="color: black" href="/faq.php"><?= TXT_HERE; ?></a></span></center>
+                                <center><span><?= TXT_CONTACT_SUBTITLE; ?> <a style="color: black" href="/<?= LANG_UTIL_LOWER; ?>/faq"><?= TXT_HERE; ?></a></span></center>
 
                                 <form method="POST" class="mt-4" action="">
                                     <div class="form-group">

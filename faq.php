@@ -42,7 +42,7 @@ $faq = allFaq(LANG_UTIL);
                         <div class="row">
 
                             <div class="col-md-12 mt-4">
-                                <center><span><?= TXT_FAQ_SUBTITLE; ?> <a style="color: black" href="/contact.php"><?= TXT_HERE; ?></a></span></center>
+                                <center><span><?= TXT_FAQ_SUBTITLE; ?> <a style="color: black" href="/<?= LANG_UTIL_LOWER; ?>/contact"><?= TXT_HERE; ?></a></span></center>
 
                                 <div class="panel-group mt-4" id="accordion" role="tablist" aria-multiselectable="true">
                                     <?php

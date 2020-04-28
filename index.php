@@ -5,7 +5,7 @@ $products = productsBy();
 
 ?>
 <!DOCTYPE html>
-<html lang="<?= strtolower(LANG_UTIL); ?>">
+<html lang="<?= LANG_UTIL_LOWER; ?>">
 
 <head>
   <meta charset="utf-8" />
@@ -20,7 +20,6 @@ $products = productsBy();
   <meta property="og:image" content="https://cop-finder.com/img/logo/logo.png" />
   <meta property="og:site_name" content="CopFinder">
   <meta property="og:description" content="<?= SEO_DESC; ?>">
-
   <meta name="robots" content="index, follow" />
   <link href="/site.webmanifest" rel="manifest" />
   <link rel="canonical" href="https://cop-finder.com" />
@@ -48,7 +47,7 @@ $products = productsBy();
           <h1 class="title"><?= TXT_ACCUEIL_INDEX; ?></h1>
           <h4><?= TXT_ACCUEIL_SUBTITLE_INDEX; ?></h4>
           <br>
-          <a href="/index.php#offers" class="btn supreme-btn btn-block">
+          <a href="/<?= LANG_UTIL_LOWER; ?>/#offers" class="btn supreme-btn btn-block">
             <i class="fa fa-shopping-cart"></i> <?= TXT_BUY_NOW; ?>
             <div class="ripple-container"></div></a>
         </div>
@@ -69,7 +68,7 @@ $products = productsBy();
             <div class="col-md-8 ml-auto mr-auto text-center">
               <h2 class="title mb-0"><?= TXT_CHROME_EXTENSION; ?></h2>
               <h5 class="description"><?= TXT_ACCUEIL_SUBTITLE_CHROME; ?></h5>
-              <div class="action-buttons"><a class="btn btn-primary" href="/index.php#offers"><?= TXT_ACCUEIL_VIEW_ALL_PRICE; ?></a></div>
+              <div class="action-buttons"><a class="btn btn-primary" href="/<?= LANG_UTIL_LOWER; ?>/#offers"><?= TXT_ACCUEIL_VIEW_ALL_PRICE; ?></a></div>
             </div>
           </div>
           <div class="row">
@@ -210,7 +209,7 @@ $products = productsBy();
                         <li><?= TXT_ACCUEIL_PRODUCT1_LIST5; ?></li>
                       </ul>
                     </div>
-                    <div class="card-footer justify-content-center"><a class="btn btn-primary btn-round" href="/payments.php?id=1"><?= TXT_BUY_NOW; ?></a></div>
+                    <div class="card-footer justify-content-center"><a class="btn btn-primary btn-round" href="/<?= LANG_UTIL_LOWER; ?>/products/1"><?= TXT_BUY_NOW; ?></a></div>
                   </div>
                 </div>
                 <div class="col-md-4">
@@ -227,7 +226,7 @@ $products = productsBy();
                         <li><b><?= TXT_ACCUEIL_PRODUCT3_LIST6; ?></b></li>
                       </ul>
                     </div>
-                    <div class="card-footer justify-content-center"><a class="btn btn-primary btn-round" href="/payments.php?id=3"><?= TXT_BUY_NOW; ?></a></div>
+                    <div class="card-footer justify-content-center"><a class="btn btn-primary btn-round" href="/<?= LANG_UTIL_LOWER; ?>/products/3"><?= TXT_BUY_NOW; ?></a></div>
                   </div>
                 </div>
                 <div class="col-md-4">
@@ -243,7 +242,7 @@ $products = productsBy();
                         <li><b><?= TXT_ACCUEIL_PRODUCT2_LIST5; ?></b></li>
                       </ul>
                     </div>
-                    <div class="card-footer justify-content-center"><a class="btn btn-primary btn-round" href="/payments.php?id=2"><?= TXT_BUY_NOW; ?></a></div>
+                    <div class="card-footer justify-content-center"><a class="btn btn-primary btn-round" href="/<?= LANG_UTIL_LOWER; ?>/products/2"><?= TXT_BUY_NOW; ?></a></div>
                   </div>
                 </div>
               </div>

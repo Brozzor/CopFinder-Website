@@ -8,12 +8,12 @@ if (isPaymentExist($idTransac)) {
         $isPay = true;
     }
 } else {
-    header('Location: /payments.php?id=2');
+    header('Location: /LANG_UTIL_LOWER/products/2');
 }
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="<?= LANG_UTIL_LOWER; ?>">
 
 <head>
     <meta charset="utf-8" />

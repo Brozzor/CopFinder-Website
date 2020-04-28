@@ -1,17 +1,24 @@
 <?php
 
-function isLanguage($sDefault = 'en') 
+function isLanguage($lang = null) 
 {
-    if(!empty($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
-      $aBrowserLanguages = explode(',',$_SERVER['HTTP_ACCEPT_LANGUAGE']);
-      foreach($aBrowserLanguages as $sBrowserLanguage) {
-        $sLang = strtolower(substr($sBrowserLanguage,0,2));
-          return $sLang;  
-      }
+    $langRes = "";
+    if ($lang == null || $lang == 'en')
+    {
+      $langRes = 'en';
+    }else{
+      $langRes = 'fr';
     }
-    return $sDefault;
+    return $langRes;
+
 }
-$userLang = isLanguage();
+
+if (isset($_GET['lang'])){
+  $userLang = isLanguage($_GET['lang']);
+}else{
+  $userLang = isLanguage();
+}
+
 if ($userLang == 'fr') {
 	include('fr.php');
 } else if ($userLang == 'en') {

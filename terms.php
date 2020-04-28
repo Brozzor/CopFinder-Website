@@ -93,7 +93,7 @@
                             <h4 class="mt-5">Article 12 - Propriété intellectuelle </h4>
                             <p>Tous les éléments du site https://cop-finder.com/ sont et restent la propriété intellectuelle et exclusive de la société. Nul n'est autorisé à reproduire, exploiter, rediffuser, ou utiliser à quelque titre que ce soit, même partiellement, des éléments du site qu'ils soient logiciels, visuels ou sonores. Tout lien simple ou par hypertexte est strictement interdit sans un accord écrit exprès de la société </p>
                             <h4 class="mt-5">Article 13 - Données personnelles</h4>
-                            <p>Toute les informations concernant les données personnelles sont disponibles ici : <a style="color: black;" href="https://cop-finder.com/privacy.php">https://cop-finder.com/privacy.php</a></p>
+                            <p>Toute les informations concernant les données personnelles sont disponibles ici : <a style="color: black;" href="https://cop-finder.com/privacy">https://cop-finder.com/privacy.php</a></p>
                             <h4 class="mt-5">Article 14 - Modification des Conditions</h4>
                             <p>Les conditions générales sont susceptibles d'être modifié n'importe quand vous devez revenir régulièrement sur cette page pour vous en tenir informé</p>
                             

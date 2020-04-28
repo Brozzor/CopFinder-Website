@@ -147,7 +147,7 @@ function checkout($mail, $id, $promo_code = 'none')
 
     $products = productsBy($id,true);
     $idGenerate = str_random(10);
-    $url = 'https://cop-finder.com/payments-info.php?idtransac=' . $idGenerate;
+    $url = 'https://cop-finder.com/en/pay/' . $idGenerate;
     $promo_code_id = getCouponIdByName(trim(htmlspecialchars($promo_code)));
     $price = priceCoupon($products[0]['price'], $promo_code_id, $id);
     try {
