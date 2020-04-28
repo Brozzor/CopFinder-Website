@@ -4,7 +4,7 @@ $videos = allVideos();
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="<?= strtolower(LANG_UTIL); ?>">
 
 <head>
     <meta charset="utf-8" />

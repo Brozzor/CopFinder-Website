@@ -7,7 +7,7 @@ if (!empty($_POST['name']) && !empty($_POST['mail']) && !empty($_POST['msg'])) {
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="<?= strtolower(LANG_UTIL); ?>">
 
 <head>
     <meta charset="utf-8" />

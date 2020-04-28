@@ -3,7 +3,7 @@ require "inc/functions.php";
 $faq = allFaq(LANG_UTIL);
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="<?= strtolower(LANG_UTIL); ?>">
 
 <head>
     <meta charset="utf-8" />

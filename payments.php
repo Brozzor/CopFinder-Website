@@ -34,7 +34,7 @@ if (isset($_GET['email']) && isset($_GET['promo_code'])) {
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="<?= strtolower(LANG_UTIL); ?>">
 
 <head>
   <meta charset="utf-8" />
