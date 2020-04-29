@@ -27,7 +27,7 @@ $products = productsBy();
   <link rel="alternate" href="https://cop-finder.com" hreflang="x-default" />
 
   <link href="/site.webmanifest" rel="manifest" />
-  <link rel="canonical" href="https://cop-finder.com" />
+  <link rel="canonical" href="https://cop-finder.com/<?= LANG_UTIL_LOWER; ?>/" />
   <link href="/img/logo/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" />
   <link href="/img/logo/apple-touch-icon.png" rel="shortcut icon" type="image/x-icon" />
   <link href="/img/logo/icon-32.png" rel="icon" sizes="32x32" type="image/png" />

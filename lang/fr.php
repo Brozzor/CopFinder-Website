@@ -21,7 +21,7 @@ define('TXT_ACCUEIL_SUBTITLE_INDEX', 'Nous avons conçus un logiciel qui vous pe
 define('TXT_ACCUEIL_INDEX_WATCH_VIDEO', 'Regardez la vidéo de presentation ');
 define('TXT_ACCUEIL_SUBTITLE_CHROME', 'N\'importe quel navigateur chrome (Windows, Linux, Mac)');
 define('TXT_ACCUEIL_VIEW_ALL_PRICE', 'Voir tout les prix');
-define('TXT_ACCUEIL_COP_DEMONSTRATION', 'Demonstration du bot');
+define('TXT_ACCUEIL_COP_DEMONSTRATION', 'Demonstration de CopFinder');
 define('TXT_ACCUEIL_INCLUDE_ALL_FEATURES', 'Inclus toutes les fonctionnalités');
 define('TXT_ACCUEIL_OUR_MAIN_FEATURES', 'Nos principale features');
 define('TXT_ACCUEIL_CHOOSE_LICENSE', 'Choisissez votre license');
