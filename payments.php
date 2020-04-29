@@ -225,7 +225,7 @@ if (isset($_GET['email']) && isset($_GET['promo_code'])) {
   </div>
   <?php include "inc/footer.php"; ?>
   <script>
-    let urlPage = 'https://cop-finder.com/payments.php?id=<?php $_GET['id']; ?>&lang=<?= LANG_UTIL_LOWER; ?>';
+    let urlPage = 'https://cop-finder.com/payments.php?id=<?= $_GET['id']; ?>&lang=<?= LANG_UTIL_LOWER; ?>';
   </script>
   <script src="/js/main.js"></script>
   <script src="/js/jquery.min.js" type="text/javascript"></script>
