@@ -6,10 +6,11 @@ function youtubePlay() {
 function checkout() {
   let mail = document.getElementById("emailInput");
   if (validateEmail(mail.value)) {
-    return window.location + "&email=" + mail.value;
+    console.log(urlPage + "&email=" + mail.value)
+    return urlPage + "&email=" + mail.value;
   }else{
     document.getElementById('emailHelp').innerHTML = '<font color="red">Your mail address is not valid</font>';
-    return window.location + "&email=";
+    return urlPage + "&email=";
   }
   
 }
@@ -20,5 +21,5 @@ function validateEmail(email) {
 }
 
 function promoCodeAdd(){
-  window.location = window.location + "&promo_code=" + document.getElementById('promocode-input').value
+  window.location = urlPage + "&promo_code=" + document.getElementById('promocode-input').value
 }
