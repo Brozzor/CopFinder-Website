@@ -3,11 +3,25 @@ function youtubePlay() {
     '<iframe width="560" height="338" src="https://www.youtube.com/embed/CpUCdvyzDcE" frameborder="0" allowfullscreen="" sandbox="allow-same-origin allow-scripts allow-forms"></iframe>';
 }
 
+function $_GET(param) {
+	let vars = {};
+	window.location.href.replace( location.hash, '' ).replace( 
+		/[?&]+([^=&]+)=?([^&]*)?/gi,
+		function( m, key, value ) {
+			vars[key] = value !== undefined ? value : '';
+		}
+	);
+
+	if ( param ) {
+		return vars[param] ? vars[param] : null;	
+	}
+	return vars;
+}
+
 function checkout() {
   let mail = document.getElementById("emailInput");
   if (validateEmail(mail.value)) {
-    console.log(urlPage + "&email=" + mail.value)
-    return urlPage + "&email=" + mail.value;
+    return urlPage + "&email=" + mail.value + "&promo_code=" + $_GET('promo_code');
   }else{
     document.getElementById('emailHelp').innerHTML = '<font color="red">Your mail address is not valid</font>';
     return urlPage + "&email=";
