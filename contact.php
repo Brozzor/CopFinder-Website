@@ -22,6 +22,9 @@ if (!empty($_POST['name']) && !empty($_POST['mail']) && !empty($_POST['msg'])) {
     <link href="/css/copfinder.css" rel="stylesheet" />
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <link href="/site.webmanifest" rel="manifest" />
+    <link rel="alternate" href="https://cop-finder.com/fr/contact" hreflang="fr" />
+    <link rel="alternate" href="https://cop-finder.com/en/contact" hreflang="en" />
+    <link rel="alternate" href="https://cop-finder.com/en/contact" hreflang="x-default" />
     <link href="/img/logo/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" />
     <link href="/img/logo/apple-touch-icon.png" rel="shortcut icon" type="image/x-icon" />
     <link href="/img/logo/icon-32.png" rel="icon" sizes="32x32" type="image/png" />

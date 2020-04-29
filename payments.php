@@ -50,6 +50,9 @@ if (isset($_GET['email']) && isset($_GET['promo_code'])) {
   <link href="/css/copfinder.css" rel="stylesheet" />
   <script src="https://js.stripe.com/v3/"></script>
   <link href="/site.webmanifest" rel="manifest" />
+  <link rel="alternate" href="https://cop-finder.com/fr/products/<?= $_GET['id']; ?>" hreflang="fr" />
+  <link rel="alternate" href="https://cop-finder.com/en/products/<?= $_GET['id']; ?>" hreflang="en" />
+  <link rel="alternate" href="https://cop-finder.com/en/products/<?= $_GET['id']; ?>" hreflang="x-default" />
   <link href="/img/logo/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" />
   <link href="/img/logo/apple-touch-icon.png" rel="shortcut icon" type="image/x-icon" />
   <link href="/img/logo/icon-32.png" rel="icon" sizes="32x32" type="image/png" />

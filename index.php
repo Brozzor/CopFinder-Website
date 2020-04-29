@@ -21,6 +21,11 @@ $products = productsBy();
   <meta property="og:site_name" content="CopFinder">
   <meta property="og:description" content="<?= SEO_DESC; ?>">
   <meta name="robots" content="index, follow" />
+
+  <link rel="alternate" href="https://cop-finder.com/fr/" hreflang="fr" />
+  <link rel="alternate" href="https://cop-finder.com/en/" hreflang="en" />
+  <link rel="alternate" href="https://cop-finder.com" hreflang="x-default" />
+
   <link href="/site.webmanifest" rel="manifest" />
   <link rel="canonical" href="https://cop-finder.com" />
   <link href="/img/logo/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" />
