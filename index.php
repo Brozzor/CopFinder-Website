@@ -105,7 +105,7 @@ $products = productsBy();
                 <img class="macbook-img" style="box-sizing: initial;" src="/img/other/macbook.png" alt="Macbook CopFinder">
               </div>
               <div class="product-video-link phone-video-link mt-4">
-                <a class="btn btn-primary btn-sm video-modal-toggle" href="https://www.youtube.com/watch?v=CpUCdvyzDcE">
+                <a class="btn btn-primary btn-sm video-modal-toggle" href="https://www.youtube.com/watch?v=QmXAbBAyJ4s">
                   <i class="fa fa-youtube-play"></i>
                   <?= TXT_ACCUEIL_COP_DEMONSTRATION ?>
                 </a>
