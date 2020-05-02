@@ -18,15 +18,21 @@ function getIp(){
 	return $ip;
 }
 
-function insertApiIpCheck($use,$key = false){
+function insertApiIpCheck($use,$key = false,$mail = false){
 	include '../inc/bdd.php';
 	
 	$goodUse = addslashes($use);
-	if ($key)
+	if ($mail)
+	{
+		$id = getUidInfos($mail,'mail');
+	}
+	else if ($key)
 	{
 		$goodKey = addslashes($key);
 		$id = getUidInfos($goodKey);
-	}else{
+	}
+	else
+	{
 		$id = '0';
 	}
 
@@ -34,13 +40,26 @@ function insertApiIpCheck($use,$key = false){
 	$request->execute();
 }
 
-function getUidInfos($key)
+function getUidInfos($value,$type = null)
 {
-    include '../inc/bdd.php';
-    $req = $pdo->prepare("SELECT id FROM users WHERE generate_key = '".$key."'");
+	include '../inc/bdd.php';
+	if ($type == 'mail') {
+		$req = $pdo->prepare("SELECT id FROM users WHERE mail = '".$value."'");
+	}
+	else
+	{
+		$req = $pdo->prepare("SELECT id FROM users WHERE generate_key = '".$value."'");
+	}
 	$req->execute();
 	$row = $req->fetch();
-    return $row['id'];
+
+	if ($row['id'] == null){
+		$res = '0';
+	}else{
+		$res = $row['id'];
+	}
+
+    return $res;
 }
 
 function insertGenerateKey($id, $key){
@@ -53,7 +72,7 @@ function checkSpam(){
 	include '../inc/bdd.php';
 	$stmt = $pdo->query("SELECT count(*) as nb FROM api_ip_check WHERE date_insert > ".time()." - 900 AND ip = '".getIp()."'");
 	$res = $stmt->fetch();
-	if ($res['nb'] >= '300'){
+	if ($res['nb'] >= '120'){
 		displayJson('5', "too many connection failures, you have to wait more than minutes");
 	exit();
 	}
@@ -211,9 +230,10 @@ checkSpam();
 
 switch ($use) {
 	case 'login':
-		insertApiIpCheck($use,$keyCheck);
+
 		$mailCheck = addslashes(htmlspecialchars($_POST['mail']));
 		$tokenCheck = addslashes(htmlspecialchars($_POST['token']));
+		insertApiIpCheck($use,$tokenCheck,$mailCheck);
 		if ($mailCheck == NULL || $tokenCheck == NULL)
 		{
 			displayJson('0', "mail or token is invalid");
@@ -226,7 +246,7 @@ switch ($use) {
 	case 'reconnect':
 
 		$keyCheck = htmlspecialchars($_POST['key']);
-
+		insertApiIpCheck($use,$keyCheck);
 		if (checkWithKey($keyCheck)) {
 			displayJson('1', 'its good');
 		}
