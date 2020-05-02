@@ -18,10 +18,29 @@ function getIp(){
 	return $ip;
 }
 
-function insertApiIpCheck($use){
+function insertApiIpCheck($use,$key = false){
 	include '../inc/bdd.php';
-	$request = $pdo->prepare("INSERT INTO api_ip_check(ip, date_insert, page_api) VALUES ('".getIp()."', '".time()."', '".$use."')");
+	
+	$goodUse = addslashes($use);
+	if ($key)
+	{
+		$goodKey = addslashes($key);
+		$id = getUidInfos($goodKey);
+	}else{
+		$id = '0';
+	}
+
+	$request = $pdo->prepare("INSERT INTO api_ip_check(uid,ip, date_insert, page_api) VALUES ('".$id."','".getIp()."', '".time()."', '".$goodUse."')");
 	$request->execute();
+}
+
+function getUidInfos($key)
+{
+    include '../inc/bdd.php';
+    $req = $pdo->prepare("SELECT id FROM users WHERE generate_key = '".$key."'");
+	$req->execute();
+	$row = $req->fetch();
+    return $row['id'];
 }
 
 function insertGenerateKey($id, $key){
@@ -147,11 +166,12 @@ function displayItem($catId = '0', $itemId = '0'){
 
 function checkWithKey($key){
 	include '../inc/bdd.php';
-	if ($key == NULL) {
+	$goodKey = addslashes($key);
+	if ($goodKey == NULL) {
 		displayJson('0', 'reconnect key invalid , please re login');
 		exit();
 	}
-	$req = $pdo->query("SELECT id,global_name FROM users WHERE generate_key = '".$key."' ");
+	$req = $pdo->query("SELECT id,global_name FROM users WHERE generate_key = '".$goodKey."' ");
 	$res = $req->fetch();
 
 	if ($res['id'] == NULL){
@@ -171,11 +191,19 @@ if ($_POST['use'] == NULL)
 	echo json_encode($response);
 	exit();
 }
+//-------------------------------------------------------------------------------------------------------------
+//-------------------------------------check-------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------------------------
 
 $use = htmlspecialchars($_POST['use']);
+if (isset($_POST['key']))
+{
+	$keyCheck = htmlspecialchars($_POST['key']);
+}else{
+	$keyCheck = false;
+}
 
 checkSpam();
-insertApiIpCheck($use);
 
 //-------------------------------------------------------------------------------------------------------------
 //-------------------------------------Déroulement du code-----------------------------------------------------
@@ -183,9 +211,9 @@ insertApiIpCheck($use);
 
 switch ($use) {
 	case 'login':
-
-		$mailCheck = htmlspecialchars($_POST['mail']);
-		$tokenCheck = htmlspecialchars($_POST['token']);
+		insertApiIpCheck($use,$keyCheck);
+		$mailCheck = addslashes(htmlspecialchars($_POST['mail']));
+		$tokenCheck = addslashes(htmlspecialchars($_POST['token']));
 		if ($mailCheck == NULL || $tokenCheck == NULL)
 		{
 			displayJson('0', "mail or token is invalid");
@@ -206,7 +234,7 @@ switch ($use) {
 		break;
 
 	case 'checkK':
-
+		insertApiIpCheck($use,$keyCheck);
 		$keyCheck = htmlspecialchars($_POST['key']);
 
 		if (checkWithKey($keyCheck)) {
@@ -238,15 +266,14 @@ switch ($use) {
 	case 'item-choice':
 
 		$keyCheck = htmlspecialchars($_POST['key']);
-		
 
 		if (checkWithKey($keyCheck)) {
 			
 		if ($_POST['itemId']){
-			$itemIdCheck = htmlspecialchars($_POST['itemId']);
+			$itemIdCheck = addslashes(htmlspecialchars($_POST['itemId']));
 			displayItem('0', $itemIdCheck);
 		}else{
-			$catIdCheck = htmlspecialchars($_POST['catId']);
+			$catIdCheck = addslashes(htmlspecialchars($_POST['catId']));
 			displayItem($catIdCheck);
 		}
 
@@ -256,26 +283,10 @@ switch ($use) {
 
 	case 'perso':
 
-		$keyCheck = htmlspecialchars($_POST['key']);
+		$keyCheck = addslashes(htmlspecialchars($_POST['key']));
 
 		if (checkWithKey($keyCheck)) {
 			displayPersoInfo($keyCheck);
-		}
-
-		break;
-
-	case 'perso-insert':
-
-		$keyCheck = htmlspecialchars($_POST['key']);
-
-		if (checkWithKey($keyCheck)) {
-			$nameCheck = htmlspecialchars($_POST['name']);
-			$telCheck = htmlspecialchars($_POST['tel']);
-			$cityCheck = htmlspecialchars($_POST['city']);
-			$postcodeCheck = htmlspecialchars($_POST['postcode']);
-			$countryCheck = htmlspecialchars($_POST['country']);
-			$addressCheck = htmlspecialchars($_POST['address']);
-			addInfoUser($keyCheck,$nameCheck,$telCheck,$cityCheck,$postcodeCheck,$countryCheck,$addressCheck);
 		}
 
 		break;
