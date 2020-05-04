@@ -192,10 +192,10 @@ function delTask($id,$key)
 	include '../inc/bdd.php';
 	
 	if (taskIsUser($id,$key)){
-		$req = $pdo->prepare("DELETE FROM tasks WHERE id = '" . $id . "'");
+		$req = $pdo->prepare("UPDATE tasks SET state = 'deleted' WHERE id = '" . $id . "'");
 		$req->execute();
 	}
-	
+	displayJson('1', "deleted");
 }
 
 function displayItem($catId = '0', $itemId = '0'){
