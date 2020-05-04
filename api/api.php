@@ -154,6 +154,50 @@ function addInfoUser($key,$name,$tel,$city,$postcode,$country,$address){
 	displayJson('1', "inserer");
 }
 
+function insertTask($task,$key) {
+	include '../inc/bdd.php';
+	$now = time();
+	$id = searchUserIdby($key);
+	$req = $pdo->prepare("INSERT INTO tasks(uid,task,date_insert) VALUES('$id', '$task', '$now')");
+	$req->execute();
+	
+	displayJson('1', $pdo->lastInsertId());
+}
+
+function searchUserIdby($key)
+{
+    include '../inc/bdd.php';
+    $req = $pdo->query("SELECT id FROM users WHERE generate_key = '" . $key . "'");
+    $data = $req->fetch();
+
+    return $data['id'];
+}
+
+function taskIsUser($id,$key)
+{
+	include '../inc/bdd.php';
+	$uidReal = searchUserIdby($key);
+    $req = $pdo->query("SELECT uid FROM tasks WHERE id = '" . $id . "'");
+    $data = $req->fetch();
+
+    if ($uidReal == $data['uid']){
+		return true;
+	}else{
+		return false;
+	}
+}
+
+function delTask($id,$key)
+{
+	include '../inc/bdd.php';
+	
+	if (taskIsUser($id,$key)){
+		$req = $pdo->prepare("DELETE FROM tasks WHERE id = '" . $id . "'");
+		$req->execute();
+	}
+	
+}
+
 function displayItem($catId = '0', $itemId = '0'){
 	include '../inc/bdd.php';
 	$response = array();
@@ -309,6 +353,29 @@ switch ($use) {
 			displayPersoInfo($keyCheck);
 		}
 
+		break;
+	
+	case 'newTask':
+
+		$keyCheck = addslashes(htmlspecialchars($_POST['key']));
+		
+		if (checkWithKey($keyCheck) && isset($_POST['task'])) {
+			//$decodeTask = json_decode(base64_decode(addslashes($_POST['task'])), true);
+			$decodeTask = base64_decode(addslashes($_POST['task']));
+			insertTask($decodeTask,$keyCheck);
+		}
+	
+		break;
+
+	case 'delTask':
+
+		$keyCheck = addslashes(htmlspecialchars($_POST['key']));
+		
+		if (checkWithKey($keyCheck) && isset($_POST['task'])) {
+			$decodeTaskid = addslashes($_POST['task']);
+			delTask($decodeTaskid,$keyCheck);
+		}
+	
 		break;
 	
 	default:
