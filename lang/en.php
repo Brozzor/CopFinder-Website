@@ -98,6 +98,7 @@ define('TXT_PAY_ENTER_MAIL', 'Enter email');
 define('TXT_PAY_PROCCESS', 'Proccess Payment');
 define('TXT_PAY_MADE_DECISION', 'Haven\'t made a decision yet?');
 define('TXT_PAY_JOIN_COMMUNITY', 'Join our community on social networks. We will gladly help with any question..');
+define('TXT_PAY_AGREE', 'I agree');
 
 
 define('TXT_PAY_ACCORDEON1_TITLE', 'Panel');
@@ -117,7 +118,6 @@ define('TXT_PAY_ACCORDEON4_DESC', 'Our support is available 24 hours a day, 7 da
 define('TXT_PAY_COUPON_DESC', 'We sometimes give you promotional codes for reductions, follow our social networks and beware of our next updates and promotions.');
 define('TXT_PAY_COUPON_ENTER', 'Enter your coupon');
 define('TXT_PAY_COUPON_HAVE', 'Have a coupon?');
-
 
 //---------------------------------------------------------
 // payments-info.php

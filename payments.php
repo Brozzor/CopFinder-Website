@@ -107,6 +107,15 @@ if (isset($_GET['email']) && isset($_GET['promo_code'])) {
 
                   <input type="email" id="emailInput" data-id="<?php echo $products[0]['id']; ?>" class="form-control" aria-describedby="emailHelp" placeholder="<?= TXT_PAY_ENTER_MAIL; ?>">
                   <small id="emailHelp" class="form-text text-muted"><?= TXT_PAY_NOT_SHARE_MAIL; ?></small>
+                  <br>
+                  <div class="form-check ml-1"><label class="form-check-label">
+                    <input class="form-check-input" id="accept-check" type="checkbox">
+                      <span class="form-check-sign"><span class="check">
+                      </span>
+                    </span>
+                    <?= TXT_PAY_AGREE; ?>  
+                    <a style="color: #da2727;" href="/terms" target="_blank"><?= TXT_FOOTER_CGU; ?></a>
+                  </label></div>
                 </div>
                 <button type="submit" id="buy" class="btn supreme-btn btn-block"><?= TXT_PAY_PROCCESS; ?></button>
 

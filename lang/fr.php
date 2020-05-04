@@ -100,7 +100,7 @@ define('TXT_PAY_ENTER_MAIL', 'Entrez votre email');
 define('TXT_PAY_PROCCESS', 'Procédez au paiement');
 define('TXT_PAY_MADE_DECISION', 'Vous ne vous êtes pas encore décidé ?');
 define('TXT_PAY_JOIN_COMMUNITY', 'Rejoignez notre communauté sur nos réseaux sociaux. Nous serons content de répondre à vos questions..');
-
+define('TXT_PAY_AGREE', 'J\'accepte les');
 
 define('TXT_PAY_ACCORDEON1_TITLE', 'Panel'); 
 define('TXT_PAY_ACCORDEON1_DESC', 'Nous avons réalisé le meilleur panel possible pour gérer vos taches et rendre l\'utilisation du logiciel aussi simple que possible.');

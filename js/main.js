@@ -20,13 +20,15 @@ function $_GET(param) {
 
 function checkout() {
   let mail = document.getElementById("emailInput");
-  if (validateEmail(mail.value)) {
+  let cgu = document.getElementById("accept-check").checked;
+  if (validateEmail(mail.value) && cgu) {
     return urlPage + "&email=" + mail.value + "&promo_code=" + $_GET('promo_code');
+  }else if (!cgu){
+    document.getElementById('emailHelp').innerHTML = '<font color="red">You must accept the conditions</font>';
   }else{
     document.getElementById('emailHelp').innerHTML = '<font color="red">Your mail address is not valid</font>';
-    return urlPage + "&email=";
   }
-  
+  return urlPage + "&email=";
 }
 
 function validateEmail(email) {
