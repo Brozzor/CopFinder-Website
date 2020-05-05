@@ -87,11 +87,14 @@ function generateKey() {
 
 function checkGoodAccount($mail, $token){
 	include '../inc/bdd.php';
-	$req = $pdo->query("SELECT id,global_name FROM users WHERE mail = '".$mail."' AND token = '".$token."' ");
+	$req = $pdo->query("SELECT id,token_expiry_date FROM users WHERE mail = '".$mail."' AND token = '".$token."' ");
 	$res = $req->fetch();
 	$generateKey = generateKey();
 	if ($res['id'] == NULL){
 		displayJson('0', "mail or token is invalid");
+		exit();
+	}else if (time() > $res['token_expiry_date']){
+		displayJson('0', "Your token key is expired");
 		exit();
 	}
 
@@ -234,11 +237,14 @@ function checkWithKey($key){
 		displayJson('0', 'reconnect key invalid , please re login');
 		exit();
 	}
-	$req = $pdo->query("SELECT id,global_name FROM users WHERE generate_key = '".$goodKey."' ");
+	$req = $pdo->query("SELECT id,token_expiry_date FROM users WHERE generate_key = '".$goodKey."' ");
 	$res = $req->fetch();
 
 	if ($res['id'] == NULL){
 		displayJson('0', 'reconnect key invalid , please re login');
+		exit();
+	}else if (time() > $res['token_expiry_date']){
+		displayJson('0', "Your token key is expired");
 		exit();
 	}
 	return true;
