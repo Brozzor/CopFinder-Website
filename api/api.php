@@ -223,7 +223,7 @@ function displayItem($catId = '0', $itemId = '0'){
 
 	}
 	while ($row = $req -> fetch()) {
-		$response[] = utf8ize($row);
+		$response[] = $row;
 	}
 
 	header('Content-Type: application/json');
@@ -339,7 +339,7 @@ switch ($use) {
 
 		if (checkWithKey($keyCheck)) {
 			
-		if ($_POST['itemId']){
+		if (isset($_POST['itemId'])){
 			$itemIdCheck = addslashes(htmlspecialchars($_POST['itemId']));
 			displayItem('0', $itemIdCheck);
 		}else{
