@@ -1,7 +1,7 @@
 <?php
 require('../inc/functions.php');
 reconnect_from_cookie();
-logged_only();
+limitedAccess(1);
 
 $user = getUserInfos($_SESSION['auth']['id']);
 $coupon = getCouponByUid();

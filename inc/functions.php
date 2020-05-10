@@ -332,7 +332,7 @@ function checkAccount($mail, $password)
     }
     $passwordCheck = trim(htmlspecialchars($password));
 
-    $req = $pdo->prepare("SELECT id,mail,password FROM users WHERE mail = '$mail' LIMIT 1");
+    $req = $pdo->prepare("SELECT id,mail,password,state FROM users WHERE mail = '$mail' LIMIT 1");
     $req->execute();
     $user = $req->fetch();
     if ($user['password'] != NULL && $user['password'] == $passwordCheck) {
@@ -368,6 +368,7 @@ function getLastUseCoupon($cid)
     include 'bdd.php';
     $req = $pdo->prepare("SELECT user_mail,modified,products.name,products.commission FROM transactions INNER JOIN products ON transactions.pid = products.id WHERE promo_code = '$cid' AND state = 'completed'");
     $req->execute();
+    $response = array();
     while ($row = $req->fetch()) {
         $response[] = $row;
     }
@@ -379,11 +380,16 @@ function transformTimetoDate($timestamp)
     return date("Y-m-d H:i:s", $timestamp);
 }
 
-function getTransacs($id)
+function getTransacs($id = false)
 {
     include 'bdd.php';
-    $req = $pdo->prepare("SELECT * FROM transactions WHERE uid = '$id'");
+    if ($id){
+        $req = $pdo->prepare("SELECT * FROM transactions WHERE uid = '$id'");
+    }else{
+        $req = $pdo->prepare("SELECT price,state,created FROM transactions");
+    }
     $req->execute();
+    $response = array();
     while ($row = $req->fetch()) {
         $response[] = $row;
     }
@@ -394,7 +400,7 @@ function recaptchaCheck($captcha)
 {
     $ip = get_ip_address();
     $secretKey = '6LeTWu0UAAAAAEZQHXUVIs47T_hm1nqaC4XoWChQ';
-    $response=file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".$secretKey."&response=".$captcha."&remoteip=".$ip);
+    $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".$secretKey."&response=".$captcha."&remoteip=".$ip);
     $responseKeys = json_decode($response,true);
 
 	if ($responseKeys["success"] == true) {
@@ -443,4 +449,86 @@ function addDayLicense($id, $days)
     $newDate = (86400 * $days);
     $req = $pdo->prepare("UPDATE users SET token_expiry_date = token_expiry_date + '" . $newDate . "' WHERE id = '" . $id . "'");
     $req->execute();
+}
+
+function limitedAccess($rank)
+{
+    logged_only();
+    if ($rank > $_SESSION['auth']['state'])
+    {
+        header('Location: index.php');
+    }
+}
+
+function lastBill()
+{
+    include 'bdd.php';
+    $req = $pdo->query("SELECT id,pid,user_mail,created,state,price FROM transactions ORDER BY created DESC LIMIT 10");
+
+    $response = array();
+    while ($row = $req->fetch()) {
+        $response[] = $row;
+    }
+    return $response;
+}
+
+function getProducts($id)
+{
+    include 'bdd.php';
+    $req = $pdo->prepare("SELECT * FROM products WHERE id = '$id'");
+    $req->execute();
+    
+    return $req->fetch();
+}
+
+function timestampTodate($time)
+{
+    return date('d/m/Y', $time).' &agrave; '.date('H:i:s', $time);
+}
+
+function statusForm($state)
+{
+    switch ($state) {
+        case 'create':
+            return '<span class="badge badge-warning">create</span>';
+            break;
+        case 'completed':
+            return '<span class="badge badge-success">completed</span>';
+            break;
+        case 0:
+            return '<span class="badge badge-danger">non lu</span>';
+            break;
+        case 1:
+            return '<span class="badge badge-success">lu</span>';
+            break;
+    }
+}
+
+function lastTicket()
+{
+    include 'bdd.php';
+    $req = $pdo->query("SELECT id,name,mail,date_send,state FROM support ORDER BY id DESC LIMIT 10");
+
+    $response = array();
+    while ($row = $req->fetch()) {
+        $response[] = $row;
+    }
+    return $response;
+}
+
+function totalAmount($hours)
+{
+    include 'bdd.php';
+    $transacs = getTransacs();
+    $now = time();
+    $timeFind = $now - (86400 * $hours);
+    echo $timeFind. ' et '. $hours;
+    $totalPrice = 0;
+    $i = 0;
+    foreach ($transacs as $row){
+        if ($row['created'] >= $timeFind && $row['state'] == "completed"){
+            $totalPrice += $row['price'];
+        }
+    }
+    return centsToDollars($totalPrice);
 }
