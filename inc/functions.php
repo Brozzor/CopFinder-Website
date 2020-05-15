@@ -534,3 +534,8 @@ function totalAmount($hours)
     }
     return centsToDollars($totalPrice);
 }
+
+function readTicket()
+{
+    echo "ou";
+}

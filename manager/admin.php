@@ -6,6 +6,10 @@ limitedAccess(3);
 $lastbill = lastBill();
 $lastTicket = lastTicket();
 
+if (isset($_GET['read'])){
+    readTicket();
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -143,7 +147,10 @@ $lastTicket = lastTicket();
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                        <button type="button" class="btn btn-primary">Sauvegarder</button>
+                        <?php if ($row['state'] == 0){ ?>
+                           <a href="admin.php?read=<?= $row['id'] ?>"><button type="button" class="btn btn-primary">Lu</button></a>
+                        <?php } ?>
+                        
                     </div>
                 </div>
             </div>
@@ -166,13 +173,12 @@ $lastTicket = lastTicket();
                         <p>Date de création : <?= timestampTodate($row['created']); ?></p>
                         <p>Prix : <?= centsToDollars($row['price']); ?>$</p>
                         <?php if ($row['uid'] != 0){ ?>
-                           <a href="/user.php?id=<?= $row['uid'] ?>"><button type="button" class="btn btn-primary">Voir l'utilisateur</button></a>
+                           <a href="user.php?id=<?= $row['uid'] ?>"><button type="button" class="btn btn-primary">Voir l'utilisateur</button></a>
                         <?php } ?>
                         
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                        <button type="button" class="btn btn-primary">Sauvegarder</button>
                     </div>
                 </div>
             </div>
