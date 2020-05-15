@@ -34,8 +34,8 @@ $lastTicket = lastTicket();
         <div class="container">
             <div class="main main-raised main-product" style="min-height: 370px;">
                 <div id="page-data">
-                <h1 class="card-title text-center mb-5" id="product-name">Revenu</h1>
-                <hr>
+                    <h1 class="card-title text-center mb-5" id="product-name">Revenu</h1>
+                    <hr>
                     <div class="row mb-5">
                         <div class="text-center col">
                             <h2 class="card-title" id="product-name"><?= totalAmount(24) ?>$</h2>
@@ -50,16 +50,18 @@ $lastTicket = lastTicket();
                             <span>1 Mois</span>
                         </div>
                         <div class="text-center col">
-                            <h2 class="card-title" id="product-name"><?= totalAmount(24) ?>$</h2>
+                            <h2 class="card-title" id="product-name"><?= totalAmount(null) ?>$</h2>
                             <span>Total</span>
                         </div>
                     </div>
-                <hr>
+                    <hr>
                     <div class="card-body">
                         <div class="col-md-12">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <center><h2>Dernières factures</h2></center>
+                                    <center>
+                                        <h2>Dernières factures</h2>
+                                    </center>
                                     <table class="table table-responsive text-center">
                                         <thead class="thead-light">
                                             <tr>
@@ -72,23 +74,25 @@ $lastTicket = lastTicket();
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php 
-                                    foreach ($lastbill as $row){
+                                            <?php
+                                            foreach ($lastbill as $row) {
                                             ?>
-                                            <tr>
-                                                <th><?= getProducts($row['pid'])['name']; ?></th>
-                                                <td><?= $row['user_mail']; ?></td>
-                                                <td><?= timestampTodate($row['created']); ?></td>
-                                                <td><?= centsToDollars($row['price']); ?>$</td>
-                                                <td><?= statusForm($row['state']); ?></td>
-                                                <td><button class="btn supreme-btn">Voir</button></td>
-                                            </tr>
-                                    <?php } ?>
+                                                <tr>
+                                                    <th><?= getProducts($row['pid'])['name']; ?></th>
+                                                    <td><?= $row['user_mail']; ?></td>
+                                                    <td><?= timestampTodate($row['created']); ?></td>
+                                                    <td><?= centsToDollars($row['price']); ?>$</td>
+                                                    <td><?= statusForm($row['state']); ?></td>
+                                                    <td><button class="btn supreme-btn" data-toggle="modal" data-target="#modalTransacs<?= $row['id'] ?>">Voir</button></td>
+                                                </tr>
+                                            <?php } ?>
                                         </tbody>
                                     </table>
                                 </div>
                                 <div class="col-lg-6">
-                                <center><h2>Dernier ticket</h2></center>
+                                    <center>
+                                        <h2>Dernier ticket</h2>
+                                    </center>
                                     <table class="table table-responsive text-center">
                                         <thead class="thead-light">
                                             <tr>
@@ -100,17 +104,18 @@ $lastTicket = lastTicket();
                                             </tr>
                                         </thead>
                                         <tbody>
-                                        <?php 
-                                   foreach ($lastTicket as $row){
-                                    ?>
-                                    <tr>
-                                        <th><?= htmlspecialchars($row['name']); ?></th>
-                                        <td><?= $row['mail']; ?></td>
-                                        <td><?= timestampTodate($row['date_send']); ?></td>
-                                        <td><?= statusForm($row['state']); ?></td>
-                                        <td><button class="btn supreme-btn">Voir</button></td>
-                                    </tr>
-                                     <?php } ?>
+                                            <?php
+                                            foreach ($lastTicket as $row) {
+                                            ?>
+                                                <tr>
+                                                    <th><?= htmlspecialchars($row['name']); ?></th>
+                                                    <td><?= $row['mail']; ?></td>
+                                                    <td><?= timestampTodate($row['date_send']); ?></td>
+                                                    <td><?= statusForm($row['state']); ?></td>
+                                                    <td><button class="btn supreme-btn" data-toggle="modal" data-target="#modalTicket<?= $row['id'] ?>">Voir</button></td>
+                                                </tr>
+                                            <?php } ?>
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -122,6 +127,57 @@ $lastTicket = lastTicket();
 
         </div>
     </div>
+    <?php foreach ($lastTicket as $row) { ?>
+        <div class="modal fade" id="modalTicket<?= $row['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="modalTicketLabel<?= $row['id'] ?>" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalTicketLabel<?= $row['id'] ?>">Ticket n°<?= $row['id'] ?></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <h3><?= htmlspecialchars($row['name']) ?></h3>
+                        <p><?= htmlspecialchars($row['message']) ?></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                        <button type="button" class="btn btn-primary">Sauvegarder</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <?php } ?>
+    <?php foreach ($lastbill as $row) { ?>
+        <div class="modal fade" id="modalTransacs<?= $row['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="modalTransacsLabel<?= $row['id'] ?>" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalTransacsLabel<?= $row['id'] ?>"><?= statusForm($row['state']); ?></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Transaction n°<?= $row['id'] ?> </p>
+                        <p>Produit : <?= getProducts($row['pid'])['name']; ?></p>
+                        <p>Mail : <?= $row['user_mail']; ?></p>
+                        <p>Date de création : <?= timestampTodate($row['created']); ?></p>
+                        <p>Prix : <?= centsToDollars($row['price']); ?>$</p>
+                        <?php if ($row['uid'] != 0){ ?>
+                           <a href="/user.php?id=<?= $row['uid'] ?>"><button type="button" class="btn btn-primary">Voir l'utilisateur</button></a>
+                        <?php } ?>
+                        
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                        <button type="button" class="btn btn-primary">Sauvegarder</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <?php } ?>
 
     <?php include "../inc/footer.php"; ?>
     <script src="/js/main.js"></script>

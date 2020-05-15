@@ -463,7 +463,7 @@ function limitedAccess($rank)
 function lastBill()
 {
     include 'bdd.php';
-    $req = $pdo->query("SELECT id,pid,user_mail,created,state,price FROM transactions ORDER BY created DESC LIMIT 10");
+    $req = $pdo->query("SELECT id,uid,pid,user_mail,created,state,price FROM transactions ORDER BY created DESC LIMIT 10");
 
     $response = array();
     while ($row = $req->fetch()) {
@@ -507,7 +507,7 @@ function statusForm($state)
 function lastTicket()
 {
     include 'bdd.php';
-    $req = $pdo->query("SELECT id,name,mail,date_send,state FROM support ORDER BY id DESC LIMIT 10");
+    $req = $pdo->query("SELECT * FROM support ORDER BY id DESC LIMIT 10");
 
     $response = array();
     while ($row = $req->fetch()) {
@@ -521,8 +521,10 @@ function totalAmount($hours)
     include 'bdd.php';
     $transacs = getTransacs();
     $now = time();
-    $timeFind = $now - (86400 * $hours);
-    echo $timeFind. ' et '. $hours;
+    $timeFind = $now - (3600 * $hours);
+    if ($hours == null){
+        $timeFind = 0;
+    }
     $totalPrice = 0;
     $i = 0;
     foreach ($transacs as $row){
