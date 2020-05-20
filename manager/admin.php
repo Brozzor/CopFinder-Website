@@ -6,8 +6,9 @@ limitedAccess(3);
 $lastbill = lastBill();
 $lastTicket = lastTicket();
 
-if (isset($_GET['read'])){
-    readTicket($_GET['read']);
+if (isset($_POST['read'])){
+    readTicket($_POST['read']);
+    header('Location: admin.php');
 }
 
 ?>
@@ -146,9 +147,13 @@ if (isset($_GET['read'])){
                         <p><?= htmlspecialchars($row['message']) ?></p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                        
                         <?php if ($row['state'] == 0){ ?>
-                           <a href="admin.php?read=<?= $row['id'] ?>"><button type="button" class="btn btn-primary">Lu</button></a>
+                            <form method="POST" action="">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                                <input type="text" name="read" value="<?= $row['id']; ?>" hidden>
+                                <input type="submit" value="Lu" class="btn btn-primary">
+                            </form>
                         <?php } ?>
                         
                     </div>
