@@ -7,7 +7,7 @@ $lastbill = lastBill();
 $lastTicket = lastTicket();
 
 if (isset($_GET['read'])){
-    readTicket();
+    readTicket($_GET['read']);
 }
 
 ?>

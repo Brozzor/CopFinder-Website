@@ -58,7 +58,7 @@ function count_in($from, $where, $value)
     return $donnees['nb'];
 }
 
-function productsBy($id = null,$root = false)
+function productsBy($id = null, $root = false)
 {
     include 'bdd.php';
     if ($id == null) {
@@ -145,10 +145,10 @@ function checkout($mail, $id, $promo_code = 'none')
 
     \Stripe\Stripe::setApiKey(getSetting('stripe_privKey'));
 
-    $products = productsBy($id,true);
+    $products = productsBy($id, true);
     $idGenerate = str_random(10);
     $url = 'https://cop-finder.com/en/pay/' . $idGenerate;
-    $promo_code_id = getCouponIdByName(trim(htmlspecialchars($promo_code)));
+    $promo_code_id = getCouponIdByName(checkInput($promo_code));
     $price = priceCoupon($products[0]['price'], $promo_code_id, $id);
     try {
         $session = \Stripe\Checkout\Session::create([
@@ -305,7 +305,7 @@ function createTicket($name, $mail, $msg, $ip)
     if (!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
         return 'Mail is not valid';
     }
-    if (!recaptchaCheck($_POST["g-recaptcha-response"])){
+    if (!recaptchaCheck($_POST["g-recaptcha-response"])) {
         return 'Captcha is not valid';
     }
     if (strlen($msg) < 25) {
@@ -355,11 +355,11 @@ function getUserInfos($id)
     return $req->fetch();
 }
 
-function getGoodDesc($en,$fr)
+function getGoodDesc($en, $fr)
 {
-    if(LANG_UTIL == 'FR'){
+    if (LANG_UTIL == 'FR') {
         return $fr;
-    }else{
+    } else {
         return $en;
     }
 }
@@ -384,9 +384,9 @@ function transformTimetoDate($timestamp)
 function getTransacs($id = false)
 {
     include 'bdd.php';
-    if ($id){
+    if ($id) {
         $req = $pdo->prepare("SELECT * FROM transactions WHERE uid = '$id'");
-    }else{
+    } else {
         $req = $pdo->prepare("SELECT price,state,created FROM transactions");
     }
     $req->execute();
@@ -401,11 +401,11 @@ function recaptchaCheck($captcha)
 {
     $ip = get_ip_address();
     $secretKey = '6LeTWu0UAAAAAEZQHXUVIs47T_hm1nqaC4XoWChQ';
-    $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".$secretKey."&response=".$captcha."&remoteip=".$ip);
-    $responseKeys = json_decode($response,true);
+    $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=" . $secretKey . "&response=" . $captcha . "&remoteip=" . $ip);
+    $responseKeys = json_decode($response, true);
 
-	if ($responseKeys["success"] == true) {
-		return true;
+    if ($responseKeys["success"] == true) {
+        return true;
     }
     return false;
 }
@@ -418,9 +418,8 @@ function centsToDollars($cents)
 function daysRemainingLicense($expired)
 {
     $res = $expired - time();
-    if ($res >= 0)
-    {
-       return round($res / 86400);
+    if ($res >= 0) {
+        return round($res / 86400);
     }
 }
 
@@ -428,7 +427,7 @@ function getBestLicense($transac)
 {
     $bestPid = 0;
     foreach ($transac as $row) {
-        if ($bestPid < $row['pid'] && $row['pid'] != 4){
+        if ($bestPid < $row['pid'] && $row['pid'] != 4) {
             $bestPid = $row['pid'];
         }
     }
@@ -455,8 +454,7 @@ function addDayLicense($id, $days)
 function limitedAccess($rank)
 {
     logged_only();
-    if ($rank > $_SESSION['auth']['state'])
-    {
+    if ($rank > $_SESSION['auth']['state']) {
         header('Location: index.php');
     }
 }
@@ -478,13 +476,13 @@ function getProducts($id)
     include 'bdd.php';
     $req = $pdo->prepare("SELECT * FROM products WHERE id = '$id'");
     $req->execute();
-    
+
     return $req->fetch();
 }
 
 function timestampTodate($time)
 {
-    return date('d/m/Y', $time).' &agrave; '.date('H:i:s', $time);
+    return date('d/m/Y', $time) . ' &agrave; ' . date('H:i:s', $time);
 }
 
 function statusForm($state)
@@ -523,24 +521,33 @@ function totalAmount($hours)
     $transacs = getTransacs();
     $now = time();
     $timeFind = $now - (3600 * $hours);
-    if ($hours == null){
+    if ($hours == null) {
         $timeFind = 0;
     }
     $totalPrice = 0;
     $i = 0;
-    foreach ($transacs as $row){
-        if ($row['created'] >= $timeFind && $row['state'] == "completed"){
+    foreach ($transacs as $row) {
+        if ($row['created'] >= $timeFind && $row['state'] == "completed") {
             $totalPrice += $row['price'];
         }
     }
     return centsToDollars($totalPrice);
 }
 
-function checkInput($value){
+function checkInput($value)
+{
     return trim(addslashes(htmlspecialchars($value)));
 }
 
-function readTicket()
+function readTicket($id)
 {
-    echo "ou";
+    include 'bdd.php';
+    $id = checkInput($id);
+    if (!is_numeric($id)) {
+        return false;
+    }
+    $req = $pdo->prepare("UPDATE support SET state = '1' WHERE id = '$id'");
+    $req->execute();
+
+    return false;
 }
