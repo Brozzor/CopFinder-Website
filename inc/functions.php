@@ -226,7 +226,10 @@ function createUser($mail, $pid, $ip)
     include 'bdd.php';
     $now = time();
     $product = productsBy($pid);
-    $expiryDate = $now + ($product[0]['active_day'] * 86440);
+    $expiryDate = 0;
+    if ($pid != 3) {
+        $expiryDate = $now + ($product[0]['active_day'] * 86440);
+    }
     $password = str_random(6);
     $token = str_random(16);
     $req = $pdo->prepare("INSERT INTO users(mail,password,created_account_date,created_account_ip,token,token_expiry_date) VALUES('$mail', '$password', '$now', '$ip', '$token','$expiryDate')");
