@@ -554,3 +554,98 @@ function readTicket($id)
 
     return false;
 }
+
+function allDropList($season = "SS20")
+{
+    include 'bdd.php';
+    $req = $pdo->prepare("SELECT * FROM drop_season WHERE season = '" . $season . "' ORDER BY week DESC");
+    $req->execute();
+    while ($row = $req->fetch()) {
+        $response[] = $row;
+    }
+    return $response;
+}
+
+function lastSeasonOr($season = "nada")
+{
+    include 'bdd.php';
+
+    $seasonStart = substr($season,0,2);
+    
+    $sql = "SELECT * FROM drop_season ORDER BY date_drop DESC LIMIT 1";
+
+    if ($season != "nada" && ($seasonStart == 'FW' || $seasonStart == 'SS') && strlen($season) == 4){
+        $seasonClean = checkInput($season);
+        $sql = "SELECT * FROM drop_season WHERE season = '$seasonClean' LIMIT 1";
+    }
+    $req = $pdo->prepare($sql);
+    $req->execute();
+
+    $ret = $req->fetch();
+    if ($ret['season'] == null){
+        return lastSeasonOr();
+    }
+
+    $ret['seasonType'] = "Fall/Winter";
+    if (substr($ret['season'],0,2) == 'SS'){
+        $ret['seasonType'] = "Spring/Summer";
+    }
+
+    return $ret;
+}
+
+function allDropItems($season, $week)
+{
+    include 'bdd.php';
+    $seasonClean = checkInput($season);
+    $weekClean = checkInput($week);
+    $req = $pdo->prepare("SELECT drop_items.id,name,description,price,img,week,more_infos,season,date_drop FROM drop_items INNER JOIN drop_season ON drop_items.idseason = drop_season.id WHERE drop_season.season = '$seasonClean' AND drop_season.week = '$weekClean'");
+    $req->execute();
+    
+    $response = array();
+    while ($row = $req->fetch()) {
+        $response[] = $row;
+    }
+
+    if (!isset($response[0]['week'])){
+        return allDropItems('SS20', '13');
+    }
+    return $response;
+}
+
+function allPriceItemsClean($price)
+{
+
+    $priceArray = explode(" ",$price);
+    return "$".$priceArray[1]."/£".$priceArray[3]."/".$priceArray[5]."€";
+}
+
+function dropDate($dateBase)
+{
+    $dateTime = new DateTime($dateBase);
+    return date('d/m/Y', strtotime($dateBase));
+}
+
+function allSeasonList()
+{
+    include 'bdd.php';
+
+    $req = $pdo->prepare("SELECT DISTINCT season FROM drop_season ");
+    $req->execute();
+    
+    $response = array();
+    while ($row = $req->fetch()) {
+        $response[] = $row;
+    }
+
+    return $response;
+}
+
+function displaySeasonInText($season)
+{
+    $year = "20".substr($season,2,4);
+    if (substr($season,0,2) == 'SS'){
+        return "Spring/Summer ".$year;
+    }
+    return "Fall/Winter ".$year;
+}

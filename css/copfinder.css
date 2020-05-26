@@ -19,3 +19,57 @@
     margin-left: auto;
     margin-right: auto;
 }
+
+.droplist-title {
+    font-weight: 700;
+    font-family: roboto slab,times new roman,serif;
+    text-align: center;
+    margin-top: 20%;
+    font-size: x-large;
+}
+
+.weekcard {
+    height: 10rem;
+    margin-bottom: 0px;
+}
+
+.weeklist {
+    max-width: 40%; 
+    margin-right: auto; 
+    margin-left: auto; 
+    margin-top: 2rem;
+}
+
+@media only screen and (max-width: 1199px) {
+
+    .droplist-title {
+        margin-top: 25%;
+    }
+
+}
+
+@media only screen and (max-width: 991px) {
+
+    .droplist-title {
+        margin-top: 43%;
+    }
+
+}
+
+@media only screen and (max-width: 575px) {
+
+    .droplist-title {
+        margin-top: 3rem;
+    }
+
+}
+
+.items-drop {
+    height: 94%!important;
+}
+
+.card-price-drop {
+    position:absolute;
+    bottom:0;
+    width: 80%;
+}
