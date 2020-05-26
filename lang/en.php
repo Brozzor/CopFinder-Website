@@ -144,3 +144,20 @@ define('TXT_CONTACT_SUBMIT', 'Submit');
 
 define('TXT_FOOTER_PRIVACY', 'Privacy Policy');
 define('TXT_FOOTER_CGU', 'Terms & Conditions');
+
+//---------------------------------------------------------
+// droplist.php
+//---------------------------------------------------------
+
+define('TXT_DROPLIST_ACCEUIL', 'Here are the lists of all the items that have been dropped previously as well as those that will be dropped in the future, come back often on this page so you don\'t miss the latest news.');
+define('TXT_DROPLIST_WEEK', 'Week');
+define('TXT_DROPLIST_DROPLIST', 'Droplist');
+
+//---------------------------------------------------------
+// droplist-page.php
+//---------------------------------------------------------
+
+define('TXT_DROPLIST_PAGE_WEEK', 'Week');
+define('TXT_DROPLIST_PAGE_BACK', 'back');
+define('TXT_DROPLIST_PAGE_NPF', 'No price found');
+define('TXT_DROPLIST_PAGE_SORRY', 'We\'re sorry but we couldn\'t find a description for this item.');

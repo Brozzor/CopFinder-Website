@@ -18,9 +18,7 @@ $dropList = allDropList($lastSeason['season']);
     <meta charset="utf-8" />
     <link rel="icon" type="image/png" href="/img/logo/icon.png" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>
-        CopFinder - Droplist Supreme
-    </title>
+    <title>CopFinder - Droplist Supreme <?= $lastSeason['season']; ?> <?= LANG_UTIL ?></title>
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no" name="viewport" />
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet" />
@@ -48,14 +46,14 @@ $dropList = allDropList($lastSeason['season']);
         <div class="container">
             <div class="main main-raised main-product" style="min-height: 370px;">
                 <div id="page-data">
-                    <h2 class="card-title text-center" id="product-name">Droplist <?= $lastSeason['season']; ?> </h2>
+                    <h2 class="card-title text-center" id="product-name"><?= TXT_DROPLIST_DROPLIST ?> <?= $lastSeason['season']; ?> </h2>
                     <p class="text-center"><?= $lastSeason['seasonType']; ?></p>
 
                     <div class="card-body">
                         <div class="row">
 
                             <div class="col-md-12 mt-4">
-                                <center><span>Voici les listes de tout les items qui sont tomber précédemment ainsi que celles qui vont tomber dans le futur , revenez souvent sur cette page pour ne pas manquer les dernières infos</span></center>
+                                <center><span><?= TXT_DROPLIST_ACCEUIL ?></span></center>
                                 <div class="weeklist">
                                 <select width="50px" class="custom-select" id="selectSeason">
                                 <?php
@@ -76,7 +74,7 @@ $dropList = allDropList($lastSeason['season']);
                                     <a href="droplist-page.php?season=<?= $row['season']; ?>&week=<?= $row['week']; ?>">
                                         <div class="card text-white bg-dark weekcard">
                                             <div class="card-body">
-                                                <p class="droplist-title">Week <?= $row['week']; ?></p>
+                                                <p class="droplist-title"><?= TXT_DROPLIST_WEEK ?> <?= $row['week']; ?></p>
                                             </div>
                                         </div>                       
                                     </a>

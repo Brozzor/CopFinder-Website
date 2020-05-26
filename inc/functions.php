@@ -608,7 +608,7 @@ function allDropItems($season, $week)
     }
 
     if (!isset($response[0]['week'])){
-        return allDropItems('SS20', '13');
+        header('Location: droplist.php');
     }
     return $response;
 }
@@ -617,7 +617,15 @@ function allPriceItemsClean($price)
 {
 
     $priceArray = explode(" ",$price);
-    return "$".$priceArray[1]."/£".$priceArray[3]."/".$priceArray[5]."€";
+    if (!isset($priceArray[2])){
+        return "$".$priceArray[1];
+    }
+    $checkPrice = "$".$priceArray[1]."/£".$priceArray[3]."/".$priceArray[5]."€";
+    if ($checkPrice == '$prices/£-/back€'){
+        return TXT_DROPLIST_PAGE_NPF;
+    }
+    return $checkPrice;
+
 }
 
 function dropDate($dateBase)
@@ -648,4 +656,14 @@ function displaySeasonInText($season)
         return "Spring/Summer ".$year;
     }
     return "Fall/Winter ".$year;
+}
+
+function cleanDescItemDrop($desc)
+{
+    $desc = htmlspecialchars(strip_tags($desc));
+    if ($desc == null || $desc == "")
+    {
+        return TXT_DROPLIST_PAGE_SORRY;
+    }
+    return $desc;
 }

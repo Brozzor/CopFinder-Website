@@ -11,9 +11,7 @@ $products = productsBy();
   <meta charset="utf-8" />
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <title>
-    CopFinder - <?= SEO_TITLE; ?>
-  </title>
+  <title>CopFinder - <?= SEO_TITLE; ?></title>
   <meta property="og:type" content="website"/>
   <meta property="og:title" content="CopFinder | Cop Bot Supreme"/>
   <meta property="og:url" content="https://cop-finder.com/" />

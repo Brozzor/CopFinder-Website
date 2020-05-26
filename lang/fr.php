@@ -144,3 +144,20 @@ define('TXT_CONTACT_SUBMIT', 'Envoyer');
 
 define('TXT_FOOTER_PRIVACY', 'Politique de confidentialité');
 define('TXT_FOOTER_CGU', 'Conditions générales');
+
+//---------------------------------------------------------
+// droplist.php
+//---------------------------------------------------------
+
+define('TXT_DROPLIST_ACCEUIL', 'Voici les listes de tout les items qui ont été drop précédemment ainsi que ceux qui vont drop dans le futur , revenez souvent sur cette page pour ne pas manquer les dernières infos');
+define('TXT_DROPLIST_WEEK', 'Semaine');
+define('TXT_DROPLIST_DROPLIST', 'Droplist');
+
+//---------------------------------------------------------
+// droplist-page.php
+//---------------------------------------------------------
+
+define('TXT_DROPLIST_PAGE_WEEK', 'Semaine');
+define('TXT_DROPLIST_PAGE_BACK', 'retour');
+define('TXT_DROPLIST_PAGE_NPF', 'Aucun prix trouvé');
+define('TXT_DROPLIST_PAGE_SORRY', 'Nous sommes désolés mais nous n\'avons pas trouvé de description pour cet article.');
