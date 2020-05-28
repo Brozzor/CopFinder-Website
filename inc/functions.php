@@ -617,8 +617,10 @@ function allPriceItemsClean($price)
 {
 
     $priceArray = explode(" ",$price);
-    if (!isset($priceArray[2])){
+    if (!isset($priceArray[2]) && isset($priceArray[1])){
         return "$".$priceArray[1];
+    }else if ($price == ""){
+        return TXT_DROPLIST_PAGE_NPF;
     }
     $checkPrice = "$".$priceArray[1]."/£".$priceArray[3]."/".$priceArray[5]."€";
     if ($checkPrice == '$prices/£-/back€'){
