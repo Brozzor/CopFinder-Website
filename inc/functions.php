@@ -651,6 +651,21 @@ function allSeasonList()
     return $response;
 }
 
+function allWeekList()
+{
+    include 'bdd.php';
+
+    $req = $pdo->prepare("SELECT season,week FROM drop_season");
+    $req->execute();
+    
+    $response = array();
+    while ($row = $req->fetch()) {
+        $response[] = $row;
+    }
+
+    return $response;
+}
+
 function displaySeasonInText($season)
 {
     $year = "20".substr($season,2,4);
