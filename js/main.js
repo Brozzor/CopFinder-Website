@@ -43,9 +43,9 @@ window.addEventListener("load", function load(event) {
 
 function findDropPage() {
   if (document.getElementById("selectSeason") != null) {
-
+    let path = window.location.pathname.split('/');
     document.getElementById("selectSeason").addEventListener("change", function () {
-      window.location = window.location.origin + window.location.pathname + "?season=" + document.getElementById("selectSeason").value;
+      window.location = window.location.origin + "/" + path[1] + "/" + path[2] + "/" + document.getElementById("selectSeason").value;
     });
   }
 }

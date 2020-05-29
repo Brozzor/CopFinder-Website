@@ -4,7 +4,7 @@ require "inc/functions.php";
 if (isset($_GET['season'])){
     $lastSeason = lastSeasonOr($_GET['season']);
 }else{
-    $lastSeason = lastSeasonOr();
+    header('Location: https://cop-finder.com/'.LANG_UTIL_LOWER. '/season/'. lastSeasonOr()['season']);
 }
 
 $seasonList = allSeasonList();
