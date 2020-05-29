@@ -4,7 +4,7 @@ require "inc/functions.php";
 if (isset($_GET['season'])){
     $lastSeason = lastSeasonOr($_GET['season']);
 }else{
-    header('Location: https://cop-finder.com/'.LANG_UTIL_LOWER. '/droplist/season/'. lastSeasonOr()['season']);
+    header('Location: https://cop-finder.com/'.LANG_UTIL_LOWER.'/droplist/season/'. lastSeasonOr()['season']);
 }
 
 $seasonList = allSeasonList();
@@ -12,7 +12,7 @@ $dropList = allDropList($lastSeason['season']);
 
 ?>
 <!DOCTYPE html>
-<html lang="<?= strtolower(LANG_UTIL); ?>">
+<html lang="<?= LANG_UTIL_LOWER; ?>">
 
 <head>
     <meta charset="utf-8" />
@@ -71,7 +71,7 @@ $dropList = allDropList($lastSeason['season']);
                                     <?php
                                     foreach ($dropList as $row) {
                                     ?><div class="col-xs-12 col-sm-6 col-md-4">
-                                    <a href="droplist-page.php?season=<?= $row['season']; ?>&week=<?= $row['week']; ?>">
+                                    <a href="/<?= LANG_UTIL_LOWER ?>/droplist/season/<?= $row['season']; ?>/week/<?= $row['week']; ?>">
                                         <div class="card text-white bg-dark weekcard">
                                             <div class="card-body">
                                                 <p class="droplist-title"><?= TXT_DROPLIST_WEEK ?> <?= $row['week']; ?></p>
