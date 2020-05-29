@@ -12,8 +12,8 @@
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto mb-1">
                 <li class="nav-item">
-                    <a class="nav-link" href="/<?= LANG_UTIL_LOWER; ?>/#features">
-                        Features
+                    <a class="nav-link" href="/<?= LANG_UTIL_LOWER; ?>/droplist/latest">
+                        Droplist
                     </a>
                 </li>
                 <li class="nav-item">
