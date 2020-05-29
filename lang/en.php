@@ -161,3 +161,4 @@ define('TXT_DROPLIST_PAGE_WEEK', 'Week');
 define('TXT_DROPLIST_PAGE_BACK', 'back');
 define('TXT_DROPLIST_PAGE_NPF', 'No price found');
 define('TXT_DROPLIST_PAGE_SORRY', 'We\'re sorry but we couldn\'t find a description for this item.');
+define('TXT_DROPLIST_PAGE_NOT_ARTICLE', 'No items were found');

@@ -7,6 +7,17 @@ if (isset($_GET['season']) && isset($_GET['week']) && is_numeric($_GET['week']) 
     $dropItems = allDropItems('SS20','12');
 }
 
+if (!isset($dropItems[0]['week']) && strlen($_GET['week']) <= 2 && is_numeric($_GET['week']) && strlen($_GET['season']) == 4){
+    $dropItems[0]['week'] = $_GET['week'];
+    $dropItems[0]['season'] = htmlspecialchars($_GET['season']);
+    $dropItems[0]['date_drop'] = null;
+    $dropItems[0]['noItems'] = true;
+    $dropItems[0]['more_infos'] = TXT_DROPLIST_PAGE_NOT_ARTICLE;
+    
+}else if (!isset($dropItems[0]['week'])){
+    header('Location: ./');
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="<?= strtolower(LANG_UTIL); ?>">
@@ -54,6 +65,7 @@ if (isset($_GET['season']) && isset($_GET['week']) && is_numeric($_GET['week']) 
                                 <a href="droplist.php?season=<?= $dropItems[0]['season']; ?>"><button class="btn btn-secondary btn-sm"><i class="fa fa-arrow-left"></i> <?= TXT_DROPLIST_PAGE_BACK ?></button></a>
                                 <div class="row">
                                     <?php
+                                    if (!isset($dropItems[0]['noItems'])){       
                                     foreach ($dropItems as $row) {
                                     ?><div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
                                             <div class="card items-drop">
@@ -65,7 +77,7 @@ if (isset($_GET['season']) && isset($_GET['week']) && is_numeric($_GET['week']) 
                                                 </div>
                                             </div>
                                         </div>
-                                    <?php } ?>
+                                    <?php }} ?>
                                 </div>
 
 

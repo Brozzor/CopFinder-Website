@@ -607,9 +607,6 @@ function allDropItems($season, $week)
         $response[] = $row;
     }
 
-    if (!isset($response[0]['week'])){
-        header('Location: droplist.php');
-    }
     return $response;
 }
 
@@ -632,6 +629,9 @@ function allPriceItemsClean($price)
 
 function dropDate($dateBase)
 {
+    if ($dateBase == null){
+        return false;
+    }
     $dateTime = new DateTime($dateBase);
     return date('d/m/Y', strtotime($dateBase));
 }
