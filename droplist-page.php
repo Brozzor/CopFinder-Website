@@ -62,7 +62,7 @@ if (!isset($dropItems[0]['week']) && strlen($_GET['week']) <= 2 && is_numeric($_
 
                             <div class="col-md-12 mt-4">
                                 <center><span><?= strip_tags($dropItems[0]['more_infos']); ?></span></center>
-                                <a href="droplist.php?season=<?= $dropItems[0]['season']; ?>"><button class="btn btn-secondary btn-sm"><i class="fa fa-arrow-left"></i> <?= TXT_DROPLIST_PAGE_BACK ?></button></a>
+                                <a href="/<?= LANG_UTIL_LOWER ?>/droplist/season/<?= $dropItems[0]['season']; ?>"><button class="btn btn-secondary btn-sm"><i class="fa fa-arrow-left"></i> <?= TXT_DROPLIST_PAGE_BACK ?></button></a>
                                 <div class="row">
                                     <?php
                                     if (!isset($dropItems[0]['noItems'])){       
