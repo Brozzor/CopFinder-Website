@@ -24,9 +24,9 @@ $dropList = allDropList($lastSeason['season']);
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet" />
     <link href="/css/copfinder.css" rel="stylesheet" />
     <link href="/site.webmanifest" rel="manifest" />
-    <link rel="alternate" href="https://cop-finder.com/fr/droplist/latest/" hreflang="fr" />
-    <link rel="alternate" href="https://cop-finder.com/en/droplist/latest/" hreflang="en" />
-    <link rel="alternate" href="https://cop-finder.com/en/droplist/latest/" hreflang="x-default" />
+    <link rel="alternate" href="https://cop-finder.com/fr/droplist/season/<?= $lastSeason['season']; ?>" hreflang="fr" />
+    <link rel="alternate" href="https://cop-finder.com/en/droplist/season/<?= $lastSeason['season']; ?>" hreflang="en" />
+    <link rel="alternate" href="https://cop-finder.com/en/droplist/season/<?= $lastSeason['season']; ?>" hreflang="x-default" />
     <link href="/img/logo/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" />
     <link href="/img/logo/apple-touch-icon.png" rel="shortcut icon" type="image/x-icon" />
     <link href="/img/logo/icon-32.png" rel="icon" sizes="32x32" type="image/png" />
