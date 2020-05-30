@@ -149,7 +149,7 @@ define('TXT_FOOTER_CGU', 'Conditions générales');
 // droplist.php
 //---------------------------------------------------------
 
-define('TXT_DROPLIST_ACCEUIL', 'Voici les listes de tout les items qui ont été drop précédemment ainsi que ceux qui vont drop dans le futur , revenez souvent sur cette page pour ne pas manquer les dernières infos');
+define('TXT_DROPLIST_ACCEUIL', 'Voici les listes de tous les items qui ont été drop précédemment ainsi que ceux qui vont drop dans le futur , revenez souvent sur cette page pour ne pas manquer les dernières infos');
 define('TXT_DROPLIST_WEEK', 'Semaine');
 define('TXT_DROPLIST_DROPLIST', 'Droplist');
 
