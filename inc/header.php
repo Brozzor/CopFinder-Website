@@ -1,4 +1,4 @@
-<nav class="navbar navbar-transparent navbar-absolute navbar-expand-lg" color-on-scroll="100" id="sectionsNav">
+<nav class="navbar navbar-transparent navbar-absolute navbar-expand-lg" id="sectionsNav">
     <div class="container">
         <div class="navbar-translate">
             <a class="navbar-brand" href="https://cop-finder.com/<?= LANG_UTIL_LOWER; ?>/"><img src="/img/logo/logo.png" alt="cop-finder-logo" class="light-logo mb-1" style="width: 203px;" /></a>
