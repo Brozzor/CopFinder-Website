@@ -28,7 +28,7 @@ if (!isset($dropItems[0]['week']) && strlen($_GET['week']) <= 2 && is_numeric($_
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>CopFinder - Droplist Supreme <?= $dropItems[0]['season']; ?> Week <?= $dropItems[0]['week']; ?> <?= LANG_UTIL; ?></title>
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no" name="viewport" />
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700%7CRoboto+Slab:400,700%7CMaterial+Icons" />
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet" />
     <link href="/css/copfinder.css" rel="stylesheet" />
     <link href="/site.webmanifest" rel="manifest" />
