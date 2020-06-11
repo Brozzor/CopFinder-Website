@@ -31,8 +31,10 @@
                         VIDEOS
                     </a>
                 </li>
-
-                <div class="vertical"></div>
+                <li>
+                    <div class="vertical"></div>
+                </li>
+                
                 <li class="nav-item">
                     <a class="btn supreme-btn nav-supreme" href="/<?= LANG_UTIL_LOWER; ?>/#offers">
                         <i class="fa fa-shopping-cart"></i> <?= TXT_BUY_NOW; ?>
