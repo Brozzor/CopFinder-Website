@@ -175,7 +175,7 @@ header('Content-Type: application/xml; charset=utf-8');
             <xhtml:link rel="alternate" hreflang="fr" href="https://cop-finder.com/fr/droplist/season/<?= $row['season']; ?>" />
             <xhtml:link rel="alternate" hreflang="en" href="https://cop-finder.com/en/droplist/season/<?= $row['season']; ?>" />
             <xhtml:link rel="alternate" hreflang="x-default" href="https://cop-finder.com/en/droplist/season/<?= $row['season']; ?>" />
-            <lastmod>2020-05-29T07:23:30+00:00</lastmod>
+            <lastmod>2020-06-10T07:23:30+00:00</lastmod>
             <changefreq>daily</changefreq>
             <priority>0.70</priority>
         </url>
@@ -184,7 +184,7 @@ header('Content-Type: application/xml; charset=utf-8');
             <xhtml:link rel="alternate" hreflang="fr" href="https://cop-finder.com/fr/droplist/season/<?= $row['season']; ?>" />
             <xhtml:link rel="alternate" hreflang="en" href="https://cop-finder.com/en/droplist/season/<?= $row['season']; ?>" />
             <xhtml:link rel="alternate" hreflang="x-default" href="https://cop-finder.com/en/droplist/season/<?= $row['season']; ?>" />
-            <lastmod>2020-05-29T07:23:30+00:00</lastmod>
+            <lastmod>2020-06-10T07:23:30+00:00</lastmod>
             <changefreq>daily</changefreq>
             <priority>0.70</priority>
         </url>
@@ -199,7 +199,7 @@ header('Content-Type: application/xml; charset=utf-8');
             <xhtml:link rel="alternate" hreflang="fr" href="https://cop-finder.com/fr/droplist/season/<?= $row['season']; ?>/week/<?= $row['week']; ?>" />
             <xhtml:link rel="alternate" hreflang="en" href="https://cop-finder.com/en/droplist/season/<?= $row['season']; ?>/week/<?= $row['week']; ?>" />
             <xhtml:link rel="alternate" hreflang="x-default" href="https://cop-finder.com/en/droplist/season/<?= $row['season']; ?>/week/<?= $row['week']; ?>" />
-            <lastmod>2020-05-29T07:23:30+00:00</lastmod>
+            <lastmod>2020-06-10T07:23:30+00:00</lastmod>
             <changefreq>daily</changefreq>
             <priority>0.70</priority>
         </url>
@@ -208,7 +208,7 @@ header('Content-Type: application/xml; charset=utf-8');
             <xhtml:link rel="alternate" hreflang="fr" href="https://cop-finder.com/fr/droplist/season/<?= $row['season']; ?>/week/<?= $row['week']; ?>" />
             <xhtml:link rel="alternate" hreflang="en" href="https://cop-finder.com/en/droplist/season/<?= $row['season']; ?>/week/<?= $row['week']; ?>" />
             <xhtml:link rel="alternate" hreflang="x-default" href="https://cop-finder.com/en/droplist/season/<?= $row['season']; ?>/week/<?= $row['week']; ?>" />
-            <lastmod>2020-05-29T07:23:30+00:00</lastmod>
+            <lastmod>2020-06-10T07:23:30+00:00</lastmod>
             <changefreq>daily</changefreq>
             <priority>0.70</priority>
         </url>

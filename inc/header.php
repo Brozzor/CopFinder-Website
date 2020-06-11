@@ -32,7 +32,7 @@
                     </a>
                 </li>
 
-                <hr class="vertical">
+                <div class="vertical"></div>
                 <li class="nav-item">
                     <a class="btn supreme-btn nav-supreme" href="/<?= LANG_UTIL_LOWER; ?>/#offers">
                         <i class="fa fa-shopping-cart"></i> <?= TXT_BUY_NOW; ?>
@@ -40,7 +40,7 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-left: 10px">
-                    <img width="35px" src="/img/flags/<?= LANG_UTIL_LOWER; ?>.png" alt="<?= LANG_UTIL_LOWER; ?>" >
+                    <img width="35" src="/img/flags/<?= LANG_UTIL_LOWER; ?>.png" alt="<?= LANG_UTIL_LOWER; ?> flags" >
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="min-width: 30px">
                         <a class="dropdown-item" href="/en/">

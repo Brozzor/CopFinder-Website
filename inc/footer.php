@@ -1,12 +1,16 @@
 <footer class="footer" data-background-color="black" id="footer">
     <div class="container">
         <ul class="social-buttons">
-            <a class="btn btn-just-icon btn-link btn-instagram" href="https://www.instagram.com/copfinder/" target="_blank">
-                <i class="fa fa-instagram"></i>
-            </a>
-            <a class="btn btn-just-icon btn-link btn-youtube" href="https://www.youtube.com/channel/UCY6nETvukK3fN2gqV38FRMw/" target="_blank">
-                <i class="fa fa-youtube-play"></i>
-            </a>
+            <li>
+                <a class="btn btn-just-icon btn-link btn-instagram" href="https://www.instagram.com/copfinder/" target="_blank">
+                    <i class="fa fa-instagram"></i>
+                </a>
+            </li>
+            <li>
+                <a class="btn btn-just-icon btn-link btn-youtube" href="https://www.youtube.com/channel/UCY6nETvukK3fN2gqV38FRMw/" target="_blank">
+                    <i class="fa fa-youtube-play"></i>
+                </a>
+            </li>
         </ul>
         <div class="text-center">
             <img class="partner-logo" src="/img/payments/visa.png" alt="Visa">
@@ -19,9 +23,12 @@
 </footer>
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163966679-1"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    window.dataLayer = window.dataLayer || [];
 
-  gtag('config', 'UA-163966679-1');
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-163966679-1');
 </script>

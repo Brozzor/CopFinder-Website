@@ -132,7 +132,7 @@ $products = productsBy();
     <section id="features">
       <div class="features-5" style="background-image: url('/img/bg/features-bg.jpg');">
         <div class="col-md-8 ml-auto mr-auto text-center">
-          <h2 class="title"><?= TXT_ACCUEIL_OUR_MAIN_FEATURES; ?></p></h2>
+          <h2 class="title"><?= TXT_ACCUEIL_OUR_MAIN_FEATURES; ?></h2>
         </div>
         <div class="container">
           <div class="row top-row">
@@ -258,7 +258,7 @@ $products = productsBy();
   </div>
   <?php include "inc/footer.php"; ?>
 
-  <script src="/js/main.js"></script>
+  <script src="/js/main.js" type="text/javascript"></script>
   <script src="/js/jquery.min.js" type="text/javascript"></script>
   <script src="/js/popper.min.js" type="text/javascript"></script>
   <script src="/js/bootstrap-material-design.min.js" type="text/javascript"></script>
