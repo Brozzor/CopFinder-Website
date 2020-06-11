@@ -14,7 +14,7 @@ header('Content-Type: application/xml; charset=utf-8');
         <xhtml:link rel="alternate" hreflang="fr" href="https://cop-finder.com/fr/" />
         <xhtml:link rel="alternate" hreflang="en" href="https://cop-finder.com/en/" />
         <xhtml:link rel="alternate" hreflang="x-default" href="https://cop-finder.com/" />
-        <lastmod>2020-05-29T07:19:50+00:00</lastmod>
+        <lastmod>2020-06-11T07:19:50+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>1</priority>
     </url>
@@ -23,7 +23,7 @@ header('Content-Type: application/xml; charset=utf-8');
         <xhtml:link rel="alternate" hreflang="fr" href="https://cop-finder.com/fr/" />
         <xhtml:link rel="alternate" hreflang="en" href="https://cop-finder.com/en/" />
         <xhtml:link rel="alternate" hreflang="x-default" href="https://cop-finder.com/" />
-        <lastmod>2020-05-29T07:19:50+00:00</lastmod>
+        <lastmod>2020-06-11T07:19:50+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.80</priority>
     </url>
@@ -32,7 +32,7 @@ header('Content-Type: application/xml; charset=utf-8');
         <xhtml:link rel="alternate" hreflang="fr" href="https://cop-finder.com/fr/faq" />
         <xhtml:link rel="alternate" hreflang="en" href="https://cop-finder.com/en/faq" />
         <xhtml:link rel="alternate" hreflang="x-default" href="https://cop-finder.com/en/faq" />
-        <lastmod>2020-05-29T07:19:50+00:00</lastmod>
+        <lastmod>2020-06-11T07:19:50+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.80</priority>
     </url>
@@ -41,8 +41,8 @@ header('Content-Type: application/xml; charset=utf-8');
         <xhtml:link rel="alternate" hreflang="fr" href="https://cop-finder.com/fr/contact" />
         <xhtml:link rel="alternate" hreflang="en" href="https://cop-finder.com/en/contact" />
         <xhtml:link rel="alternate" hreflang="x-default" href="https://cop-finder.com/en/contact" />
-        <lastmod>2020-05-29T07:19:50+00:00</lastmod>
-        <changefreq>weekly</changefreq>
+        <lastmod>2020-06-11T07:19:50+00:00</lastmod>
+        <changefreq>monthly</changefreq>
         <priority>0.80</priority>
     </url>
     <url>
@@ -50,7 +50,7 @@ header('Content-Type: application/xml; charset=utf-8');
         <xhtml:link rel="alternate" hreflang="fr" href="https://cop-finder.com/fr/videos" />
         <xhtml:link rel="alternate" hreflang="en" href="https://cop-finder.com/en/videos" />
         <xhtml:link rel="alternate" hreflang="x-default" href="https://cop-finder.com/en/videos" />
-        <lastmod>2020-05-29T07:19:50+00:00</lastmod>
+        <lastmod>2020-06-11T07:19:50+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.80</priority>
     </url>
@@ -59,7 +59,7 @@ header('Content-Type: application/xml; charset=utf-8');
         <xhtml:link rel="alternate" hreflang="fr" href="https://cop-finder.com/fr/" />
         <xhtml:link rel="alternate" hreflang="en" href="https://cop-finder.com/en/" />
         <xhtml:link rel="alternate" hreflang="x-default" href="https://cop-finder.com/" />
-        <lastmod>2020-05-29T07:19:50+00:00</lastmod>
+        <lastmod>2020-06-11T07:19:50+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.80</priority>
     </url>
@@ -68,7 +68,7 @@ header('Content-Type: application/xml; charset=utf-8');
         <xhtml:link rel="alternate" hreflang="fr" href="https://cop-finder.com/fr/products/1" />
         <xhtml:link rel="alternate" hreflang="en" href="https://cop-finder.com/en/products/1" />
         <xhtml:link rel="alternate" hreflang="x-default" href="https://cop-finder.com/en/products/1" />
-        <lastmod>2020-05-29T07:19:50+00:00</lastmod>
+        <lastmod>2020-06-11T07:19:50+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.70</priority>
     </url>
@@ -77,7 +77,7 @@ header('Content-Type: application/xml; charset=utf-8');
         <xhtml:link rel="alternate" hreflang="fr" href="https://cop-finder.com/fr/products/3" />
         <xhtml:link rel="alternate" hreflang="en" href="https://cop-finder.com/en/products/3" />
         <xhtml:link rel="alternate" hreflang="x-default" href="https://cop-finder.com/en/products/3" />
-        <lastmod>2020-05-29T07:19:50+00:00</lastmod>
+        <lastmod>2020-06-11T07:19:50+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.70</priority>
     </url>
@@ -86,28 +86,16 @@ header('Content-Type: application/xml; charset=utf-8');
         <xhtml:link rel="alternate" hreflang="fr" href="https://cop-finder.com/fr/products/2" />
         <xhtml:link rel="alternate" hreflang="en" href="https://cop-finder.com/en/products/2" />
         <xhtml:link rel="alternate" hreflang="x-default" href="https://cop-finder.com/en/products/2" />
-        <lastmod>2020-05-29T07:19:50+00:00</lastmod>
+        <lastmod>2020-06-11T07:19:50+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.70</priority>
-    </url>
-    <url>
-        <loc>https://cop-finder.com/privacy</loc>
-        <lastmod>2020-05-29T07:19:50+00:00</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.50</priority>
-    </url>
-    <url>
-        <loc>https://cop-finder.com/terms</loc>
-        <lastmod>2020-05-29T07:19:50+00:00</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.50</priority>
     </url>
     <url>
         <loc>https://cop-finder.com/fr/faq</loc>
         <xhtml:link rel="alternate" hreflang="fr" href="https://cop-finder.com/fr/faq" />
         <xhtml:link rel="alternate" hreflang="en" href="https://cop-finder.com/en/faq" />
         <xhtml:link rel="alternate" hreflang="x-default" href="https://cop-finder.com/en/faq" />
-        <lastmod>2020-05-29T07:19:50+00:00</lastmod>
+        <lastmod>2020-06-11T07:19:50+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.80</priority>
     </url>
@@ -116,7 +104,7 @@ header('Content-Type: application/xml; charset=utf-8');
         <xhtml:link rel="alternate" hreflang="fr" href="https://cop-finder.com/fr/contact" />
         <xhtml:link rel="alternate" hreflang="en" href="https://cop-finder.com/en/contact" />
         <xhtml:link rel="alternate" hreflang="x-default" href="https://cop-finder.com/en/contact" />
-        <lastmod>2020-05-29T07:19:50+00:00</lastmod>
+        <lastmod>2020-06-11T07:19:50+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.80</priority>
     </url>
@@ -125,7 +113,7 @@ header('Content-Type: application/xml; charset=utf-8');
         <xhtml:link rel="alternate" hreflang="fr" href="https://cop-finder.com/fr/videos" />
         <xhtml:link rel="alternate" hreflang="en" href="https://cop-finder.com/en/videos" />
         <xhtml:link rel="alternate" hreflang="x-default" href="https://cop-finder.com/en/videos" />
-        <lastmod>2020-05-29T07:19:50+00:00</lastmod>
+        <lastmod>2020-06-11T07:19:50+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.80</priority>
     </url>
@@ -134,7 +122,7 @@ header('Content-Type: application/xml; charset=utf-8');
         <xhtml:link rel="alternate" hreflang="fr" href="https://cop-finder.com/fr/products/1" />
         <xhtml:link rel="alternate" hreflang="en" href="https://cop-finder.com/en/products/1" />
         <xhtml:link rel="alternate" hreflang="x-default" href="https://cop-finder.com/en/products/1" />
-        <lastmod>2020-05-29T07:19:50+00:00</lastmod>
+        <lastmod>2020-06-11T07:19:50+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.70</priority>
     </url>
@@ -143,7 +131,7 @@ header('Content-Type: application/xml; charset=utf-8');
         <xhtml:link rel="alternate" hreflang="fr" href="https://cop-finder.com/fr/products/3" />
         <xhtml:link rel="alternate" hreflang="en" href="https://cop-finder.com/en/products/3" />
         <xhtml:link rel="alternate" hreflang="x-default" href="https://cop-finder.com/en/products/3" />
-        <lastmod>2020-05-29T07:19:50+00:00</lastmod>
+        <lastmod>2020-06-11T07:19:50+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.70</priority>
     </url>
@@ -152,7 +140,7 @@ header('Content-Type: application/xml; charset=utf-8');
         <xhtml:link rel="alternate" hreflang="fr" href="https://cop-finder.com/fr/products/2" />
         <xhtml:link rel="alternate" hreflang="en" href="https://cop-finder.com/en/products/2" />
         <xhtml:link rel="alternate" hreflang="x-default" href="https://cop-finder.com/en/products/2" />
-        <lastmod>2020-05-29T07:19:50+00:00</lastmod>
+        <lastmod>2020-06-11T07:19:50+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.70</priority>
     </url>
@@ -161,7 +149,7 @@ header('Content-Type: application/xml; charset=utf-8');
         <xhtml:link rel="alternate" hreflang="fr" href="https://cop-finder.com/fr/droplist/latest/" />
         <xhtml:link rel="alternate" hreflang="en" href="https://cop-finder.com/en/droplist/latest/" />
         <xhtml:link rel="alternate" hreflang="x-default" href="https://cop-finder.com/en/droplist/latest/" />
-        <lastmod>2020-05-29T07:19:50+00:00</lastmod>
+        <lastmod>2020-06-11T07:19:50+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.70</priority>
     </url>

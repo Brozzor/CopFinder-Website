@@ -2,6 +2,14 @@ User-agent: *
 
 Disallow: /manager/
 Disallow: /manager
+Disallow: /privacy.php
+Disallow: /privacy
+Disallow: /terms
+Disallow: /terms.php
+Disallow: /videos.php
+Disallow: /contact.php
+Disallow: /faq.php
+Disallow: /payments.php
 
 Allow: /
 
